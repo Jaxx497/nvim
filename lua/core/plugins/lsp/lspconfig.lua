@@ -82,6 +82,16 @@ return {
             on_attach = on_attach,
         })
 
+        lspconfig["cssls"].setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+        })
+
+        lspconfig["html"].setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+        })
+
         lspconfig["emmet_ls"].setup({
             capabilities = capabilities,
             on_attach = on_attach,
@@ -91,6 +101,7 @@ return {
             capabilities = capabilities,
             on_attach = on_attach,
         })
+
 
         lspconfig["lua_ls"].setup({
             capabilities = capabilities,
