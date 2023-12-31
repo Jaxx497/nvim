@@ -5,11 +5,12 @@ return {
 
     "kajamite/vim-monokai2",
 
+    { 'echasnovski/mini.base16', version = '*' },
     {
         "srcery-colors/srcery-vim",
         name = "srcery",
         -- keys = { "<leader>w" },
-        cmd = "Telescope",
+        -- cmd = "Telescope",
     },
 
     {
@@ -20,7 +21,7 @@ return {
                 cmp = false,
                 telescope = false,
             })
-            vim.cmd.colorscheme("base16-tokyo-city-terminal-dark")
+            vim.cmd.colorscheme("base16-colors")
         end,
     },
 }

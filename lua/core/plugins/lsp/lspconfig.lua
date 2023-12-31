@@ -45,7 +45,7 @@ return {
 
             -- See `:help K` for why this keymap
             keymap("n", "K", vim.lsp.buf.hover, { desc = "LSP: Hover Documentation" })
-            keymap("n", "<C-k>", vim.lsp.buf.signature_help, { desc = "LSP: Signature Documentation" })
+            keymap("n", "<leader>k", vim.lsp.buf.signature_help, { desc = "LSP: Signature Documentation" })
 
             -- Lesser used LSP functionality
             keymap("n", "gD", vim.lsp.buf.declaration, { desc = "LSP: [G]oto [D]eclaration" })
@@ -77,6 +77,35 @@ return {
             vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
         end
 
+
+        local border = {
+            { "🭽", "FloatBorder" },
+            { "▔", "FloatBorder" },
+            { "🭾", "FloatBorder" },
+            { "▕", "FloatBorder" },
+            { "🭿", "FloatBorder" },
+            { "▁", "FloatBorder" },
+            { "🭼", "FloatBorder" },
+            { "▏", "FloatBorder" },
+        }
+
+        -- LSP settings (for overriding per client)
+        local handlers = {
+            ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
+            ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
+        }
+
+        -- Do not forget to use the on_attach function
+        require 'lspconfig'.myserver.setup { handlers = handlers }
+
+        -- To instead override globally
+        local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+        function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+            opts = opts or {}
+            opts.border = opts.border or border
+            return orig_util_open_floating_preview(contents, syntax, opts, ...)
+        end
+
         lspconfig["pyright"].setup({
             capabilities = capabilities,
             on_attach = on_attach,
@@ -89,7 +118,6 @@ return {
 
         lspconfig["html"].setup({
             capabilities = capabilities,
-            on_attach = on_attach,
         })
 
         lspconfig["emmet_ls"].setup({

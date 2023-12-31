@@ -1,5 +1,6 @@
 return {
     "stevearc/conform.nvim",
+    lazy = true,
     event = { "BufReadPre", "BufNewFile" },
 
     config = function()
@@ -9,6 +10,7 @@ return {
             formatters_by_ft = {
                 css = { "prettier" },
                 html = { "prettier" },
+                -- htmldjango = { "prettier" },
                 javascript = { "prettier" },
                 json = { "prettier" },
                 lua = { "stylua" },

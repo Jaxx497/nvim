@@ -1,42 +1,53 @@
 if vim.fn.exists("$VIRTUAL_ENV") == 1 then
-	vim.g.python3_host_prog = vim.fn.substitute(vim.fn.system("which -a python3 | head -n2 | tail -n1"), "\n", "", "g")
+    vim.g.python3_host_prog = vim.fn.substitute(vim.fn.system("which -a python3 | head -n2 | tail -n1"), "\n", "", "g")
 else
-	vim.g.python3_host_prog = vim.fn.substitute(vim.fn.system("which python3"), "\n", "", "g")
+    vim.g.python3_host_prog = vim.fn.substitute(vim.fn.system("which python3"), "\n", "", "g")
 end
 
 local set = vim.opt
 
+-- Numbers
 set.number = true
 set.relativenumber = true
 
-set.autoindent = true
 set.encoding = "utf-8"
-set.linebreak = true
 
-set.cole = 3
-set.cocu = "n"
+set.conceallevel = 3
+--set.concealcursor = "n"
+
+-- Indentation
 set.tabstop = 4
-set.softtabstop = 4
 set.shiftwidth = 4
+set.softtabstop = 4
 set.expandtab = true
+set.linebreak = true
+set.autoindent = true
 set.breakindent = true
 
+-- Searching
 set.ignorecase = true
 set.smartcase = true
 set.incsearch = true
 
 set.mouse = "a"
-set.cursorline = true
-set.scrolloff = 5
+set.scrolloff = 10
 set.sidescrolloff = 8
-set.foldmethod = "indent"
+set.cursorline = true
+set.smoothscroll = true
 
-set.termguicolors = true
+set.foldmethod = "indent"
+set.virtualedit = "block"
+set.inccommand = "split"
+
 set.visualbell = true
 set.timeoutlen = 150
 set.updatetime = 150
+set.termguicolors = true
 
 set.signcolumn = "yes"
+
+set.splitbelow = true
+set.splitright = true
 
 set.completeopt = { "menuone", "noselect", "noinsert" }
 set.shortmess = set.shortmess + { c = true }
@@ -44,7 +55,7 @@ set.shortmess = set.shortmess + { c = true }
 vim.cmd([[
     syntax on
     syntax enable
-    
+
     set signcolumn=yes
     autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
 ]])
