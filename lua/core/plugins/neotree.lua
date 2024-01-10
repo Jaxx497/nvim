@@ -7,12 +7,12 @@ return {
 	},
 	event = "VeryLazy",
 	keys = {
-		{ "<leader>e", ":Neotree toggle float<CR>", silent = true, desc = "Float File Explorer" },
-		{ "<leader><tab>", ":Neotree toggle left<CR>", silent = true, desc = "Left File Explorer" },
+		{ "<leader>e",     ":Neotree toggle float<CR>", silent = true, desc = "Float File Explorer" },
+		{ "<leader><tab>", ":Neotree toggle left<CR>",  silent = true, desc = "Left File Explorer" },
 	},
 	config = function()
 		require("neo-tree").setup({
-			hijack_netrw_behavior = true,
+
 			close_if_last_window = true,
 			popup_border_style = "rounded",
 			enable_git_status = true,
@@ -55,7 +55,7 @@ return {
 				position = "float",
 				popup = {
 					size = {
-						height = "30",
+						height = .5,
 						width = "40",
 					},
 				},

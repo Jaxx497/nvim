@@ -14,7 +14,11 @@ return {
 			defaults = {
 				path_display = { "truncate" },
 				layout_config = {
-					preview_width = 0.65,
+					preview_width = 0.60,
+					horizontal = {
+						width = .75,
+						height = .8
+					}
 				},
 				mappings = {
 					n = {
