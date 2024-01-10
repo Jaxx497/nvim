@@ -1,16 +1,17 @@
 return {
-    "tanvirtin/monokai.nvim",
-    "tomasr/molokai",
-    "Yazeed1s/minimal.nvim",
 
-    "kajamite/vim-monokai2",
+    { "kajamite/vim-monokai2",       event = "VeryLazy" },
+    { "olimorris/onedarkpro.nvim",   event = "VeryLazy" },
+    { "projekt0n/github-nvim-theme", event = "VeryLazy" },
+    { "sekke276/dark_flat.nvim",     event = "VeryLazy" },
+    { "tanvirtin/monokai.nvim",      event = "VeryLazy" },
+    { "tomasr/molokai",              event = "VeryLazy" },
+    { "Yazeed1s/minimal.nvim",       event = "VeryLazy" },
 
-    { 'echasnovski/mini.base16', version = '*' },
+    { 'echasnovski/mini.base16',     version = '*' },
     {
         "srcery-colors/srcery-vim",
         name = "srcery",
-        -- keys = { "<leader>w" },
-        -- cmd = "Telescope",
     },
 
     {
