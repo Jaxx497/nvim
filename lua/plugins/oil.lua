@@ -25,6 +25,10 @@ return {
 			},
 			use_default_keymaps = false,
 
+			view_options = {
+				show_hidden = true,
+			},
+
 			float = {
 				max_width = 32,
 				max_height = 30,
