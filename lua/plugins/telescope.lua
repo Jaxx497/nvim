@@ -16,9 +16,9 @@ return {
 				layout_config = {
 					preview_width = 0.60,
 					horizontal = {
-						width = .75,
-						height = .8
-					}
+						width = 0.75,
+						height = 0.8,
+					},
 				},
 				mappings = {
 					n = {
@@ -51,7 +51,7 @@ return {
 		keymap("n", "<leader>fw", require("telescope.builtin").grep_string, { desc = "[S]earch current [W]ord" })
 		keymap("n", "<leader>sg", require("telescope.builtin").live_grep, { desc = "[S]earch by [G]rep" })
 		keymap("n", "<leader>sd", require("telescope.builtin").diagnostics, { desc = "[S]earch [D]iagnostics" })
-		keymap("n", "<leader>fr", require("telescope.builtin").resume, { desc = "[S]earch [R]esume" })
+		keymap("n", "<leader>ff", require("telescope.builtin").resume, { desc = "[S]earch [R]esume" })
 		keymap("n", "<leader>gf", require("telescope.builtin").git_files, { desc = "Search [G]it [F]iles" })
 
 		keymap("n", "<leader>cs", ":Telescope colorscheme<CR>", { desc = "[C]olor [S]cheme" })
