@@ -1,6 +1,5 @@
 if vim.fn.exists("$VIRTUAL_ENV") == 1 then
-	vim.g.python3_host_prog = vim.fn.substitute(vim.fn.system("which -a python3 | head -n2 | tail -n1"), "\n", "",
-		"g")
+	vim.g.python3_host_prog = vim.fn.substitute(vim.fn.system("which -a python3 | head -n2 | tail -n1"), "\n", "", "g")
 else
 	vim.g.python3_host_prog = vim.fn.substitute(vim.fn.system("which python3"), "\n", "", "g")
 end
@@ -36,13 +35,12 @@ set.sidescrolloff = 8
 set.cursorline = true
 
 -- set.foldmethod = "indent"
--- set.foldenable = false
--- set.foldlevel = 99
 --
 set.foldmethod = "expr"
 set.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 set.foldtext = "v:lua.vim.treesitter.foldtext()"
-
+set.foldenable = false
+set.foldlevel = 99
 
 set.virtualedit = "block"
 set.inccommand = "split"
