@@ -29,8 +29,7 @@ keymap("x", "<A-k>", ":m '<-2<CR>gv=gv")
 keymap("n", "<C-u>", "<C-u>zz")
 keymap("n", "<C-d>", "<C-d>zz")
 
--- TODO: Change to run all applications
-keymap({ "n", "v", "x" }, "<C-A>", "<Esc>ggVG", { desc = "Select all" })
+keymap("n", "<leader>tn", ":split|term<CR>", { desc = "[T]ermi[n]al" })
 keymap("n", "<leader>vs", ":vsp<CR><C-w>l", { desc = "[V]ertical [S]plit" })
 
 -- SEARCH AND REPLACE

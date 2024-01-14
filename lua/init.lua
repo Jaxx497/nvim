@@ -1,6 +1,3 @@
-require("core.keymap")
-require("core.opts")
-
 vim.diagnostic.config({
 	underline = true,
 	signs = true,
