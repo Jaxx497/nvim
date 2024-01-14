@@ -1,16 +1,15 @@
 return {
 	"nvim-telescope/telescope.nvim",
-	branch = "0.1.x",
-	dependencies = {
-		"nvim-lua/plenary.nvim",
-	},
-	{ 'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' },
+	tag = "0.1.5",
+	dependencies = { "nvim-lua/plenary.nvim" },
 
 	config = function()
 		local telescope = require("telescope")
 		local actions = require("telescope.actions")
+		local builtin = require("telescope.builtin")
 
 		telescope.setup({
+
 			defaults = {
 				path_display = { "truncate" },
 				layout_config = {
@@ -21,13 +20,9 @@ return {
 					},
 				},
 				mappings = {
-					n = {
-						["<C-[>"] = actions.close,
-						["<C-h>"] = actions.close,
-					},
 					i = {
-						["<C-k>"] = actions.move_selection_previous, -- move to prev result
-						["<C-j>"] = actions.move_selection_next, -- move to next result
+						["<C-j>"] = actions.move_selection_next,
+						["<C-k>"] = actions.move_selection_previous,
 						["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
 						["<C-[>"] = actions.close,
 						["<C-h>"] = actions.close,
@@ -40,29 +35,27 @@ return {
 					enable_preview = true,
 				},
 			},
+
+			extensions = {
+				fzf = {
+					fuzzy = true,
+					override_generic_sorter = true,
+					override_file_sorter = true,
+					case_mode = "smart_case",
+				},
+			},
 		})
 
-		telescope.load_extension("fzf")
+		require("telescope").load_extension("fzf")
 
-		local keymap = vim.keymap.set
-
-		keymap("n", "<leader>f", require("telescope.builtin").find_files, { desc = "[S]earch [F]iles" })
-		keymap("n", "<leader>fh", require("telescope.builtin").help_tags, { desc = "[S]earch [H]elp" })
-		keymap("n", "<leader>fw", require("telescope.builtin").grep_string, { desc = "[S]earch current [W]ord" })
-		keymap("n", "<leader>sg", require("telescope.builtin").live_grep, { desc = "[S]earch by [G]rep" })
-		keymap("n", "<leader>sd", require("telescope.builtin").diagnostics, { desc = "[S]earch [D]iagnostics" })
-		keymap("n", "<leader>ff", require("telescope.builtin").resume, { desc = "[S]earch [R]esume" })
-		keymap("n", "<leader>gf", require("telescope.builtin").git_files, { desc = "Search [G]it [F]iles" })
-
-		keymap("n", "<leader>cs", ":Telescope colorscheme<CR>", { desc = "[C]olor [S]cheme" })
-		keymap("n", "<leader>?", require("telescope.builtin").oldfiles, { desc = "[?] Find recently opened files" })
-		keymap("n", "<leader><space>", require("telescope.builtin").buffers, { desc = "[ ] Find existing buffers" })
-		keymap("n", "<leader>/", function()
-			-- You can pass additional configuration to telescope to change theme, layout, etc.
-			require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-				winblend = 10,
-				previewer = false,
-			}))
-		end, { desc = "[/] Fuzzily search in current buffer" })
+		vim.keymap.set("n", "<leader>f", builtin.find_files, { desc = "[F]ind Files" })
+		vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "[F]ind [H]elp" })
+		vim.keymap.set("n", "<leader>ff", builtin.resume, { desc = "Search Resume" })
+		vim.keymap.set("n", "<leader>fw", builtin.grep_string, { desc = "[F]ind [W]ord" })
+		vim.keymap.set("n", "<leader>cs", builtin.colorscheme, { desc = "[C]olor [S]cheme" })
+		vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
+		vim.keymap.set("n", "<leader>fg", builtin.git_files, { desc = "[F]ind [G]it Files" })
+		vim.keymap.set("n", "<leader>?", builtin.oldfiles, { desc = "Find recently opened files" })
+		vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
 	end,
 }
