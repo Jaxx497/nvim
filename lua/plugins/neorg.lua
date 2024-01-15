@@ -6,18 +6,18 @@ return {
     config = function()
         require("neorg").setup({
             load = {
-                ["core.defaults"] = {}, -- Loads default behaviour
+                ["core.defaults"] = {},
                 ["core.concealer"] = {
                     config = {
                         icon_preset = "diamond" },
-                }, -- Adds pretty icons to your documents
+                },
                 ["core.esupports.indent"] = {
                     config = {
                         format_on_enter = "false",
                     }
                 },
                 ["core.export"] = {},
-                ["core.dirman"] = { -- Manages Neorg workspaces
+                ["core.dirman"] = {
                     config = {
                         workspaces = {
                             notes = "~/notes",
