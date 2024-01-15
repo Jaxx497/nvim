@@ -34,6 +34,9 @@ return {
 				colorscheme = {
 					enable_preview = true,
 				},
+				find_files = {
+					hidden = true
+				}
 			},
 
 			extensions = {
@@ -59,3 +62,4 @@ return {
 		vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
 	end,
 }
+
