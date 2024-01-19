@@ -45,4 +45,3 @@ keymap("n", "<leader>sb", ":%s/<C-r><C-w>//gI<Left><Left><Left>", { desc = "[s]u
 -- PLUGIN SPECIFIC
 keymap("n", "<leader>tw", ":Twilight<CR>", { desc = "Activate [tw]ilight" })
 keymap("n", "<leader>md", ":MarkdownPreviewToggle<CR>", { desc = "[M]ark[d]own toggle" })
-keymap("n", "<leader>so", ":SymbolsOutline<CR>", { desc = "[S]ymbols [O]utline" })
