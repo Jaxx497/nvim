@@ -52,8 +52,8 @@ set.virtualedit = "block"
 set.inccommand = "split"
 
 set.visualbell = true
-set.timeoutlen = 150
-set.updatetime = 150
+set.timeoutlen = 200
+set.updatetime = 200
 set.termguicolors = true
 
 set.signcolumn = "yes"
