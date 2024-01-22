@@ -1,6 +1,9 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+require("keymap")
+require("opts")
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({
@@ -39,7 +42,5 @@ require("lazy").setup({
         },
     })
 
-require("opts")
-require("keymap")
 
 print("May the Lord Bless this sesh")
