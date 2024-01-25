@@ -5,10 +5,10 @@ return {
     { "tanvirtin/monokai.nvim",  event = "VeryLazy" },
     { "sekke276/dark_flat.nvim", event = "VeryLazy" },
 
-    {
-        "srcery-colors/srcery-vim",
-        name = "srcery",
-    },
+    -- {
+    --     "srcery-colors/srcery-vim",
+    --     name = "srcery",
+    -- },
 
     {
         "RRethy/nvim-base16",

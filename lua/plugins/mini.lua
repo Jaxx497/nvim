@@ -1,6 +1,6 @@
 return {
 	"echasnovski/mini.nvim",
-	event = { "BufReadPre", "BufNewFile" },
+	event = "VeryLazy",
 	version = false,
 	config = function()
 		require("mini.pairs").setup()

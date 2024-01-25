@@ -1,5 +1,6 @@
 return {
 	"nvim-telescope/telescope.nvim",
+	event = "VeryLazy",
 	tag = "0.1.5",
 	dependencies = { "nvim-lua/plenary.nvim" },
 
@@ -62,4 +63,3 @@ return {
 		vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
 	end,
 }
-

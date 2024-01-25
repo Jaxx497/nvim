@@ -30,7 +30,7 @@ return {
 
     {
         "lewis6991/gitsigns.nvim",
-        event = { "BufReadPre", "BufNewFile" },
+        event = "VeryLazy",
         opts = {
             -- See `:help gitsigns.txt`
             signs = {
