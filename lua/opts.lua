@@ -50,11 +50,11 @@ set.cursorline = true
 -- set.foldmethod = "indent"
 -- Folding
 set.foldlevel = 99
-set.foldcolumn = "auto"
+set.foldcolumn = "0"
 set.foldenable = false
 set.foldmethod = "expr"
 set.foldexpr = "v:lua.vim.treesitter.foldexpr()"
--- set.foldtext = "v:lua.vim.treesitter.foldtext()"
+set.foldtext = "v:lua.vim.treesitter.foldtext()"
 vim.o.fillchars = [[eob:~,fold: ,foldopen:󰄼,foldsep:│,foldclose:󰄾]]
 
 set.virtualedit = "block"

@@ -56,16 +56,16 @@ return {
 				{ desc = "LSP: [W]orkspace [R]emove Folder" }
 			)
 
-			keymap({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP: See available code actions" }) -- see available code actions, in visual mode will apply to selection
+			keymap({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP: See available code actions" })
 			keymap(
 				"n",
 				"<leader>D",
 				"<cmd>Telescope diagnostics bufnr=0<CR>",
 				{ desc = "LSP: Show buffer diagnostics" }
-			)                                                                                   -- show  diagnostics for file
-			keymap("n", "<leader>d", vim.diagnostic.open_float, { desc = "LSP: Show line diagnostics" }) -- show diagnostics for line
-			keymap("n", "[d", vim.diagnostic.goto_prev, { desc = "LSP: Go to previous diagnostic" }) -- jump to previous diagnostic in buffer
-			keymap("n", "]d", vim.diagnostic.goto_next, { desc = "LSP: Go to next diagnostic" }) -- jump to next diagnostic in buffer
+			)
+			keymap("n", "<leader>d", vim.diagnostic.open_float, { desc = "LSP: Show line diagnostics" })
+			keymap("n", "[d", vim.diagnostic.goto_prev, { desc = "LSP: Go to previous diagnostic" })
+			keymap("n", "]d", vim.diagnostic.goto_next, { desc = "LSP: Go to next diagnostic" })
 		end
 
 		local capabilities = cmp_nvim_lsp.default_capabilities()

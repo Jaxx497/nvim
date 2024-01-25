@@ -1,5 +1,6 @@
 return {
-
+    "tpope/vim-unimpaired",
+    "kshenoy/vim-signature",
     { "tpope/vim-sleuth",   event = "VeryLazy" },
 
     {
@@ -38,6 +39,9 @@ return {
                 topdelete = { text = "‾" },
                 changedelete = { text = "~" },
             },
+
+            numhl = true,
+
             on_attach = function(bufnr)
                 vim.keymap.set(
                     "n",
