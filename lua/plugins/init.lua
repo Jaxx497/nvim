@@ -1,7 +1,7 @@
 return {
-    "tpope/vim-unimpaired",
-    "kshenoy/vim-signature",
-    { "tpope/vim-sleuth",   event = "VeryLazy" },
+    { "tpope/vim-unimpaired",  event = "VeryLazy" },
+    { "kshenoy/vim-signature", event = "VeryLazy" },
+    { "tpope/vim-sleuth",      event = "VeryLazy" },
 
     {
         "stevearc/dressing.nvim",
@@ -30,6 +30,7 @@ return {
 
     {
         "lewis6991/gitsigns.nvim",
+        event = { "BufReadPre", "BufNewFile" },
         opts = {
             -- See `:help gitsigns.txt`
             signs = {
