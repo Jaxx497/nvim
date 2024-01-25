@@ -1,8 +1,8 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-require("keymap")
 require("opts")
+require("keymap")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -42,17 +42,3 @@ require("lazy").setup({
 })
 
 print("May the Lord Bless this sesh!!")
-
--- vim.diagnostic.config({
---     underline = true,
---     signs = true,
---     virtual_text = false,
---     float = {
---         show_header = true,
---         source = "if_many",
---         border = "rounded",
---         focusable = false,
---     },
---     update_in_insert = false, -- default to false
---     severity_sort = false, -- default to false
--- })

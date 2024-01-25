@@ -1,14 +1,10 @@
 return {
 
-    { "kajamite/vim-monokai2",       event = "VeryLazy" },
-    { "olimorris/onedarkpro.nvim",   event = "VeryLazy" },
-    { "projekt0n/github-nvim-theme", event = "VeryLazy" },
-    { "sekke276/dark_flat.nvim",     event = "VeryLazy" },
-    { "tanvirtin/monokai.nvim",      event = "VeryLazy" },
-    { "tomasr/molokai",              event = "VeryLazy" },
-    { "Yazeed1s/minimal.nvim",       event = "VeryLazy" },
+    { "tomasr/molokai",          event = "VeryLazy" },
+    { "Yazeed1s/minimal.nvim",   event = "VeryLazy" },
+    { "tanvirtin/monokai.nvim",  event = "VeryLazy" },
+    { "sekke276/dark_flat.nvim", event = "VeryLazy" },
 
-    { 'echasnovski/mini.base16',     version = '*' },
     {
         "srcery-colors/srcery-vim",
         name = "srcery",
@@ -30,6 +26,7 @@ return {
             -- vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
             -- vim.api.nvim_set_hl(0, "LineNr", { bg = "none" })
             -- vim.api.nvim_set_hl(0, "FoldColumn", { bg = "none" })
+            vim.api.nvim_set_hl(0, "NonText", { fg = "#404040" })
         end,
     },
 }

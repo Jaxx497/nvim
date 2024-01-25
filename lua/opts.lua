@@ -8,7 +8,7 @@ end
 local set = vim.opt
 
 -- Numbers
--- set.number = true
+set.number = true
 set.relativenumber = true
 
 set.encoding = "utf-8"
@@ -29,7 +29,7 @@ set.softtabstop = 4
 set.expandtab = true
 set.linebreak = true
 set.autoindent = true
--- set.smartindent = true
+set.smartindent = true
 
 -- Wrapping
 set.showbreak = "↪ "
@@ -44,6 +44,7 @@ set.incsearch = true
 set.mouse = "a"
 set.scrolloff = 10
 set.sidescrolloff = 8
+set.smoothscroll = true
 set.cursorline = true
 
 -- set.foldmethod = "indent"
@@ -70,6 +71,11 @@ set.splitright = true
 
 set.completeopt = { "menu", "menuone", "noselect", "noinsert" }
 set.shortmess = set.shortmess + { c = true }
+local api = vim.api
+
+api.nvim_command("autocmd TermOpen * startinsert")       -- starts in insert mode
+api.nvim_command("autocmd TermOpen * setlocal nonumber") -- no numbers
+api.nvim_command("autocmd TermEnter * setlocal signcolumn=no")
 
 vim.cmd([[
     syntax on
@@ -77,5 +83,20 @@ vim.cmd([[
 
     set browsedir=buffer
 
+
     autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
 ]])
+
+vim.diagnostic.config({
+	underline = true,
+	signs = true,
+	virtual_text = false,
+	float = {
+		show_header = true,
+		source = "if_many",
+		border = "rounded",
+		focusable = false,
+	},
+	update_in_insert = false, -- default to false
+	severity_sort = false, -- default to false
+})

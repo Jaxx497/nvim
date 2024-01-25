@@ -62,7 +62,7 @@ return {
 				"<leader>D",
 				"<cmd>Telescope diagnostics bufnr=0<CR>",
 				{ desc = "LSP: Show buffer diagnostics" }
-			) -- show  diagnostics for file
+			)                                                                                   -- show  diagnostics for file
 			keymap("n", "<leader>d", vim.diagnostic.open_float, { desc = "LSP: Show line diagnostics" }) -- show diagnostics for line
 			keymap("n", "[d", vim.diagnostic.goto_prev, { desc = "LSP: Go to previous diagnostic" }) -- jump to previous diagnostic in buffer
 			keymap("n", "]d", vim.diagnostic.goto_next, { desc = "LSP: Go to next diagnostic" }) -- jump to next diagnostic in buffer

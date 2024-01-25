@@ -34,10 +34,34 @@ keymap("n", "<C-d>", "<C-d>zz")
 -- OPEN TERMINAL
 keymap("n", "<leader>tn", ":term<CR>A", { desc = "[T]ermi[n]al" })
 keymap("t", "\\", "<C-\\><C-N>k")
+
+vim.keymap.set("n", "<leader><space>", vim.cmd.Term, { noremap = true, silent = true })
+vim.keymap.set("t", "kj", "<C-\\><C-n>", { noremap = true, silent = true })
+
+local function Term()
+	local terminal_buffer_number = vim.fn.bufnr("term://")
+	local terminal_window_number = vim.fn.bufwinnr("term://")
+	local window_count = vim.fn.winnr("$")
+
+	if terminal_window_number > 0 and window_count > 1 then
+		vim.fn.execute(terminal_window_number .. "wincmd c")
+	elseif terminal_buffer_number > 0 and terminal_buffer_number ~= vim.fn.bufnr("%") then
+		vim.fn.execute("sb " .. terminal_buffer_number)
+	elseif terminal_buffer_number == vim.fn.bufnr("%") then
+		vim.fn.execute("bprevious | sb " .. terminal_buffer_number .. " | wincmd p")
+	else
+		vim.fn.execute("sp term://zsh")
+	end
+end
+
+vim.api.nvim_create_user_command("Term", Term, {
+	desc = "Open terminal window",
+})
+
 keymap("n", "<leader>x", ":w<CR>|<cmd>!chmod +x %<CR>", { silent = true, desc = "Make file executable" })
 
-vim.api.nvim_set_keymap("n", "<S-Tab>", "gf", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<Tab>", "gf", { noremap = true, silent = true })
+keymap("n", "<S-Tab>", "gf", { noremap = true, silent = true })
+keymap("n", "<Tab>", "gf", { noremap = true, silent = true })
 
 -- keymap({ "n", "i", "v", "x" }, "<C-a>", "<ESC>ggVG", { desc = "Select all" })
 keymap("n", "<leader>vs", ":vsp<CR><C-w>l", { desc = "[V]ertical [S]plit" })
