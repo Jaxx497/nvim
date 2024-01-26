@@ -36,7 +36,8 @@ return {
 					enable_preview = true,
 				},
 				find_files = {
-					hidden = true
+					hidden = true,
+					no_ignore = true
 				}
 			},
 

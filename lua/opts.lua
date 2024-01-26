@@ -73,9 +73,9 @@ set.completeopt = { "menu", "menuone", "noselect", "noinsert" }
 set.shortmess = set.shortmess + { c = true }
 local api = vim.api
 
-api.nvim_command("autocmd TermOpen * startinsert")       -- starts in insert mode
-api.nvim_command("autocmd TermOpen * setlocal nonumber") -- no numbers
-api.nvim_command("autocmd TermEnter * setlocal signcolumn=no")
+api.nvim_command("autocmd TermOpen * startinsert")
+api.nvim_command("autocmd TermOpen * setlocal nonumber norelativenumber signcolumn=no")
+-- api.nvim_command("autocmd TermEnter * setlocal signcolumn=no")
 
 vim.cmd([[
     syntax on
@@ -87,6 +87,7 @@ vim.cmd([[
     autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
 ]])
 
+-- vim.cmd [[autocmd TermOpen * setlocal nonumber norelativenumber]]
 vim.diagnostic.config({
 	underline = true,
 	signs = true,
