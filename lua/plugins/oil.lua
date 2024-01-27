@@ -58,5 +58,6 @@ return {
 			"<cmd>lua require('oil').toggle_float('.')<CR>",
 			{ noremap = true, silent = true, desc = "Open parent directory" }
 		)
+		vim.keymap.set("n", "<leader>-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 	end,
 }

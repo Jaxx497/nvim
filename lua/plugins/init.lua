@@ -1,5 +1,13 @@
 return {
-    { "tpope/vim-unimpaired",  event = "VeryLazy" },
+    {
+        'tummetott/unimpaired.nvim',
+        event = "VeryLazy",
+        config = function()
+            require('unimpaired').setup {}
+        end
+    },
+
+    { "folke/neodev.nvim",     ft = "lua" },
     { "kshenoy/vim-signature", event = "VeryLazy" },
     { "tpope/vim-sleuth",      event = "VeryLazy" },
 
@@ -26,13 +34,12 @@ return {
     { "tpope/vim-fugitive", event = "VeryLazy" },
     { "tpope/vim-rhubarb",  event = "VeryLazy" },
 
-    { "folke/neodev.nvim",  ft = "lua" },
 
     {
         "lewis6991/gitsigns.nvim",
         event = "VeryLazy",
         opts = {
-            -- See `:help gitsigns.txt`
+            -- see `:help gitsigns.txt`
             signs = {
                 add = { text = "+" },
                 change = { text = "~" },
@@ -48,7 +55,7 @@ return {
                     "n",
                     "<leader>hp",
                     require("gitsigns").preview_hunk,
-                    { buffer = bufnr, desc = "Preview git hunk" }
+                    { buffer = bufnr, desc = "preview git hunk" }
                 )
 
                 -- don't override the built-in and fugitive keymaps
@@ -60,8 +67,8 @@ return {
                     vim.schedule(function()
                         gs.next_hunk()
                     end)
-                    return "<Ignore>"
-                end, { expr = true, buffer = bufnr, desc = "Jump to next hunk" })
+                    return "<ignore>"
+                end, { expr = true, buffer = bufnr, desc = "jump to next hunk" })
                 vim.keymap.set({ "n", "v" }, "[c", function()
                     if vim.wo.diff then
                         return "[c"
@@ -69,8 +76,8 @@ return {
                     vim.schedule(function()
                         gs.prev_hunk()
                     end)
-                    return "<Ignore>"
-                end, { expr = true, buffer = bufnr, desc = "Jump to previous hunk" })
+                    return "<ignore>"
+                end, { expr = true, buffer = bufnr, desc = "jump to previous hunk" })
             end,
         },
     },

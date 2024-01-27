@@ -11,4 +11,5 @@ return {
 			"class",
 		},
 	},
+	vim.keymap.set("n", "<leader>tw", ":Twilight<CR>", { desc = "Activate [tw]ilight" })
 }

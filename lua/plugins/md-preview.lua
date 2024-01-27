@@ -13,4 +13,6 @@ return {
 		vim.g.mkdp_page_title = "${name}"
 		vim.g.mkdp_markdown_css = "/home/jack/.config/nvim/xtra/globals.css"
 	end,
+
+	vim.keymap.set("n", "<leader>md", ":MarkdownPreviewToggle<CR>", { desc = "[M]ark[d]own toggle" })
 }

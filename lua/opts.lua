@@ -73,8 +73,6 @@ set.completeopt = { "menu", "menuone", "noselect", "noinsert" }
 set.shortmess = set.shortmess + { c = true }
 local api = vim.api
 
-api.nvim_command("autocmd TermOpen * startinsert")
-api.nvim_command("autocmd TermOpen * setlocal nonumber norelativenumber signcolumn=no")
 -- api.nvim_command("autocmd TermEnter * setlocal signcolumn=no")
 
 vim.cmd([[
