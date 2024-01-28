@@ -26,7 +26,7 @@ keymap("x", "<A-j>", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
 keymap("x", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
 
 keymap("x", "J", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
--- keymap("x", "K", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
+keymap("x", "K", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
 
 -- SCROLL & CENTER
 keymap("n", "<C-u>", "<C-u>zz")
