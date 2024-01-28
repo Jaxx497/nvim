@@ -1,8 +1,8 @@
 local keymap = vim.keymap.set
 
 -- 'KEYMAP 'KJ' TO ESC
-keymap({ "c", "i", "o", "s", "v" }, "kj", "<esc>")
-keymap("n", "kj", ":noh<cr><esc>", { silent = true })
+-- keymap({ "n", "c", "i", "o", "s", "v" }, "kj", "<CMD>noh<CR><ESC>", { silent = true })
+keymap({ "n", "c", "i", "o", "s", "v" }, "kj", "<CMD>noh<CR><ESC>")
 
 -- CENTER SCREEN WHILE CYCLING SEARCH RESULTS
 keymap("n", "n", "nzzzv")
@@ -22,10 +22,11 @@ keymap("i", "<A-k>", "<Esc>:m .-2<CR>==gi")
 keymap("v", "<A-j>", ":m '>+1<CR>gv=gv")
 keymap("v", "<A-k>", ":m '<-2<CR>gv=gv")
 
-keymap("x", "J", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
-keymap("x", "K", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
 keymap("x", "<A-j>", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
 keymap("x", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
+
+keymap("x", "J", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
+keymap("x", "K", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
 
 -- SCROLL & CENTER
 keymap("n", "<C-u>", "<C-u>zz")

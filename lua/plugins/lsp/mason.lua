@@ -30,7 +30,7 @@ return {
                 "emmet_ls",
                 "lua_ls",
                 "pyright",
-                "rust_analyzer",
+                -- "rust_analyzer",
             },
         })
     end,
