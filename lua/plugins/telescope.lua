@@ -53,13 +53,14 @@ return {
 
 		require("telescope").load_extension("fzf")
 
+		vim.keymap.set("n", "<leader>ff", builtin.resume, { desc = "Search Resume" })
 		vim.keymap.set("n", "<leader>f", builtin.find_files, { desc = "[F]ind Files" })
 		vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "[F]ind [H]elp" })
-		vim.keymap.set("n", "<leader>ff", builtin.resume, { desc = "Search Resume" })
 		vim.keymap.set("n", "<leader>fw", builtin.grep_string, { desc = "[F]ind [W]ord" })
 		vim.keymap.set("n", "<leader>cs", builtin.colorscheme, { desc = "[C]olor [S]cheme" })
 		vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
 		vim.keymap.set("n", "<leader>fg", builtin.git_files, { desc = "[F]ind [G]it Files" })
+		vim.keymap.set("n", "<leader>gf", builtin.git_commits, { desc = "[Git] commits" })
 		vim.keymap.set("n", "<leader>?", builtin.oldfiles, { desc = "Find recently opened files" })
 		vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
 	end,
