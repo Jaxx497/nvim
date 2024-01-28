@@ -1,151 +1,117 @@
 return {
-	"neovim/nvim-lspconfig",
+    "neovim/nvim-lspconfig",
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = {
+        "folke/neodev.nvim",
+        opts = {},
+    },
 
-	event = { "BufReadPre", "BufNewFile" },
-	dependencies = {
-		"hrsh7th/cmp-nvim-lsp",
-		{ "antosha417/nvim-lsp-file-operations", config = true },
-	},
+    config = function()
+        require("neodev").setup()
+        local lspconfig = require("lspconfig")
+        require('lspconfig.ui.windows').default_options.border = 'rounded'
 
-	config = function()
-		local lspconfig = require("lspconfig")
-		local cmp_nvim_lsp = require("cmp_nvim_lsp")
+        lspconfig.pyright.setup {}
+        lspconfig.cssls.setup {}
+        lspconfig.emmet_ls.setup {}
+        lspconfig.html.setup {}
+        lspconfig.lua_ls.setup {}
 
-		local keymap = vim.keymap.set
+        local keymap = vim.keymap.set
 
-		local opts = { noremap = true, silent = true }
-		local on_attach = function(_, bufnr)
-			opts.buffer = bufnr
+        keymap("n", "<leader>e", vim.diagnostic.open_float)
+        keymap('n', '[d', vim.diagnostic.goto_prev, { desc = "LSP: Go to previous diagnostic" })
+        keymap('n', ']d', vim.diagnostic.goto_next, { desc = "LSP: Go to next diagnostic" })
+        keymap('n', '<space>q', vim.diagnostic.setloclist)
+        keymap("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>",
+            { desc = "LSP: Show buffer diagnostics" })
 
-			keymap("n", "<leader>rs", ":LspRestart<CR>", { desc = "LSP: Restart LSP" })
-			keymap("n", "<leader>rn", vim.lsp.buf.rename, { desc = "LSP: [R]e[n]ame" })
-			keymap("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP: [C]ode [A]ction" })
-			keymap("n", "gd", vim.lsp.buf.definition, { desc = "LSP: [G]oto [D]efinition" })
-			keymap("n", "gr", require("telescope.builtin").lsp_references, { desc = "LSP: [G]oto [R]eferences" })
-			keymap(
-				"n",
-				"gi",
-				require("telescope.builtin").lsp_implementations,
-				{ desc = "LSP: [G]oto [I]mplementation" }
-			)
-			keymap("n", "gt", vim.lsp.buf.type_definition, { desc = "LSP: Type [D]efinition" })
-			keymap(
-				"n",
-				"<leader>ds",
-				require("telescope.builtin").lsp_document_symbols,
-				{ desc = "LSP: [D]ocument [S]ymbols" }
-			)
-			keymap(
-				"n",
-				"<leader>ws",
-				require("telescope.builtin").lsp_dynamic_workspace_symbols,
-				{ desc = "LSP: [W]orkspace [S]ymbols" }
-			)
+        vim.api.nvim_create_autocmd('LspAttach', {
+            group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+            callback = function(ev)
+                -- Enable completion triggered by <c-x><c-o>
+                vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
-			-- See `:help K` for why this keymap
-			keymap("n", "K", vim.lsp.buf.hover, { desc = "LSP: Hover Documentation" })
-			keymap("n", "<leader>k", vim.lsp.buf.signature_help, { desc = "LSP: Signature Documentation" })
+                keymap('n', 'gD', vim.lsp.buf.declaration, {
+                    buffer = ev.buf,
+                    desc = "LSP: [G]oto [D]eclaration"
+                })
+                keymap('n', 'gd', vim.lsp.buf.definition, {
+                    buffer = ev.buf,
+                    desc = "LSP: [G]oto [D]efinition"
+                })
+                keymap('n', 'K', vim.lsp.buf.hover, {
+                    buffer = ev.buf,
+                    desc = "LSP: Hover Documentation"
+                })
+                keymap('n', 'gi', vim.lsp.buf.implementation, {
+                    buffer = ev.buf,
+                    desc = "LSP: [G]oto [I]mplementation"
+                })
+                keymap('n', '<leader>k', vim.lsp.buf.signature_help,
+                    {
+                        buffer = ev.buf,
+                        desc = "LSP: Signature Documentation"
+                    })
+                keymap('n', '<leader>wa', vim.lsp.buf.add_workspace_folder,
+                    {
+                        buffer = ev.buf,
+                        desc = "LSP: [W]orkspace [A]dd Folder"
+                    })
+                keymap('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder,
+                    {
+                        buffer = ev.buf,
+                        desc = "LSP: [W]orkspace [R]emove Folder"
+                    })
+                keymap('n', '<leader>rn', vim.lsp.buf.rename, {
+                    buffer = ev.buf,
+                    desc = "LSP: [R]e[n]ame"
+                })
+                keymap('n', 'gt', vim.lsp.buf.type_definition, {
+                    buffer = ev.buf,
+                    desc = "Jump to [D]efinition"
+                })
+                keymap('n', 'gr', vim.lsp.buf.references, {
+                    buffer = ev.buf,
+                    desc = "[G]o to [r]efrences"
+                })
+                keymap({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action,
+                    {
+                        buffer = ev.buf,
+                        desc = "LSP: [C]ode [A]ction"
+                    })
+                vim.keymap.set('n', '<space>fm', function()
+                        vim.lsp.buf.format { async = true }
+                    end,
+                    { buffer = ev.buf, desc = "[F]or[m]at buffer" })
+            end,
+        })
 
-			-- Lesser used LSP functionality
-			keymap("n", "gD", vim.lsp.buf.declaration, { desc = "LSP: [G]oto [D]eclaration" })
-			keymap("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, { desc = "LSP: [W]orkspace [A]dd Folder" })
-			keymap(
-				"n",
-				"<leader>wr",
-				vim.lsp.buf.remove_workspace_folder,
-				{ desc = "LSP: [W]orkspace [R]emove Folder" }
-			)
+        local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
+        for type, icon in pairs(signs) do
+            local hl = "DiagnosticSign" .. type
+            vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+        end
 
-			keymap({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP: See available code actions" })
-			keymap(
-				"n",
-				"<leader>D",
-				"<cmd>Telescope diagnostics bufnr=0<CR>",
-				{ desc = "LSP: Show buffer diagnostics" }
-			)
-			keymap("n", "<leader>d", vim.diagnostic.open_float, { desc = "LSP: Show line diagnostics" })
-			keymap("n", "[d", vim.diagnostic.goto_prev, { desc = "LSP: Go to previous diagnostic" })
-			keymap("n", "]d", vim.diagnostic.goto_next, { desc = "LSP: Go to next diagnostic" })
-		end
+        vim.cmd [[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]]
+        vim.cmd [[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]
 
-		local capabilities = cmp_nvim_lsp.default_capabilities()
+        local border = {
+            { "╭", "FloatBorder" },
+            { "─", "FloatBorder" },
+            { "╮", "FloatBorder" },
+            { "│", "FloatBorder" },
+            { "╯", "FloatBorder" },
+            { "─", "FloatBorder" },
+            { "╰", "FloatBorder" },
+            { "│", "FloatBorder" },
+        }
 
-		local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-		for type, icon in pairs(signs) do
-			local hl = "DiagnosticSign" .. type
-			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-		end
-
-		local border = {
-			{ "⌜", "FloatBorder" },
-			{ "▔", "FloatBorder" },
-			{ "⌝", "FloatBorder" },
-			{ "▕", "FloatBorder" },
-			{ "⌟", "FloatBorder" },
-			{ "▁", "FloatBorder" },
-			{ "⌞", "FloatBorder" },
-			{ "▏", "FloatBorder" },
-		}
-		--
-		-- LSP settings (for overriding per client)
-		-- local handlers = {
-		-- 	["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
-		-- 	["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
-		-- }
-		--
-		-- Do not forget to use the on_attach function
-		require("lspconfig")
-
-		-- To instead override globally
-		local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
-		function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-			opts = opts or {}
-			opts.border = opts.border or border
-			return orig_util_open_floating_preview(contents, syntax, opts, ...)
-		end
-
-		lspconfig["pyright"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
-
-		lspconfig["cssls"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
-
-		lspconfig["html"].setup({
-			capabilities = capabilities,
-		})
-
-		lspconfig["emmet_ls"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
-
-		lspconfig["clangd"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
-
-		lspconfig["lua_ls"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-			settings = { -- custom settings for lua
-				Lua = {
-					-- make the language server recognize "vim" global
-					diagnostics = {
-						globals = { "vim" },
-					},
-					workspace = {
-						-- make language server aware of runtime files
-						library = {
-							[vim.fn.expand("$VIMRUNTIME/lua")] = true,
-							[vim.fn.stdpath("config") .. "/lua"] = true,
-						},
-					},
-				},
-			},
-		})
-	end,
+        local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+        function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+            opts = opts or {}
+            opts.border = opts.border or border
+            return orig_util_open_floating_preview(contents, syntax, opts, ...)
+        end
+    end,
 }

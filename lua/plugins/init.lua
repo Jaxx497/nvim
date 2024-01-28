@@ -7,7 +7,6 @@ return {
         end
     },
 
-    { "folke/neodev.nvim",     ft = "lua" },
     { "kshenoy/vim-signature", event = "VeryLazy" },
     { "tpope/vim-sleuth",      event = "VeryLazy" },
 

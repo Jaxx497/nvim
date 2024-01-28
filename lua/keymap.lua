@@ -1,6 +1,6 @@
 local keymap = vim.keymap.set
 
--- 'KEYMAP 'KJ' TO ESC
+-- 'KEYMAP 'kj' TO ESC
 -- keymap({ "n", "c", "i", "o", "s", "v" }, "kj", "<CMD>noh<CR><ESC>", { silent = true })
 keymap({ "n", "c", "i", "o", "s", "v" }, "kj", "<CMD>noh<CR><ESC>")
 
@@ -26,7 +26,7 @@ keymap("x", "<A-j>", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
 keymap("x", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
 
 keymap("x", "J", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
-keymap("x", "K", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
+-- keymap("x", "K", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
 
 -- SCROLL & CENTER
 keymap("n", "<C-u>", "<C-u>zz")
@@ -41,6 +41,9 @@ keymap("t", "kj", "<C-\\><C-n>", { noremap = true, silent = true })
 
 -- MAKE FILE EXCECUTABLE --
 keymap("n", "<leader>x", ":w<CR>|<cmd>!chmseed +x %<CR>", { silent = true, desc = "Make file executable" })
+
+keymap("n", "<leader>gg", "<CMD>Git<CR>", { desc = "[G]it" })
+keymap("n", "<leader>gv", "<CMD>Gvdif<CR>", { desc = "[G]it [V]split" })
 
 -- GoTo File --	
 keymap("n", "<S-Tab>", "gf", { noremap = true, silent = true })
