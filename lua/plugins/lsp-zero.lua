@@ -1,5 +1,6 @@
 return {
   "VonHeikemen/lsp-zero.nvim",
+  event = { "BufReadPre", "BufNewFile" },
   branch = 'v3.x',
   dependencies = {
     "L3MON4D3/LuaSnip",
