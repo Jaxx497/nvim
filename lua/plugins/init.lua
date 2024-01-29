@@ -14,7 +14,11 @@ return {
         "stevearc/dressing.nvim",
         event = "VeryLazy",
     },
-
+    -- {
+    --     'mrcjkb/rustaceanvim',
+    --     version = '^4', -- Recommended
+    --     ft = { 'rust' },
+    -- },
 
     -- "neovim/nvim-lspconfig",
     -- "williamboman/mason.nvim",

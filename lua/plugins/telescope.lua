@@ -14,7 +14,6 @@ return {
 			defaults = {
 				path_display = { "truncate" },
 				layout_config = {
-					preview_width = 0.60,
 					horizontal = {
 						width = 0.75,
 						height = 0.8,

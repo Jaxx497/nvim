@@ -3,14 +3,14 @@ return {
     event = { "BufReadPre", "BufNewFile" },
 
     config = function()
-        require("conform").setup({
+        local conform = require("conform")
+        conform.setup({
             formatters_by_ft = {
-                -- htmldjango = { "prettier" },
                 css = { "prettier" },
                 html = { "htmlbeautifier" },
                 javascript = { "prettier" },
                 json = { "prettier" },
-                lua = { "stylua" },
+                lua = { "stylelua" },
                 python = { "black" },
             },
             format_on_save = {

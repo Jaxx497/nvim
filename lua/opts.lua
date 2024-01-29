@@ -29,7 +29,6 @@ set.softtabstop = 4
 set.expandtab = true
 set.linebreak = true
 set.autoindent = true
-set.smartindent = true
 
 -- Wrapping
 set.showbreak = "↪ "
