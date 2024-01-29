@@ -56,7 +56,7 @@ return {
         "lewis6991/gitsigns.nvim",
         event = "VeryLazy",
         opts = {
-            -- see `:help gitsigns.txt`
+
             signs = {
                 add = { text = "+" },
                 change = { text = "~" },
@@ -64,8 +64,6 @@ return {
                 topdelete = { text = "‾" },
                 changedelete = { text = "~" },
             },
-
-            numhl = true,
 
             on_attach = function(bufnr)
                 vim.keymap.set(

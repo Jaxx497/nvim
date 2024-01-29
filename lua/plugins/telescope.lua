@@ -10,12 +10,11 @@ return {
 		local builtin = require("telescope.builtin")
 
 		telescope.setup({
-
 			defaults = {
 				path_display = { "truncate" },
 				layout_config = {
 					horizontal = {
-						width = 0.75,
+						width = 0.85,
 						height = 0.8,
 					},
 				},
@@ -26,6 +25,7 @@ return {
 						["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
 						["<C-[>"] = actions.close,
 						["<C-h>"] = actions.close,
+						["kj"] = actions.close,
 					},
 				},
 			},
@@ -35,7 +35,7 @@ return {
 					enable_preview = true,
 				},
 				find_files = {
-					hidden = true,
+					-- hidden = true,
 					no_ignore = true
 				}
 			},

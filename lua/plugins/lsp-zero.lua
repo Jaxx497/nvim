@@ -10,7 +10,6 @@ return {
         "hrsh7th/nvim-cmp",
         "L3MON4D3/LuaSnip",
         "neovim/nvim-lspconfig",
-        "onsails/lspkind.nvim",
         "rafamadriz/friendly-snippets",
         "saadparwaiz1/cmp_luasnip",
         "williamboman/mason-lspconfig.nvim",
@@ -28,7 +27,7 @@ return {
         local keymap = vim.keymap.set
 
         -- Lsp Zero Key Bindings --
-        lsp_zero.on_attach(function(client, bufnr)
+        lsp_zero.on_attach(function(_, bufnr)
             keymap("n", "<leader>d", "<cmd>Telescope diagnostics bufnr=0<CR>", {
                 buffer = bufnr,
                 remap = false,
@@ -202,25 +201,61 @@ return {
         -------------------------
         local cmp = require('cmp')
         local luasnip = require("luasnip")
+        require("luasnip.loaders.from_vscode").lazy_load()
 
         local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
         cmp.setup({
             sources = {
                 { name = 'path' },
-                { name = 'nvim_lsp' },
                 { name = 'luasnip', keyword_length = 2 },
+                { name = 'nvim_lsp' },
                 { name = 'buffer',  keyword_length = 3 },
                 { name = 'nvim_lua' },
             },
 
-
             formatting = {
-                -- changing the order of fields so the icon is the first
-                fields = { 'abbr', 'menu', 'kind', },
+                fields = { 'menu', 'abbr', 'kind', },
 
                 -- here is where the change happens
                 format = function(entry, item)
+                    local kind_icons = {
+                        Text = "󰉿",
+                        Method = "󰆧",
+                        Function = "󰊕",
+                        Constructor = "",
+                        Field = "󰜢",
+                        Variable = "󰀫",
+                        Class = "󰠱",
+                        Interface = "",
+                        Module = "",
+                        Property = "󰜢",
+                        Unit = "",
+                        Value = "󰎠",
+                        Enum = "",
+                        Keyword = "󰌋",
+                        Snippet = "",
+                        Color = "󰏘",
+                        File = "󰈙",
+                        Reference = "",
+                        Folder = "󰉋",
+                        EnumMember = "",
+                        Constant = "󰏿",
+                        Struct = "",
+                        Event = "",
+                        Operator = "󰆕",
+                        TypeParameter = '  ',
+                    }
+
+                    item.kind = string.format('%s %s', kind_icons[item.kind], item.kind) -- show icons with the name of the item kind
+
+                    local MAX_LABEL_WIDTH = 35
+                    local label = item.abbr
+                    local truncated_label = vim.fn.strcharpart(label, 0, MAX_LABEL_WIDTH)
+                    if truncated_label ~= label then
+                        item.abbr = truncated_label .. '…'
+                    end
+
                     local menu_icon = {
                         nvim_lsp = 'λ',
                         luasnip = '⋗',
@@ -237,16 +272,6 @@ return {
             completion = {
                 completeopt = "menu, menuone, preview, noselect",
             },
-
-            -- formatting = {
-            --   fields = { 'abbr', 'kind', 'menu' },
-            --   fields = { 'abbr', 'kind' },
-            --   format = require('lspkind').cmp_format({
-            --     mode = 'symbol_text',  -- show only symbol annotations
-            --     maxwidth = 25,         -- prevent the popup from showing more than provided characters
-            --     ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead
-            --   })
-            -- },
 
             snippet = {
                 expand = function(args)

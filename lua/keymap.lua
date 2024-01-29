@@ -4,6 +4,14 @@ local keymap = vim.keymap.set
 -- keymap({ "n", "c", "i", "o", "s", "v" }, "kj", "<CMD>noh<CR><ESC>", { silent = true })
 keymap({ "n", "c", "i", "o", "s", "v" }, "kj", "<CMD>noh<CR><ESC>")
 
+vim.keymap.set("n", "i", function()
+	if #vim.fn.getline "." == 0 then
+		return [["_cc]]
+	else
+		return "i"
+	end
+end, { expr = true })
+
 -- CENTER SCREEN WHILE CYCLING SEARCH RESULTS
 keymap("n", "n", "nzzzv")
 keymap("n", "N", "Nzzzv")
@@ -43,7 +51,6 @@ keymap("t", "kj", "<C-\\><C-n>", { noremap = true, silent = true })
 keymap("n", "<leader>x", ":w<CR>|<cmd>!chmseed +x %<CR>", { silent = true, desc = "Make file executable" })
 
 keymap("n", "<leader>gg", "<CMD>Git<CR>", { desc = "[G]it" })
-keymap("n", "<leader>gv", "<CMD>Gvdif<CR>", { desc = "[G]it [V]split" })
 
 -- GoTo File --	
 keymap("n", "<S-Tab>", "gf", { noremap = true, silent = true })
