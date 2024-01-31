@@ -43,7 +43,6 @@ set.incsearch = true
 set.mouse = "a"
 set.scrolloff = 10
 set.sidescrolloff = 8
-set.smoothscroll = true
 set.cursorline = true
 
 -- set.foldmethod = "indent"
