@@ -22,4 +22,7 @@ return {
             vim.api.nvim_set_hl(0, "NonText", { fg = "#404040" })
         end,
     },
+
+    -- Fade inactive windows, load after colorscheme
+    { 'TaDaa/vimade', event = "VeryLazy" }
 }

@@ -15,6 +15,8 @@ end, { expr = true })
 -- CENTER SCREEN WHILE CYCLING SEARCH RESULTS
 keymap("n", "n", "nzzzv")
 keymap("n", "N", "Nzzzv")
+keymap("v", ">", ">gv")
+keymap("v", "<", "<gv")
 
 -- CLIPBOARD ADJUSTMENTS
 keymap({ "n", "v" }, "<leader>y", '"+y', { desc = "[Y]ank to clipboard" })
@@ -43,6 +45,10 @@ keymap("n", "<C-d>", "<C-d>zz")
 -- OPEN TERMINAL
 keymap("n", "<leader>tn", ":term<CR>", { desc = "Open full [T]ermi[n]al" })
 keymap("t", "\\", "<C-\\><C-N>k")
+keymap("n", "<A-->", "5<C-W>-")
+keymap("n", "<A-=>", "5<C-W>+")
+keymap("n", "<A->>", "5<C-W>>")
+keymap("n", "<A-<>", "5<C-W><")
 
 keymap("n", "<leader><space>", vim.cmd.Term, { noremap = true, silent = true })
 keymap("t", "kj", "<C-\\><C-n>", { noremap = true, silent = true })
