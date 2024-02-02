@@ -79,6 +79,3 @@ keymap("n", "dd", function()
 	end
 	return "dd"
 end, { expr = true })
-
--- PREVIOUS BUFFER SHORTCUT
-keymap("n", "<BS>", "<C-o>")
