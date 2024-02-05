@@ -14,24 +14,11 @@ return {
         "stevearc/dressing.nvim",
         event = "VeryLazy",
     },
-    -- {
-    --     'mrcjkb/rustaceanvim',
-    --     version = '^4', -- Recommended
-    --     ft = { 'rust' },
-    -- },
-
-    -- "neovim/nvim-lspconfig",
-    -- "williamboman/mason.nvim",
-    -- "williamboman/mason-lspconfig.nvim",
-    -- "hrsh7th/nvim-cmp",
-    -- "hrsh7th/cmp-nvim-lsp",
-    -- "hrsh7th/cmp-buffer",
-    -- "hrsh7th/cmp-path",
-    -- "saadparwaiz1/cmp_luasnip",
-    -- "hrsh7th/cmp-nvim-lua",
-    -- "L3MON4D3/LuaSnip",
-    -- "rafamadriz/friendly-snippets",
-
+    {
+        'mrcjkb/rustaceanvim',
+        version = '^4', -- Recommended
+        ft = { 'rust' },
+    },
 
     {
         "j-hui/fidget.nvim",
@@ -44,13 +31,10 @@ return {
         build =
         "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
     },
-
-
     -----  GIT  -----
 
     { "tpope/vim-fugitive", event = "VeryLazy" },
     { "tpope/vim-rhubarb",  event = "VeryLazy" },
-
 
     {
         "lewis6991/gitsigns.nvim",
@@ -96,5 +80,4 @@ return {
             end,
         },
     },
-
 }

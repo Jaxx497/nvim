@@ -138,6 +138,7 @@ return {
             info = " "
         })
 
+
         -- Floating border --
         vim.cmd [[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]]
         vim.cmd [[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]
@@ -159,6 +160,15 @@ return {
             opts.border = opts.border or border
             return orig_util_open_floating_preview(contents, syntax, opts, ...)
         end
+
+        vim.g.rustaceanvim = {
+            server = {
+                capabilities = lsp_zero.get_capabilities(),
+                on_attach = function(client, bufnr)
+                    vim.lsp.inlay_hint.enable(bufnr, true)
+                end,
+            },
+        }
 
         -------------
         --- MASON ---
@@ -185,10 +195,11 @@ return {
                 "emmet_ls",
                 "lua_ls",
                 "pyright",
-                "rust_analyzer",
+                -- "rust_analyzer",
             },
             handlers = {
                 lsp_zero.default_setup,
+                rust_analyzer = lsp_zero.noop,
                 lua_ls = function()
                     local lua_opts = lsp_zero.nvim_lua_ls()
                     require('lspconfig').lua_ls.setup(lua_opts)
