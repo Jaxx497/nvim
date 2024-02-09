@@ -15,8 +15,8 @@ return {
         priority = 1000,
         config = function()
             require("base16-colorscheme").with_config({
-                -- cmp = false,
-                -- telescope = false,
+                cmp = false,
+                telescope = false,
             })
             vim.cmd.colorscheme("base16-colors")
             vim.api.nvim_set_hl(0, "NonText", { fg = "#404040" })
@@ -24,5 +24,5 @@ return {
     },
 
     -- Fade inactive windows, load after colorscheme
-    -- { 'TaDaa/vimade', event = "VeryLazy" }
+    { 'TaDaa/vimade', event = "VeryLazy" }
 }
