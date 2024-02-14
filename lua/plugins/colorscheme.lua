@@ -24,5 +24,14 @@ return {
     },
 
     -- Fade inactive windows, load after colorscheme
-    { 'TaDaa/vimade', event = "VeryLazy" }
+    {
+        'levouh/tint.nvim',
+        event = "VeryLazy",
+        config = function()
+            require("tint").setup({
+                tint = -70,
+                saturation = .4
+            })
+        end
+    }
 }
