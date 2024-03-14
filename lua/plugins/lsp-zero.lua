@@ -295,6 +295,8 @@ return {
                 documentation = cmp.config.window.bordered(),
             },
 
+
+
             mapping = cmp.mapping.preset.insert({
                 ["<C-j>"] = cmp.mapping.select_next_item(),
                 ["<C-k>"] = cmp.mapping.select_prev_item(),
@@ -304,9 +306,9 @@ return {
                 ["<C-f>"] = cmp.mapping.scroll_docs(4),
                 ["<C-e>"] = cmp.mapping.abort(),
                 ["<C-Space>"] = cmp.mapping.complete({}),
-                ["<S-<CR>>"] = cmp.mapping.confirm({
-                    behavior = cmp.ConfirmBehavior.Replace,
-                    select = true,
+                -- ["<S-CR>"] = cmp.mapping.confirm({ select = true }),
+                ["<CR>"] = cmp.mapping.confirm({
+                    select = false
                 }),
                 ["<Tab>"] = cmp.mapping(function(fallback)
                     if cmp.visible() then
@@ -317,6 +319,7 @@ return {
                         fallback()
                     end
                 end, { "i", "s" }),
+
                 ["<S-Tab>"] = cmp.mapping(function(fallback)
                     if cmp.visible() then
                         cmp.select_prev_item()
