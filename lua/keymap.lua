@@ -1,7 +1,5 @@
 local keymap = vim.keymap.set
-
 -- 'KEYMAP 'kj' TO ESC
--- keymap({ "n", "c", "i", "o", "s", "v" }, "kj", "<CMD>noh<CR><ESC>", { silent = true })
 keymap({ "n", "c", "i", "o", "s", "v" }, "kj", "<CMD>noh<CR><ESC>")
 
 vim.keymap.set("n", "i", function()
