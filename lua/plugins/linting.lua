@@ -9,7 +9,7 @@ return {
 
 		lint.linters_by_ft = {
 			css = { "stylelint" },
-			javascript = { "eslint_d" },
+			javascript = { "eslint" },
 			python = { "flake8" },
 		}
 
