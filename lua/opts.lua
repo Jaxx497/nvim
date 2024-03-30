@@ -61,6 +61,8 @@ set.visualbell = true
 set.timeoutlen = 200
 set.updatetime = 200
 set.termguicolors = true
+set.autoread = true
+set.laststatus = 3
 
 set.signcolumn = "yes"
 

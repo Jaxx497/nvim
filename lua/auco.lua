@@ -46,9 +46,15 @@ vim.api.nvim_create_user_command("Term", Term, {
 	desc = "Open terminal window",
 })
 
+vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
+	command = "if mode() != 'c' | checktime | endif",
+	pattern = { "*" },
+})
+
 vim.cmd [[ autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false }) ]]
 vim.cmd [[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]]
 vim.cmd [[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]
 vim.cmd [[command! W write]]
 vim.cmd [[command! Wq wq]]
+
 vim.cmd [[command! Q q]]
