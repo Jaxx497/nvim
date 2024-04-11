@@ -1,4 +1,11 @@
 return {
+    { "xiyaowong/transparent.nvim" },
+    { "kshenoy/vim-signature",     event = "VeryLazy" },
+    { "stevearc/dressing.nvim",    event = "VeryLazy", },
+    { "tpope/vim-fugitive",        event = "VeryLazy" },
+    { "tpope/vim-rhubarb",         event = "VeryLazy" },
+    { "tpope/vim-sleuth",          event = "VeryLazy" },
+    { "j-hui/fidget.nvim",         event = "LspAttach", opts = {} },
     {
         'tummetott/unimpaired.nvim',
         event = "VeryLazy",
@@ -6,28 +13,20 @@ return {
             require('unimpaired').setup {}
         end
     },
-
-    { "kshenoy/vim-signature", event = "VeryLazy" },
-    { "tpope/vim-sleuth",      event = "VeryLazy" },
-
-    {
-        "stevearc/dressing.nvim",
-        event = "VeryLazy",
-    },
     {
         'mrcjkb/rustaceanvim',
         version = '^4', -- Recommended
         ft = { 'rust' },
     },
-
     {
-        "j-hui/fidget.nvim",
-        event = "LspAttach",
-        opts = {},
-    },
+        'Bekaboo/dropbar.nvim',
+        dependencies = {
+            'nvim-telescope/telescope-fzf-native.nvim'
+        },
 
-    {
-        "xiyaowong/transparent.nvim"
+        config = function()
+            vim.keymap.set("n", "<leader>db", ":lua require('dropbar.api').pick()<CR>")
+        end,
     },
 
     {
@@ -37,51 +36,4 @@ return {
     },
     -----  GIT  -----
 
-    { "tpope/vim-fugitive", event = "VeryLazy" },
-    { "tpope/vim-rhubarb",  event = "VeryLazy" },
 
-    {
-        "lewis6991/gitsigns.nvim",
-        event = "VeryLazy",
-        opts = {
-
-            signs = {
-                add = { text = "+" },
-                change = { text = "~" },
-                delete = { text = "_" },
-                topdelete = { text = "‾" },
-                changedelete = { text = "~" },
-            },
-
-            on_attach = function(bufnr)
-                vim.keymap.set(
-                    "n",
-                    "<leader>hp",
-                    require("gitsigns").preview_hunk,
-                    { buffer = bufnr, desc = "preview git hunk" }
-                )
-
-                -- don't override the built-in and fugitive keymaps
-                local gs = package.loaded.gitsigns
-                vim.keymap.set({ "n", "v" }, "]c", function()
-                    if vim.wo.diff then
-                        return "]c"
-                    end
-                    vim.schedule(function()
-                        gs.next_hunk()
-                    end)
-                    return "<ignore>"
-                end, { expr = true, buffer = bufnr, desc = "jump to next hunk" })
-                vim.keymap.set({ "n", "v" }, "[c", function()
-                    if vim.wo.diff then
-                        return "[c"
-                    end
-                    vim.schedule(function()
-                        gs.prev_hunk()
-                    end)
-                    return "<ignore>"
-                end, { expr = true, buffer = bufnr, desc = "jump to previous hunk" })
-            end,
-        },
-    },
-}
