@@ -23,10 +23,14 @@ return {
         dependencies = {
             'nvim-telescope/telescope-fzf-native.nvim'
         },
-
-        config = function()
-            vim.keymap.set("n", "<leader>db", ":lua require('dropbar.api').pick()<CR>")
-        end,
+        opts = {
+            menu = {
+                win_configs = {
+                    border = "rounded"
+                }
+            }
+        },
+        vim.keymap.set("n", "<leader>db", ":lua require('dropbar.api').pick()<CR>")
     },
 
     {
