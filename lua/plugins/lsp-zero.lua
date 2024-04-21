@@ -165,10 +165,10 @@ return {
             server = {
                 capabilities = lsp_zero.get_capabilities(),
                 on_attach = function(client, bufnr)
-                    vim.lsp.inlay_hint.enable(bufnr, true)
+                    vim.lsp.inlay_hint.enable(true, {})
                 end,
             },
-        }
+        },
 
         -------------
         --- MASON ---
@@ -193,7 +193,6 @@ return {
                 "html",
                 "cssls",
                 "emmet_ls",
-                "lua_ls",
                 "pyright",
                 -- "rust_analyzer",
             },
