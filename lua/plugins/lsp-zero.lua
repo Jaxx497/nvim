@@ -164,11 +164,8 @@ return {
         vim.g.rustaceanvim = {
             server = {
                 capabilities = lsp_zero.get_capabilities(),
-                on_attach = function(client, bufnr)
-                    vim.lsp.inlay_hint.enable(true, {})
-                end,
             },
-        },
+        }
 
         -------------
         --- MASON ---

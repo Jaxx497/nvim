@@ -68,7 +68,11 @@ keymap("v", "<leader>sb", 'y:%s/<C-r><C-r>"//g<Left><Left>', { desc = "[s]ubstit
 keymap("n", "<leader>sb", ":%s/<C-r><C-w>//gI<Left><Left><Left>", { desc = "[s]ubstitute current word" })
 
 -- Copy registry to clipboard
-keymap("n", "<Leader>xp", ":call setreg('+', getreg('@'))<CR>")
+keymap("n", "<Leader>xp", ":call setreg('+', getreg('@'))<CR>", { silent = true })
+
+
+keymap("n", "<Leader>ht", ":lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<CR>", { silent = true })
+
 
 -- DO NOT COPY EMPTY TEXT TO REGISTER
 keymap("n", "dd", function()
