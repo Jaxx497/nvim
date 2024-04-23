@@ -17,7 +17,7 @@ keymap("v", ">", ">gv")
 keymap("v", "<", "<gv")
 
 -- CLIPBOARD ADJUSTMENTS
-keymap({ "n", "v" }, "<leader>y", '"+y', { desc = "[Y]ank to clipboard" })
+keymap({ "n", "v" }, "<leader>y", '"+y<CR>gv', { desc = "[Y]ank to clipboard" })
 keymap("n", "<leader>Y", '"+Y', { desc = "[Y]ank line to clipboard" })
 
 -- MOVE LINES OF CODE UP AND DOWN

@@ -45,15 +45,15 @@ set.scrolloff = 10
 set.sidescrolloff = 8
 set.cursorline = true
 
--- set.foldmethod = "indent"
+set.foldmethod = "indent"
 -- Folding
 set.foldlevel = 99
 set.foldcolumn = "0"
 set.foldenable = false
-set.foldmethod = "expr"
+-- set.foldmethod = "expr"
 set.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 set.foldtext = "v:lua.vim.treesitter.foldtext()"
-vim.o.fillchars = [[eob:~,fold: ,foldopen:󰄼,foldsep:│,foldclose:󰄾]]
+-- vim.o.fillchars = [[eob:~,fold: ,foldopen:󰄼,foldsep:│,foldclose:󰄾]]
 
 set.virtualedit = "block"
 set.inccommand = "split"
@@ -71,7 +71,6 @@ set.splitright = true
 
 set.completeopt = { "menu", "menuone", "noselect", "noinsert" }
 set.shortmess = set.shortmess + { c = true }
-local api = vim.api
 
 vim.cmd([[
     syntax on
@@ -79,17 +78,3 @@ vim.cmd([[
 
     set browsedir=buffer
 ]])
-
-vim.diagnostic.config({
-	underline = true,
-	signs = true,
-	virtual_text = false,
-	float = {
-		show_header = true,
-		source = "if_many",
-		border = "rounded",
-		focusable = false,
-	},
-	update_in_insert = false, -- default to false
-	severity_sort = false, -- default to false
-})

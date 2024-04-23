@@ -118,13 +118,13 @@ return {
                 desc = "LSP: [C]ode [A]ction"
             })
 
-            vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, {
+            keymap("n", "<leader>vd", function() vim.diagnostic.open_float() end, {
                 buffer = bufnr,
                 remap = false,
                 desc = "Open [V]im [D]iagnostic float"
             })
 
-            vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, {
+            keymap("i", "<C-h>", function() vim.lsp.buf.signature_help() end, {
                 buffer = bufnr,
                 remap = false,
                 desc = "Signature Help"
@@ -138,28 +138,18 @@ return {
             info = " "
         })
 
-
-        -- Floating border --
-        vim.cmd [[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]]
-        vim.cmd [[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]
-
-        local border = {
-            { "╭", "FloatBorder" },
-            { "─", "FloatBorder" },
-            { "╮", "FloatBorder" },
-            { "│", "FloatBorder" },
-            { "╯", "FloatBorder" },
-            { "─", "FloatBorder" },
-            { "╰", "FloatBorder" },
-            { "│", "FloatBorder" },
-        }
-
-        local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
-        function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-            opts = opts or {}
-            opts.border = opts.border or border
-            return orig_util_open_floating_preview(contents, syntax, opts, ...)
-        end
+        vim.diagnostic.config({
+            underline = true,
+            virtual_text = true,
+            float = {
+                show_header = true,
+                source = "if_many",
+                border = "rounded",
+                header = 'DIAGNOSTIC',
+            },
+            update_in_insert = false, -- default to false
+            severity_sort = true,     -- default to false
+        })
 
         vim.g.rustaceanvim = {
             server = {
@@ -191,7 +181,6 @@ return {
                 "cssls",
                 "emmet_ls",
                 "pyright",
-                -- "rust_analyzer",
             },
             handlers = {
                 lsp_zero.default_setup,

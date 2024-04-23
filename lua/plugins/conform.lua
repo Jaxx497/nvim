@@ -6,6 +6,7 @@ return {
         local conform = require("conform")
         conform.setup({
             formatters_by_ft = {
+                c = { "clangd" },
                 css = { "prettier" },
                 html = { "htmlbeautifier" },
                 javascript = { "prettier" },
