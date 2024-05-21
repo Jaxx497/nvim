@@ -40,18 +40,6 @@ return {
                 desc = "Send to [q]uickfix list"
             })
 
-            keymap('n', '[d', vim.diagnostic.goto_prev, {
-                buffer = bufnr,
-                remap = false,
-                desc = "LSP: Go to previous diagnostic"
-            })
-
-            keymap('n', ']d', vim.diagnostic.goto_next, {
-                buffer = bufnr,
-                remap = false,
-                desc = "LSP: Go to next diagnostic"
-            })
-
             keymap('n', 'gD', vim.lsp.buf.declaration, {
                 buffer = bufnr,
                 remap = false,
@@ -206,14 +194,13 @@ return {
                 { name = 'path' },
                 { name = 'luasnip', keyword_length = 2 },
                 { name = 'nvim_lsp' },
-                { name = 'buffer',  keyword_length = 3 },
                 { name = 'nvim_lua' },
+                { name = 'buffer',  keyword_length = 3 },
             },
 
             formatting = {
-                fields = { 'menu', 'abbr', 'kind', },
+                fields = { 'menu', 'abbr', 'kind' },
 
-                -- here is where the change happens
                 format = function(entry, item)
                     local kind_icons = {
                         Text = "󰉿",

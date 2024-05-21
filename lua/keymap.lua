@@ -70,9 +70,10 @@ keymap("n", "<leader>sb", ":%s/<C-r><C-w>//gI<Left><Left><Left>", { desc = "[s]u
 -- Copy registry to clipboard
 keymap("n", "<Leader>xp", ":call setreg('+', getreg('@'))<CR>", { silent = true })
 
-
 keymap("n", "<Leader>ht", ":lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<CR>", { silent = true })
 
+keymap({ "n", "x", "v" }, "<Leader>tc", ':normal Vgc"<Esc>', { silent = true, noremap = true })
+keymap({ "n", "x", "v" }, "<Leader>gc", ':normal gcc"<Esc>', { silent = true, noremap = true })
 
 -- DO NOT COPY EMPTY TEXT TO REGISTER
 keymap("n", "dd", function()

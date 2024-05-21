@@ -5,10 +5,10 @@ return {
 	config = function()
 		require("mini.pairs").setup()
 		require('mini.surround').setup()
-		require("mini.comment").setup({
-			mappings = {
-				comment_line = "tc",
-			}
-		})
+		-- require("mini.comment").setup({
+		-- 	mappings = {
+		-- 		comment_line = "tc",
+		-- 	}
+		-- })
 	end,
 }
