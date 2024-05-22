@@ -72,6 +72,7 @@ keymap("n", "<Leader>xp", ":call setreg('+', getreg('@'))<CR>", { silent = true 
 
 keymap("n", "<Leader>ht", ":lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<CR>", { silent = true })
 
+keymap("n", "tc", ':normal Vgc"<Esc>', { silent = true, noremap = true })
 keymap({ "n", "x", "v" }, "<Leader>tc", ':normal Vgc"<Esc>', { silent = true, noremap = true })
 keymap({ "n", "x", "v" }, "<Leader>gc", ':normal gcc"<Esc>', { silent = true, noremap = true })
 
