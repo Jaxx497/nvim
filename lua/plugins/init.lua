@@ -13,16 +13,19 @@ return {
             require('unimpaired').setup {}
         end
     },
+
     {
         'mrcjkb/rustaceanvim',
         version = '^4', -- Recommended
         -- ft = { 'rust' },
     },
+
     {
         'Bekaboo/dropbar.nvim',
         dependencies = {
             'nvim-telescope/telescope-fzf-native.nvim'
         },
+
         opts = {
             menu = {
                 win_configs = {
@@ -37,5 +40,27 @@ return {
         "nvim-telescope/telescope-fzf-native.nvim",
         build =
         "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
-    }
+    },
+
+    {
+        "folke/lazydev.nvim",
+        ft = "lua", -- only load on lua files
+        opts = {
+            library = {
+                vim.env.LAZY .. "/luvit-meta/library", -- see below
+            },
+        },
+    },
+
+    { "Bilal2453/luvit-meta", lazy = true }, -- optional `vim.uv` typings
+    {
+        "hrsh7th/nvim-cmp",
+        opts = function(_, opts)
+            opts.sources = opts.sources or {}
+            table.insert(opts.sources, {
+                name = "lazydev",
+                group_index = 0, -- set group index to 0 to skip loading LuaLS completions
+            })
+        end,
+    },
 }
