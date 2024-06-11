@@ -5,7 +5,11 @@ return {
     { "tpope/vim-fugitive",        event = "VeryLazy" },
     { "tpope/vim-rhubarb",         event = "VeryLazy" },
     { "tpope/vim-sleuth",          event = "VeryLazy" },
-    { "j-hui/fidget.nvim",         event = "LspAttach", opts = {} },
+    {
+        "j-hui/fidget.nvim",
+        event = "LspAttach",
+        opts = {},
+    },
     {
         'tummetott/unimpaired.nvim',
         event = "VeryLazy",
@@ -16,15 +20,13 @@ return {
 
     {
         'mrcjkb/rustaceanvim',
-        version = '^4', -- Recommended
-        -- ft = { 'rust' },
+        version = '^4',
+        ft = { 'rust' },
     },
 
     {
         'Bekaboo/dropbar.nvim',
-        dependencies = {
-            'nvim-telescope/telescope-fzf-native.nvim'
-        },
+        dependencies = { 'nvim-telescope/telescope-fzf-native.nvim' },
 
         opts = {
             menu = {
@@ -44,7 +46,7 @@ return {
 
     {
         "folke/lazydev.nvim",
-        ft = "lua", -- only load on lua files
+        ft = "lua",
         opts = {
             library = {
                 { path = "luvit-meta/library", words = { "vim%.uv" } },
@@ -52,9 +54,9 @@ return {
         },
     },
 
-    { "Bilal2453/luvit-meta", lazy = true }, -- optional `vim.uv` typings
+    { "Bilal2453/luvit-meta", lazy = true },
 
-    {                                        -- optional completion source for require statements and module annotations
+    {
         "hrsh7th/nvim-cmp",
         opts = function(_, opts)
             opts.sources = opts.sources or {}

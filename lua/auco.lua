@@ -42,7 +42,6 @@ local function Term()
 	end
 end
 
-
 vim.api.nvim_create_user_command("Term", Term, {
 	desc = "Open terminal window",
 })

@@ -1,9 +1,7 @@
 return {
 
-    { "tomasr/molokai",          event = "VeryLazy" },
-    { "Yazeed1s/minimal.nvim",   event = "VeryLazy" },
-    { "tanvirtin/monokai.nvim",  event = "VeryLazy" },
-    { "sekke276/dark_flat.nvim", event = "VeryLazy" },
+    { "tomasr/molokai",         event = "VeryLazy" },
+    { "tanvirtin/monokai.nvim", event = "VeryLazy" },
 
     -- {
     --     "srcery-colors/srcery-vim",
@@ -29,8 +27,8 @@ return {
         event = "VeryLazy",
         config = function()
             require("tint").setup({
-                tint = -70,
-                saturation = .4,
+                tint = -60,
+                saturation = 0.4,
 
                 window_ignore_function = function(winid)
                     local bufid = vim.api.nvim_win_get_buf(winid)
