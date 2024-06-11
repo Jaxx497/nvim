@@ -1,5 +1,12 @@
 return {
     { "xiyaowong/transparent.nvim" },
+    {
+        "folke/todo-comments.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim"
+        },
+        opts = {}
+    },
     { "kshenoy/vim-signature",     event = "VeryLazy" },
     { "stevearc/dressing.nvim",    event = "VeryLazy", },
     { "tpope/vim-fugitive",        event = "VeryLazy" },
