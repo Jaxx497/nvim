@@ -12,17 +12,16 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 	end,
 })
 
-vim.api.nvim_create_autocmd('TermOpen',
-	{
-		desc = "Make a clean terminal environment",
-		command = 'startinsert | set nonumber norelativenumber signcolumn=no'
-	})
-
-vim.api.nvim_create_autocmd(
-	'BufRead', {
-		desc = "Make a clean terminal environment",
-		command = 'set number relativenumber signcolumn=yes'
-	})
+-- vim.api.nvim_create_autocmd('TermOpen', {
+-- 	desc = "Make a clean terminal environment",
+-- 	command = 'startinsert | set nonumber norelativenumber signcolumn=no'
+-- })
+--
+--
+vim.api.nvim_create_autocmd('BufRead', {
+	desc = "Make a clean terminal environment",
+	command = 'set number relativenumber signcolumn=yes'
+})
 
 local function Term()
 	local terminal_buffer_number = vim.fn.bufnr("term://")

@@ -64,8 +64,6 @@ set.termguicolors = true
 set.autoread = true
 set.laststatus = 3
 
-set.signcolumn = "yes"
-
 set.splitbelow = true
 set.splitright = true
 
