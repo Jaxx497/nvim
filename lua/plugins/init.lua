@@ -1,5 +1,15 @@
 return {
-    { "xiyaowong/transparent.nvim" },
+    {
+        "xiyaowong/transparent.nvim",
+        config = function()
+            require("transparent").setup({
+                extra_groups = { "GitGutterAdd",
+                    "GitGutterChange",
+                    "GitGutterChangeDelete",
+                    "GitGutterDelete" }
+            })
+        end
+    },
     {
         "folke/todo-comments.nvim",
         dependencies = {
@@ -7,15 +17,21 @@ return {
         },
         opts = {}
     },
-    { "kshenoy/vim-signature",     event = "VeryLazy" },
-    { "stevearc/dressing.nvim",    event = "VeryLazy", },
-    { "tpope/vim-fugitive",        event = "VeryLazy" },
-    { "tpope/vim-rhubarb",         event = "VeryLazy" },
-    { "tpope/vim-sleuth",          event = "VeryLazy" },
+    { "kshenoy/vim-signature",  event = "VeryLazy" },
+    { "stevearc/dressing.nvim", event = "VeryLazy", },
+    { "tpope/vim-fugitive",     event = "VeryLazy" },
+    { "tpope/vim-rhubarb",      event = "VeryLazy" },
+    { "tpope/vim-sleuth",       event = "VeryLazy" },
     {
         "j-hui/fidget.nvim",
         event = "LspAttach",
-        opts = {},
+        opts = {
+            notification = {
+                window = {
+                    winblend = 0,
+                }
+            }
+        },
     },
     {
         'tummetott/unimpaired.nvim',
