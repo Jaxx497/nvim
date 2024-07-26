@@ -6,7 +6,7 @@ return {
 		vim.o.timeoutlen = 300
 	end,
 	opts = {
-		window = {
+		win = {
 			border = "single",
 			margin = { 1, 20, 1, 20 },
 		},
