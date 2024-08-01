@@ -8,7 +8,7 @@ vim.keymap.set("n", "i", function()
 	else
 		return "i"
 	end
-end, { expr = true })
+end, { expr = true, desc = "Automatically indent to the appropriate position" })
 
 -- CENTER SCREEN WHILE CYCLING SEARCH RESULTS
 keymap("n", "n", "nzzzv")

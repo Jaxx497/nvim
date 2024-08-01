@@ -141,8 +141,8 @@ return {
 
         vim.g.rustaceanvim = {
             server = {
-                capabilities = lsp_zero.get_capabilities(),
-            },
+                capabilities = lsp_zero.get_capabilities()
+            }
         }
 
         -------------
@@ -167,6 +167,7 @@ return {
                 "clangd",
                 "html",
                 "cssls",
+                -- "rust_analyzer",
                 "emmet_ls",
                 "pyright",
             },

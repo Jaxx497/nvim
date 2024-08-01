@@ -1,10 +1,11 @@
 return {
 	"stevearc/oil.nvim",
 	opts = {},
-	-- Optional dependencies
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
 		require("oil").setup({
+
+			default_file_explorer = true,
 
 			keymaps = {
 				["?"] = "actions.show_help",
@@ -24,6 +25,7 @@ return {
 				["gx"] = "actions.open_external",
 				["g."] = "actions.toggle_hidden",
 			},
+
 			use_default_keymaps = false,
 
 			view_options = {
@@ -32,12 +34,13 @@ return {
 
 			float = {
 				max_width = 32,
-				max_height = 30,
+				max_height = 25,
 				border = "rounded",
-				win_options = {
-					winblend = 0,
-				},
+				-- win_options = {
+				-- 	winblend = 0,
+				-- },
 			},
+
 			preview = {
 				max_width = 0.4,
 				min_width = { 40, 0.4 },

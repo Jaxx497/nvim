@@ -22,6 +22,7 @@ return {
     { "tpope/vim-fugitive",     event = "VeryLazy" },
     { "tpope/vim-rhubarb",      event = "VeryLazy" },
     { "tpope/vim-sleuth",       event = "VeryLazy" },
+
     {
         "j-hui/fidget.nvim",
         event = "LspAttach",
@@ -33,6 +34,7 @@ return {
             }
         },
     },
+
     {
         'tummetott/unimpaired.nvim',
         event = "VeryLazy",
@@ -43,8 +45,8 @@ return {
 
     {
         'mrcjkb/rustaceanvim',
-        version = '^4',
-        ft = { 'rust' },
+        version = '^5', -- Recommended
+        lazy = false,   -- This plugin is already lazy
     },
 
     {

@@ -1,3 +1,4 @@
+-- Mark 0 goes back to last open buffer
 vim.api.nvim_create_autocmd("BufReadPost", {
 	callback = function()
 		local mark =
@@ -12,6 +13,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 	end,
 })
 
+-- Create a new terminal instnace, with number, relativenumber, and signcolumn
 vim.api.nvim_create_autocmd('BufRead', {
 	desc = "Make a clean terminal environment",
 	command = 'set number relativenumber signcolumn=yes'
@@ -35,6 +37,7 @@ local function Term()
 	end
 end
 
+-- Actually open Term ^^
 vim.api.nvim_create_user_command("Term", Term, {
 	desc = "Open terminal window",
 })
@@ -47,6 +50,8 @@ vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGai
 -- vim.cmd [[ autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false }) ]]
 vim.cmd [[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]]
 vim.cmd [[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]
+
+-- Fix remaps
 vim.cmd [[command! W write]]
 vim.cmd [[command! Wq wq]]
 
