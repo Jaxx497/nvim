@@ -139,11 +139,11 @@ return {
             severity_sort = true,     -- default to false
         })
 
-        vim.g.rustaceanvim = {
-            server = {
-                capabilities = lsp_zero.get_capabilities()
-            }
-        }
+        -- vim.g.rustaceanvim = {
+        --     server = {
+        --         capabilities = lsp_zero.get_capabilities()
+        --     }
+        -- }
 
         -------------
         --- MASON ---
@@ -167,13 +167,13 @@ return {
                 "clangd",
                 "html",
                 "cssls",
-                -- "rust_analyzer",
+                "rust_analyzer",
                 "emmet_ls",
                 "pyright",
             },
             handlers = {
                 lsp_zero.default_setup,
-                rust_analyzer = lsp_zero.noop,
+                -- rust_analyzer = lsp_zero.noop,
                 lua_ls = function()
                     local lua_opts = lsp_zero.nvim_lua_ls()
                     require('lspconfig').lua_ls.setup(lua_opts)
