@@ -43,12 +43,6 @@ return {
         end
     },
 
-    -- {
-    --     'mrcjkb/rustaceanvim',
-    --     version = '^5', -- Recommended
-    --     lazy = false,   -- This plugin is already lazy
-    -- },
-
     {
         'Bekaboo/dropbar.nvim',
         dependencies = { 'nvim-telescope/telescope-fzf-native.nvim' },

@@ -7,8 +7,19 @@ return {
             search = {
                 enabled = true
             }
+        },
+        jump = {
+            nohlsearch = true,
+            autojump = true,
+        },
+        label = {
+            rainbow = {
+                enabled = true,
+                shade = 5,
+            }
         }
     },
+
     keys = {
         {
             "<C-s>",
