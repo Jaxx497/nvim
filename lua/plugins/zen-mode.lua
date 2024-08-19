@@ -1,6 +1,6 @@
 return {
     "folke/zen-mode.nvim",
-    event = "VeryLazy",
+    -- event = "VeryLazy",
     opts = {
         window = {
             backdrop = 1,
@@ -12,6 +12,13 @@ return {
                 scrolloff = 999,
                 list = false,
             },
+
+            plugins = {
+                options = {
+                    enabled = true,
+                },
+                gitsigns = { enabled = false },
+            }
         },
     },
     vim.api.nvim_set_keymap("n", "<leader>z", ":ZenMode<CR>", { desc = "[Z]enmode" }),

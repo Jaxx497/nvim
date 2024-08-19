@@ -1,7 +1,25 @@
 return {
 
-    { "tomasr/molokai",         event = "VeryLazy" },
-    { "tanvirtin/monokai.nvim", event = "VeryLazy" },
+    { "tomasr/molokai", event = "VeryLazy" },
+    {
+        priority = 1000,
+        "tanvirtin/monokai.nvim",
+
+        config = function()
+            require("monokai").setup({
+                {
+                    palette = require("monokai").pro
+                }
+            })
+        end,
+    },
+
+    {
+        "loctvl842/monokai-pro.nvim",
+        config = function()
+            require("monokai-pro").setup()
+        end,
+    },
 
     -- {
     --     "srcery-colors/srcery-vim",
@@ -10,13 +28,13 @@ return {
 
     {
         "RRethy/nvim-base16",
-        priority = 1000,
+        -- priority = 1000,
         config = function()
             require("base16-colorscheme").with_config({
                 cmp = false,
                 telescope = false,
             })
-            vim.cmd.colorscheme("base16-colors")
+            -- vim.cmd.colorscheme("base16-colors")
             vim.api.nvim_set_hl(0, "NonText", { fg = "#404040" })
         end,
     },

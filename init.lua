@@ -26,7 +26,7 @@ require("lazy").setup({
 	},
 	{
 		install = {
-			colorscheme = { "base16-colorscheme" },
+			colorscheme = { "monokai-pro" },
 		},
 		checker = {
 			enabled = true,

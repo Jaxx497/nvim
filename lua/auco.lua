@@ -13,7 +13,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 	end,
 })
 
--- Create a new terminal instnace, with number, relativenumber, and signcolumn
+-- Create a new terminal instance, with number, relativenumber, and signcolumn
 vim.api.nvim_create_autocmd('BufRead', {
 	desc = "Make a clean terminal environment",
 	command = 'set number relativenumber signcolumn=yes'

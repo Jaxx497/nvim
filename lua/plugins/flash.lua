@@ -10,13 +10,14 @@ return {
         },
         jump = {
             nohlsearch = true,
-            autojump = true,
+            -- autojump = true,
+            register = true,
         },
         label = {
             rainbow = {
                 enabled = true,
                 shade = 5,
-            }
+            },
         }
     },
 
