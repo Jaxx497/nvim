@@ -6,9 +6,16 @@ return {
                 extra_groups = { "GitGutterAdd",
                     "GitGutterChange",
                     "GitGutterChangeDelete",
-                    "GitGutterDelete" }
+                    "GitGutterDelete",
+                    "Normal",
+                    "NormalFloat",
+                    "FloatBorder",
+                    -- "TelescopeNormal",
+                    -- "TelescopePromptBorder",
+                }
             })
-        end
+        end,
+        vim.keymap.set("n", "<F4>", ":TransparentToggle<CR>", { silent = true })
     },
     {
         "folke/todo-comments.nvim",

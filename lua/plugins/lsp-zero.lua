@@ -169,8 +169,9 @@ return {
                 "cssls",
                 "rust_analyzer",
                 "emmet_ls",
-                "pyright",
+                "basedpyright",
             },
+
             handlers = {
                 lsp_zero.default_setup,
                 -- rust_analyzer = lsp_zero.noop,
@@ -267,8 +268,6 @@ return {
                 completion = cmp.config.window.bordered(),
                 documentation = cmp.config.window.bordered(),
             },
-
-
 
             mapping = cmp.mapping.preset.insert({
                 ["<C-j>"] = cmp.mapping.select_next_item(),

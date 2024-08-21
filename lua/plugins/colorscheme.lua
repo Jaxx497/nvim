@@ -64,7 +64,7 @@ return {
                     local buftype = vim.api.nvim_buf_get_option(bufid, "buftype")
                     local floating = vim.api.nvim_win_get_config(winid).relative ~= ""
 
-                    return buftype == "terminal" or floating
+                    return buftype == "terminal"
                 end
             })
         end

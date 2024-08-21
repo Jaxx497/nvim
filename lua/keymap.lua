@@ -48,7 +48,6 @@ keymap("n", "<A-=>", "5<C-W>+")
 keymap("n", "<A->>", "5<C-W>>")
 keymap("n", "<A-<>", "5<C-W><")
 
-keymap("n", "<leader><space>", vim.cmd.Term, { noremap = true, silent = true })
 keymap("t", "kj", "<C-\\><C-n>", { noremap = true, silent = true })
 
 -- MAKE FILE EXCECUTABLE --
