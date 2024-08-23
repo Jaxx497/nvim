@@ -18,8 +18,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGai
 	pattern = { "* !silent" },
 })
 
-
--- Fix remaps
+-- Fix capital letters on commands
 vim.cmd [[command! W write]]
 vim.cmd [[command! Wq wq]]
 

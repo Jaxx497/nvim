@@ -61,6 +61,7 @@ return {
 		vim.keymap.set("n", "<leader>gf", builtin.git_commits, { desc = "[Git] commits" })
 		vim.keymap.set("n", "<leader>gs", builtin.git_status, { desc = "[G]it [S]tatus" })
 		vim.keymap.set("n", "<leader>fg", builtin.git_files, { desc = "[F]ind [G]it Files" })
+		vim.keymap.set("n", "<leader>gr", builtin.lsp_references, { desc = "[G]o To [R]eferences" })
 		vim.keymap.set("n", "<leader>?", builtin.oldfiles, { desc = "Find recently opened files" })
 		vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
 	end,

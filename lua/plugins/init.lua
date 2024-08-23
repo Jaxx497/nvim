@@ -10,8 +10,9 @@ return {
                     "Normal",
                     "NormalFloat",
                     "FloatBorder",
-                    -- "TelescopeNormal",
-                    -- "TelescopePromptBorder",
+                    "TelescopeNormal",
+                    "TelescopePromptBorder",
+                    "FoldColumn"
                 }
             })
         end,

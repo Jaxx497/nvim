@@ -7,10 +7,16 @@ return {
 		{ "<leader>o", "<cmd>Outline<CR>", desc = "Toggle outline" },
 	},
 	opts = {
-		auto_close = true,
-		auto_jump = true,
-		keymaps = {
-			goto_and_close = "<Cr>",
+		outline_window = {
+
+			width = 40,
+			relative_width = false,
+
+			auto_close = true,
+			auto_jump = true,
+			keymaps = {
+				goto_and_close = "<Cr>",
+			},
 		},
 	},
 }

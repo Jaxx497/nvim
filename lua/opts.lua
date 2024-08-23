@@ -46,20 +46,16 @@ set.scrolloff = 8
 set.sidescrolloff = 8
 set.cursorline = true
 
-set.foldmethod = "indent"
 -- Folding
 set.foldlevel = 99
-set.foldcolumn = "0"
+set.foldcolumn = '0'
 set.foldenable = false
-set.foldmethod = "indent"
--- set.foldexpr = "v:lua.vim.treesitter.foldexpr()"
--- set.foldtext = "v:lua.vim.treesitter.foldtext()"
-vim.o.fillchars = [[eob:~,fold: ,foldopen:󰄼,foldsep:│,foldclose:󰄾]]
+vim.o.fillchars = [[eob:~,fold: ,foldopen:󰄼,foldclose:󰄾,foldsep: ]]
 
 set.virtualedit = "block"
 set.inccommand = "split"
 set.visualbell = true
-set.timeoutlen = 200
+set.timeoutlen = 300
 set.updatetime = 200
 set.termguicolors = true
 set.autoread = true
