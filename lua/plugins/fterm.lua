@@ -11,8 +11,8 @@ return {
         })
     end,
 
-    vim.keymap.set({ "n", "v" }, "<F5>", "<CMD>lua require('FTerm').toggle()<CR>"),
-    vim.keymap.set({ "n", "v" }, "<F6>", "<CMD>lua require('FTerm').exit()<CR>"),
+    vim.keymap.set({ "n", "v", "i", "x", "t" }, "<F5>", "<CMD>lua require('FTerm').toggle()<CR>"),
+    vim.keymap.set({ "n", "v", "i", "x", "t" }, "<F6>", "<CMD>lua require('FTerm').exit()<CR>"),
     vim.keymap.set({ "n", "v" }, "<leader><space>", "<CMD>lua require('FTerm').toggle()<CR>",
         { noremap = true, silent = true })
 }

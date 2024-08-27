@@ -139,6 +139,40 @@ return {
             severity_sort = true,     -- default to false
         })
 
+        require('ufo').setup({
+            open_fold_hl_timeout = 0,
+            -- preview = { win_config = { winhighlight = "Normal:Normal,FloatBorder:Normal" } },
+            enable_get_fold_virt_text = true,
+            close_fold_kinds_for_ft = { "imports", "comment" },
+            provider_selector = function(_, ft)
+                return { "lsp", "indent" }
+            end,
+        })
+
+        lsp_zero.set_server_config({
+            capabilities = {
+                textDocument = {
+                    foldingRange = {
+                        dynamicRegistration = false,
+                        lineFoldingOnly = true
+                    }
+                }
+            }
+        })
+        -- local capabilities = vim.lsp.protocol.make_client_capabilities()
+        -- capabilities.textDocument.foldingRange = {
+        --     dynamicRegistration = false,
+        --     lineFoldingOnly = true
+        -- }
+        -- local language_servers = require("lspconfig").util.available_servers() -- or list servers manually like {'gopls', 'clangd'}
+        -- for _, ls in ipairs(language_servers) do
+        --     require('lspconfig')[ls].setup({
+        --         capabilities = capabilities
+        --         -- you can add other fields for setting up lsp server in this table
+        --     })
+        -- end
+        -- require('ufo').setup()
+        --
         -- vim.g.rustaceanvim = {
         --     server = {
         --         capabilities = lsp_zero.get_capabilities()
