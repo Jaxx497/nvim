@@ -16,6 +16,12 @@ keymap("n", "N", "Nzzzv")
 keymap("v", ">", ">gv")
 keymap("v", "<", "<gv")
 
+-- SEARCH AND REPLACE --
+keymap("n", "<leader>s", '<cmd>lua require("spectre").toggle()<CR>',
+	{ desc = "Toggle Search (Specter)" })
+keymap("n", "<leader>sp", '<cmd>lua require("spectre").open_visual({select_word=true})<CR>',
+	{ desc = "Search current word" })
+
 -- CLIPBOARD ADJUSTMENTS
 keymap({ "n", "v" }, "<leader>y", '"+y<CR>gv', { desc = "[Y]ank to clipboard" })
 keymap("n", "<leader>Y", '"+Y', { desc = "[Y]ank line to clipboard" })
@@ -59,7 +65,7 @@ keymap("n", "<leader>gg", "<CMD>Git<CR>", { desc = "[G]it" })
 keymap("n", "<S-Tab>", "gf", { noremap = true, silent = true })
 
 -- SPLITTING
-keymap("n", "<leader>sp", ":sp<CR><C-w>j", { desc = "[Sp]lit" })
+-- keymap("n", "<leader>sp", ":sp<CR><C-w>j", { desc = "[Sp]lit" })
 keymap("n", "<leader>vs", ":vsp<CR><C-w>l", { desc = "[V]ertical [S]plit" })
 
 -- SEARCH AND REPLACE

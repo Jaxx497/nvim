@@ -52,6 +52,10 @@ return {
     },
 
     {
+        "nvim-pack/nvim-spectre", event = "VeryLazy"
+    },
+
+    {
         'Bekaboo/dropbar.nvim',
         dependencies = { 'nvim-telescope/telescope-fzf-native.nvim' },
 
