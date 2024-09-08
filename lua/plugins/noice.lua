@@ -1,6 +1,8 @@
 return {
     "folke/noice.nvim",
-    dependencies = "MunifTanjim/nui.nvim",
+    dependencies = { "MunifTanjim/nui.nvim",
+        -- "rcarriga/nvim-notify",
+    },
     event = "VeryLazy",
     opts = {
 
@@ -24,11 +26,13 @@ return {
             lsp_doc_border = true,        -- add a border to hover docs and signature help
         },
 
-        views = {
-            mini = {
-                win_options = {
-                    winblend = 0
-                }
+        -- notify = {
+        --     render = "notify",
+        --     replace = true
+        -- },
+        mini = {
+            win_options = {
+                winblend = 0
             }
         }
     },
