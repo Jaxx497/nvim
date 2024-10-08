@@ -7,6 +7,7 @@ return {
         conform.setup({
             formatters_by_ft = {
                 c = { "clangd" },
+                cpp = { "clangd" },
                 css = { "prettier" },
                 html = { "htmlbeautifier" },
                 javascript = { "prettier" },
