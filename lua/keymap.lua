@@ -65,7 +65,7 @@ keymap("n", "<leader>gg", "<CMD>Git<CR>", { desc = "[G]it" })
 keymap("n", "<S-Tab>", "gf", { noremap = true, silent = true })
 
 -- SPLITTING
--- keymap("n", "<leader>sp", ":sp<CR><C-w>j", { desc = "[Sp]lit" })
+keymap("n", "<leader>sl", ":sp<CR><C-w>j", { desc = "[Sp]lit" })
 keymap("n", "<leader>vs", ":vsp<CR><C-w>l", { desc = "[V]ertical [S]plit" })
 
 -- SEARCH AND REPLACE
