@@ -14,6 +14,7 @@ return {
                 json = { "prettier" },
                 lua = { "stylelua" },
                 python = { "black" },
+                yaml = { "prettier" }
             },
             format_on_save = {
                 lsp_fallback = true,

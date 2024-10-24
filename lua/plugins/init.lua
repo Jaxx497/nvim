@@ -3,7 +3,9 @@ return {
         "xiyaowong/transparent.nvim",
         config = function()
             require("transparent").setup({
-                extra_groups = { "GitGutterAdd",
+                extra_groups = {
+                    "Folded",
+                    "GitGutterAdd",
                     "GitGutterChange",
                     "GitGutterChangeDelete",
                     "GitGutterDelete",
