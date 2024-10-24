@@ -1,7 +1,6 @@
 return {
 	"iamcco/markdown-preview.nvim",
 	ft = "markdown",
-	-- lazy = true,
 	config = function()
 		vim.fn["mkdp#util#install"]()
 		vim.g.mkdp_auto_close = true
