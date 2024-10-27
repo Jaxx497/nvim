@@ -57,19 +57,19 @@ return {
         "nvim-pack/nvim-spectre", event = "VeryLazy"
     },
 
-    {
-        'Bekaboo/dropbar.nvim',
-        dependencies = { 'nvim-telescope/telescope-fzf-native.nvim' },
-
-        opts = {
-            menu = {
-                win_configs = {
-                    border = "rounded"
-                }
-            }
-        },
-        vim.keymap.set("n", "<leader>db", ":lua require('dropbar.api').pick()<CR>")
-    },
+    -- {
+    --     'Bekaboo/dropbar.nvim',
+    --     dependencies = { 'nvim-telescope/telescope-fzf-native.nvim' },
+    --
+    --     opts = {
+    --         menu = {
+    --             win_configs = {
+    --                 border = "rounded"
+    --             }
+    --         }
+    --     },
+    --     vim.keymap.set("n", "<leader>db", ":lua require('dropbar.api').pick()<CR>")
+    -- },
 
     {
         "nvim-telescope/telescope-fzf-native.nvim",
