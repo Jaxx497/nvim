@@ -73,3 +73,4 @@ vim.cmd([[
 
     set browsedir=buffer
 ]])
+

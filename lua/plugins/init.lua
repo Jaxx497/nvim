@@ -29,7 +29,7 @@ return {
     },
     { "kshenoy/vim-signature",  event = "VeryLazy" },
     { "stevearc/dressing.nvim", event = "VeryLazy", },
-    { "tpope/vim-fugitive",     event = "VeryLazy" },
+    -- { "tpope/vim-fugitive",     event = "VeryLazy" },
     { "tpope/vim-rhubarb",      event = "VeryLazy" },
     { "tpope/vim-sleuth",       event = "VeryLazy" },
 

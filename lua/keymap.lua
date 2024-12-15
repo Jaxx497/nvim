@@ -88,3 +88,33 @@ keymap("n", "dd", function()
 	end
 	return "dd"
 end, { expr = true })
+
+vim.keymap.set({ "n", "t" }, "<leader>xz", function()
+	-- Get current file's directory or fallback to current working directory
+	local current_dir = vim.fn.expand("%:p:h")
+	if current_dir == "" or vim.fn.isdirectory(current_dir) == 0 then
+		current_dir = vim.fn.getcwd()
+	end
+
+	-- Check if we're in terminal mode
+	local in_terminal = vim.bo.buftype == "terminal"
+
+	if in_terminal then
+		-- Hide the terminal if we're in terminal mode
+		vim.cmd("hide")
+	else
+		-- Show/create terminal if we're in normal mode
+		Snacks.terminal.toggle("zsh", {
+			cwd = current_dir,
+			env = {
+				TERM = "xterm-256color",
+			},
+			win = {
+				style = "terminal",
+				border = "rounded",
+				width = 0.65,
+				height = 0.65,
+			},
+		})
+	end
+end, { desc = "Toggle Centered ZSH Terminal" })

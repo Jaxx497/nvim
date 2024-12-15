@@ -43,4 +43,3 @@ require("lazy").setup({
 		},
 	})
 
-print("May the Lord Bless this sesh!!")

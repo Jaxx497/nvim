@@ -21,5 +21,5 @@ return {
             }
         },
     },
-    vim.api.nvim_set_keymap("n", "<leader>z", ":ZenMode<CR>", { desc = "[Z]enmode" }),
+    vim.api.nvim_set_keymap("n", "<leader>z", ":ZenMode<CR>", { desc = "[Z]enmode", silent = true }),
 }
