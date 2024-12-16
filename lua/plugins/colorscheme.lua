@@ -1,5 +1,5 @@
 return {
-
+    -- Place this in your init.lua or another lua config file that gets sourced
     { "tomasr/molokai", event = "VeryLazy" },
     {
         priority = 1000,
@@ -38,6 +38,7 @@ return {
             vim.api.nvim_set_hl(0, "NonText", { fg = "#404040" })
         end,
     },
+
 
     -- Fade inactive windows, load after colorscheme
     --

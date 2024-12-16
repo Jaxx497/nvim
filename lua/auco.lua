@@ -18,6 +18,13 @@ vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGai
 	pattern = { "* !silent" },
 })
 
+vim.api.nvim_create_autocmd({ "VimEnter", "ColorScheme" }, {
+	callback = function()
+		vim.api.nvim_set_hl(0, "SnacksDim", { fg = '#242424', italic = true })
+		-- other highlights...
+	end
+})
+
 -- Fix capital letters on commands
 vim.cmd [[command! W write]]
 vim.cmd [[command! Wq wq]]
