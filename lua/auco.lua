@@ -28,6 +28,5 @@ vim.api.nvim_create_autocmd({ "VimEnter", "ColorScheme" }, {
 -- Fix capital letters on commands
 vim.cmd [[command! W write]]
 vim.cmd [[command! Wq wq]]
-
 vim.cmd [[command! Q q]]
 vim.cmd [[command! Wq wq]]

@@ -20,6 +20,7 @@ return {
         end,
         vim.keymap.set("n", "<F4>", ":TransparentToggle<CR>", { silent = true })
     },
+
     {
         "folke/todo-comments.nvim",
         dependencies = {
@@ -27,11 +28,12 @@ return {
         },
         opts = {}
     },
-    { "kshenoy/vim-signature", event = "VeryLazy" },
-    -- { "stevearc/dressing.nvim", event = "VeryLazy", },
-    -- { "tpope/vim-fugitive",     event = "VeryLazy" },
-    { "tpope/vim-rhubarb",     event = "VeryLazy" },
-    { "tpope/vim-sleuth",      event = "VeryLazy" },
+
+    { "tpope/vim-fugitive",     event = "VeryLazy" },
+    { "tpope/vim-rhubarb",      event = "VeryLazy" },
+    { "stevearc/dressing.nvim", event = "VeryLazy", }, -- Prettier view of things
+    -- { "kshenoy/vim-signature", event = "VeryLazy" },     -- View, toggle and display marks
+    -- { "tpope/vim-sleuth",      event = "VeryLazy" },     -- Adjust indentation
 
     {
         "j-hui/fidget.nvim",
@@ -57,20 +59,6 @@ return {
         "nvim-pack/nvim-spectre", event = "VeryLazy"
     },
 
-    -- {
-    --     'Bekaboo/dropbar.nvim',
-    --     dependencies = { 'nvim-telescope/telescope-fzf-native.nvim' },
-    --
-    --     opts = {
-    --         menu = {
-    --             win_configs = {
-    --                 border = "rounded"
-    --             }
-    --         }
-    --     },
-    --     vim.keymap.set("n", "<leader>db", ":lua require('dropbar.api').pick()<CR>")
-    -- },
-
     {
         "nvim-telescope/telescope-fzf-native.nvim",
         build =
@@ -90,13 +78,16 @@ return {
     },
 
     -- {
-    --     "hrsh7th/nvim-cmp",
-    --     opts = function(_, opts)
-    --         opts.sources = opts.sources or {}
-    --         table.insert(opts.sources, {
-    --             name = "lazydev",
-    --             group_index = 0, -- set group index to 0 to skip loading LuaLS completions
-    --         })
-    --     end,
+    --     'Bekaboo/dropbar.nvim',
+    --     dependencies = { 'nvim-telescope/telescope-fzf-native.nvim' },
+    --
+    --     opts = {
+    --         menu = {
+    --             win_configs = {
+    --                 border = "rounded"
+    --             }
+    --         }
+    --     },
+    --     vim.keymap.set("n", "<leader>db", ":lua require('dropbar.api').pick()<CR>")
     -- },
 }

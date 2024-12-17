@@ -1,26 +1,25 @@
 return {
     "folke/snacks.nvim",
-    lazy = false,
     priority = 1000,
+    lazy = false,
     opts = {
         animate = { enabled = true },
-        -- indent = {
-        --     -- enabled = true,
-        --     only_scope = true,
-        --     only_current = true,
-        -- },
-        input = { enabled = true },
         quickfile = { enabled = true },
         scope = { enabled = true },
         notifier = { enabled = true },
         scroll = {
             enabled = true,
             animate = {
-                duration = { step = 7, total = 250 },
+                duration = { step = 15, total = 250 },
                 easing = "linear",
             },
         },
         styles = {
+            notification = {
+                wo = {
+                    wrap = true
+                }
+            },
             zen = {
                 enter = true,
                 fixbuf = false,
