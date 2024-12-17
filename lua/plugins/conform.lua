@@ -13,7 +13,7 @@ return {
                 javascript = { "prettier" },
                 json = { "prettier" },
                 lua = { "stylelua" },
-                python = { "black" },
+                python = { "ruff_format" },
                 yaml = { "prettier" }
             },
             format_on_save = {
