@@ -139,32 +139,8 @@ return {
             severity_sort = true,     -- default to false
         })
 
-        -- require('ufo').setup({
-        --     open_fold_hl_timeout = 0,
-        --     preview = { win_config = { winhighlight = "Normal:Normal,FloatBorder:Normal" } },
-        --     enable_get_fold_virt_text = true,
-        --     close_fold_kinds_for_ft = { "imports", "comment" },
-        --     provider_selector = function(_, ft)
-        --         return { "lsp", "indent" }
-        --     end,
-        -- })
-        --
-        -- lsp_zero.set_server_config({
-        --     capabilities = {
-        --         textDocument = {
-        --             foldingRange = {
-        --                 dynamicRegistration = false,
-        --                 lineFoldingOnly = true
-        --             }
-        --         }
-        --     }
-        -- })
-        --
-        --
-
+        -- UFO CONFIG --
         require('ufo').setup()
-
-        -- Using ufo provider need remap `zR` and `zM`.
         vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
         vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
 
@@ -180,6 +156,7 @@ return {
                 },
             }
         )
+
 
         local lspconfig_defaults = require('lspconfig').util.default_config
         lspconfig_defaults.capabilities = vim.tbl_deep_extend(
@@ -218,7 +195,6 @@ return {
 
             handlers = {
                 lsp_zero.default_setup,
-                -- rust_analyzer = lsp_zero.noop,
                 lua_ls = function()
                     local lua_opts = lsp_zero.nvim_lua_ls()
                     require('lspconfig').lua_ls.setup(lua_opts)

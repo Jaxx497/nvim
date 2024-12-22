@@ -65,18 +65,6 @@ return {
         "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
     },
 
-    {
-        "folke/lazydev.nvim",
-        ft = "lua",
-        opts = {
-            library = {
-                { path = "luvit-meta/library", words = { "vim%.uv" } },
-            },
-        },
-
-        { 'Bilal2453/luvit-meta', lazy = true },
-    },
-
     -- {
     --     'Bekaboo/dropbar.nvim',
     --     dependencies = { 'nvim-telescope/telescope-fzf-native.nvim' },

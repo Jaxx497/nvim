@@ -1,6 +1,5 @@
 return {
     "nvim-lualine/lualine.nvim",
-    -- dependencies = { "nvim-tree/nvim-web-devicons" },
     dependencies = { "echasnovski/mini.icons" },
 
     config = function()
@@ -16,6 +15,7 @@ return {
             violet   = '#a9a1e1',
             magenta  = '#c678dd',
             blue     = '#51afef',
+            fuchsia  = '#d000d0',
             red      = '#ec5f67',
         }
 
@@ -39,13 +39,12 @@ return {
                 -- Disable sections and component separators
                 component_separators = '',
                 section_separators = '',
-                -- theme = 'monokai-pro',
                 theme = {
                     -- 	-- We are going to use lualine_c an lualine_x as left and
                     -- 	-- right section. Both are highlighted by c theme .  So we
                     -- 	-- are just setting default looks o statusline
-                    normal = { c = { fg = colors.fg, bg = colors.bg } },
-                    inactive = { c = { fg = colors.fg, bg = colors.bg } },
+                    normal = { c = { fg = colors.fg, bg = colors.none } },
+                    inactive = { c = { fg = colors.fg, bg = colors.none } },
                 },
             },
             sections = {
@@ -83,7 +82,7 @@ return {
             function()
                 return '▊'
             end,
-            color = { fg = colors.blue }, -- Sets highlighting of component
+            color = { fg = colors.fuchsia },   -- Sets highlighting of component
             padding = { left = 0, right = 1 }, -- We don't need space before this
         }
 
@@ -97,9 +96,9 @@ return {
                 local mode_color = {
                     n = colors.red,
                     i = colors.green,
-                    v = colors.blue,
-                    [''] = colors.blue,
-                    V = colors.blue,
+                    v = colors.fuchsia,
+                    [''] = colors.fuchsia,
+                    V = colors.fuchsia,
                     c = colors.magenta,
                     no = colors.red,
                     s = colors.orange,
@@ -179,7 +178,7 @@ return {
 
         -- Add components to right sections
         ins_right {
-            'o:encoding', -- option component same as &encoding in viml
+            'o:encoding',       -- option component same as &encoding in viml
             fmt = string.upper, -- I'm not sure why it's upper case either ;)
             cond = conditions.hide_in_width,
             color = { fg = colors.green, gui = 'bold' },
@@ -214,7 +213,7 @@ return {
             function()
                 return '▊'
             end,
-            color = { fg = colors.blue },
+            color = { fg = colors.fuchsia },
             padding = { left = 1 },
         }
 
