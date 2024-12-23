@@ -1,5 +1,38 @@
 return {
-    {
+    { -- Lsp Info
+        "j-hui/fidget.nvim",
+        event = "LspAttach",
+        opts = {
+            notification = {
+                window = {
+                    winblend = 0,
+                }
+            }
+        },
+    },
+
+    { -- Folding
+        'kevinhwang91/nvim-ufo',
+        event = "BufReadPre",
+        dependencies = { 'kevinhwang91/promise-async' },
+        opts = {},
+
+    },
+
+    { -- Additional keybindings
+        'tummetott/unimpaired.nvim',
+        event = "VeryLazy",
+        config = function()
+            require('unimpaired').setup {}
+        end
+    },
+
+    { -- Search and replace
+        "nvim-pack/nvim-spectre",
+        event = "VeryLazy"
+    },
+
+    { -- Transparency
         "xiyaowong/transparent.nvim",
         config = function()
             require("transparent").setup({
@@ -19,41 +52,32 @@ return {
         vim.keymap.set("n", "<F4>", ":TransparentToggle<CR>", { silent = true })
     },
 
-    {
-        "folke/todo-comments.nvim",
-        dependencies = {
-            "nvim-lua/plenary.nvim"
-        },
-        opts = {}
-    },
-
-    { "tpope/vim-fugitive", event = "VeryLazy" },
-    { "tpope/vim-rhubarb",  event = "VeryLazy" },
-    -- { "stevearc/dressing.nvim", event = "VeryLazy", }, -- Prettier view of things
-    -- { "kshenoy/vim-signature", event = "VeryLazy" },     -- View, toggle and display marks
-    -- { "tpope/vim-sleuth",      event = "VeryLazy" },     -- Adjust indentation
-
-    {
-        "j-hui/fidget.nvim",
-        event = "LspAttach",
-        opts = {
-            notification = {
-                window = {
-                    winblend = 0,
-                }
-            }
-        },
-    },
-
-    {
-        'tummetott/unimpaired.nvim',
+    { -- Outline
+        "hedyhli/outline.nvim",
+        lazy = true,
         event = "VeryLazy",
-        config = function()
-            require('unimpaired').setup {}
-        end
-    },
+        cmd = { "Outline", "OutlineOpen" },
+        keys = {
+            { "<leader>o", "<cmd>Outline<CR>", desc = "Toggle outline" },
+        },
+        opts = {
+            outline_window = {
 
-    {
-        "nvim-pack/nvim-spectre", event = "VeryLazy"
+                width = 40,
+                relative_width = false,
+
+                auto_close = true,
+                auto_jump = true,
+                keymaps = {
+                    goto_and_close = "<Cr>",
+                },
+            },
+        },
     }
+
+    -- { "kshenoy/vim-signature", event = "VeryLazy" },     -- View, toggle and display marks
+
+    -- Git related
+    -- { "tpope/vim-fugitive", event = "VeryLazy" },
+    -- { "tpope/vim-rhubarb",  event = "VeryLazy" },
 }

@@ -67,8 +67,6 @@ return {
                 ["bg+"] = "-1",
                 ["gutter"] = "-1",
             }
-
-
         })
 
         vim.keymap.set("n", "<leader>f", require('fzf-lua').files, { desc = "Search Files" })
