@@ -3,11 +3,11 @@ local keymap = vim.keymap.set
 keymap({ "n", "c", "i", "o", "s", "v" }, "kj", "<CMD>noh<CR><ESC>")
 
 vim.keymap.set("n", "i", function()
-	if #vim.fn.getline "." == 0 then
-		return [["_cc]]
-	else
-		return "i"
-	end
+    if #vim.fn.getline "." == 0 then
+        return [["_cc]]
+    else
+        return "i"
+    end
 end, { expr = true, desc = "Automatically indent to the appropriate position" })
 
 -- CENTER SCREEN WHILE CYCLING SEARCH RESULTS
@@ -18,9 +18,9 @@ keymap("v", "<", "<gv")
 
 -- SEARCH AND REPLACE --
 keymap("n", "<leader>s", '<cmd>lua require("spectre").toggle()<CR>',
-	{ desc = "Toggle Search (Specter)" })
+    { desc = "Toggle Search (Specter)" })
 keymap("n", "<leader>sp", '<cmd>lua require("spectre").open_visual({select_word=true})<CR>',
-	{ desc = "Search current word" })
+    { desc = "Search current word" })
 
 -- CLIPBOARD ADJUSTMENTS
 keymap({ "n", "v" }, "<leader>y", '"+y<CR>gv', { desc = "[Y]ank to clipboard" })
@@ -83,8 +83,8 @@ keymap({ "n", "x", "v" }, "<Leader>gc", ':normal gcc"<Esc>', { silent = true, no
 
 -- DO NOT COPY EMPTY TEXT TO REGISTER
 keymap("n", "dd", function()
-	if vim.fn.getline(".") == "" then
-		return '"_dd'
-	end
-	return "dd"
+    if vim.fn.getline(".") == "" then
+        return '"_dd'
+    end
+    return "dd"
 end, { expr = true })

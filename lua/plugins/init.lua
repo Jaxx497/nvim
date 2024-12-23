@@ -12,9 +12,7 @@ return {
                     "Normal",
                     "NormalFloat",
                     "FloatBorder",
-                    "TelescopeNormal",
-                    "TelescopePromptBorder",
-                    "FoldColumn"
+                    -- "FoldColumn"
                 }
             })
         end,
@@ -29,9 +27,9 @@ return {
         opts = {}
     },
 
-    { "tpope/vim-fugitive",     event = "VeryLazy" },
-    { "tpope/vim-rhubarb",      event = "VeryLazy" },
-    { "stevearc/dressing.nvim", event = "VeryLazy", }, -- Prettier view of things
+    { "tpope/vim-fugitive", event = "VeryLazy" },
+    { "tpope/vim-rhubarb",  event = "VeryLazy" },
+    -- { "stevearc/dressing.nvim", event = "VeryLazy", }, -- Prettier view of things
     -- { "kshenoy/vim-signature", event = "VeryLazy" },     -- View, toggle and display marks
     -- { "tpope/vim-sleuth",      event = "VeryLazy" },     -- Adjust indentation
 
@@ -57,25 +55,5 @@ return {
 
     {
         "nvim-pack/nvim-spectre", event = "VeryLazy"
-    },
-
-    {
-        "nvim-telescope/telescope-fzf-native.nvim",
-        build =
-        "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
-    },
-
-    -- {
-    --     'Bekaboo/dropbar.nvim',
-    --     dependencies = { 'nvim-telescope/telescope-fzf-native.nvim' },
-    --
-    --     opts = {
-    --         menu = {
-    --             win_configs = {
-    --                 border = "rounded"
-    --             }
-    --         }
-    --     },
-    --     vim.keymap.set("n", "<leader>db", ":lua require('dropbar.api').pick()<CR>")
-    -- },
+    }
 }

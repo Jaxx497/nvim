@@ -28,12 +28,6 @@ return {
 
         -- Lsp Zero Key Bindings --
         lsp_zero.on_attach(function(_, bufnr)
-            keymap("n", "<leader>d", "<cmd>Telescope diagnostics bufnr=0<CR>", {
-                buffer = bufnr,
-                remap = false,
-                desc = "LSP: Show buffer diagnostics"
-            })
-
             keymap('n', '<space>q', vim.diagnostic.setloclist, {
                 buffer = bufnr,
                 remap = false,
