@@ -29,15 +29,21 @@ return {
             },
 
             diagnostics = {
-                multiline = false,
-                previewer = false
+                previewer = false,
+
+                winopts = {
+                    width  = 0.75,
+                    height = 0.4,
+                    row    = 0.5,
+                    col    = 0.5,
+                }
             },
 
             keymap = {
                 builtin = {
                     ["kj"] = "hide",
-                    ["<C-n>"] = "preview-page-down",
-                    ["<C-p>"] = "preview-page-up"
+                    ["<C-d>"] = "preview-page-down",
+                    ["<C-u>"] = "preview-page-up",
                 }
             },
 
@@ -52,8 +58,9 @@ return {
                     previewer = false
                 }
             },
+
             fzf_opts = {
-                -- ["--ansi"]           = true,
+                ["--ansi"]           = true,
                 ["--info"]           = "inline-right", -- fzf < v0.42 = "inline"
                 ["--pointer"]        = "",
                 ["--height"]         = "100%",

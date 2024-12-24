@@ -10,6 +10,7 @@ local set = vim.opt
 -- Numbers
 set.number = true
 set.relativenumber = true
+set.showmode = false
 
 set.encoding = "utf-8"
 
