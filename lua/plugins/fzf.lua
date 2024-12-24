@@ -3,7 +3,6 @@ return {
     dependencies = { "echasnovski/mini.icons" },
     config = function()
         require('mini.icons').setup()
-        -- MiniIcons.mock_nvim_web_devicons()
         require("fzf-lua").register_ui_select()
         require("fzf-lua").setup({
 

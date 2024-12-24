@@ -11,10 +11,10 @@ vim.keymap.set("n", "i", function()
 end, { expr = true, desc = "Automatically indent to the appropriate position" })
 
 -- CENTER SCREEN WHILE CYCLING SEARCH RESULTS
-keymap("n", "n", "nzzzv")
-keymap("n", "N", "Nzzzv")
-keymap("v", ">", ">gv")
-keymap("v", "<", "<gv")
+keymap("n", "n", "nzzzv", { silent = true })
+keymap("n", "N", "Nzzzv", { silent = true })
+keymap("v", ">", ">gv", { silent = true })
+keymap("v", "<", "<gv", { silent = true })
 
 -- SEARCH AND REPLACE --
 keymap("n", "<leader>s", '<cmd>lua require("spectre").toggle()<CR>',
@@ -43,8 +43,8 @@ keymap("x", "J", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
 keymap("x", "K", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
 
 -- SCROLL & CENTER
-keymap("n", "<C-u>", "<C-u>zz")
-keymap("n", "<C-d>", "<C-d>zz")
+keymap("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
+keymap("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
 
 -- OPEN TERMINAL
 keymap("n", "<leader>tn", ":term<CR>", { desc = "Open full [T]ermi[n]al" })

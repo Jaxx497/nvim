@@ -13,7 +13,6 @@ return {
     },
 
     {
-
         'levouh/tint.nvim',
         event = "VeryLazy",
         config = function()

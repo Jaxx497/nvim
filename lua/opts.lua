@@ -11,6 +11,7 @@ local set = vim.opt
 set.number = true
 set.relativenumber = true
 set.showmode = false
+set.shortmess = "ltToOCFS"
 
 set.encoding = "utf-8"
 
