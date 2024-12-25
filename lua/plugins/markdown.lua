@@ -1,7 +1,5 @@
 return {
-
-    -- Markdown Preview --
-    {
+    { -- Markdown Preview --
         "iamcco/markdown-preview.nvim",
         ft = "markdown",
         config = function()
@@ -19,8 +17,7 @@ return {
         vim.keymap.set("n", "<leader>md", ":MarkdownPreviewToggle<CR>", { desc = "[M]ark[d]own toggle" })
     },
 
-    -- Markdown Render --
-    {
+    { -- Markdown Render --
         'MeanderingProgrammer/render-markdown.nvim',
         ft = "markdown",
         dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' },

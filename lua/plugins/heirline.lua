@@ -4,7 +4,6 @@ return {
         'echasnovski/mini.icons'
     },
     config = function()
-        MiniIcons = require('mini.icons').setup()
         local conditions = require("heirline.conditions")
         local utils = require("heirline.utils")
 
@@ -92,7 +91,7 @@ return {
                     t = "red",
                 }
             },
-            provider = function(self)
+            provider = function(_) -- Replace _ with self
                 -- return " %2(" .. self.mode_names[self.mode] .. "%)"
                 return ""
             end,
@@ -110,13 +109,10 @@ return {
         }
 
         local FileNameBlock = {
-            -- let's first set up some attributes needed by this component and its children
             init = function(self)
                 self.filename = vim.api.nvim_buf_get_name(0)
             end,
         }
-        -- We can now define some children separately and add them later
-
 
         local icon_color_map = {
             MiniIconsAzure = "#007fff",
@@ -157,7 +153,6 @@ return {
                     return vim.bo.modified
                 end,
                 provider = "[+]",
-
                 hl = { fg = "purple" },
             },
             {
@@ -197,7 +192,7 @@ return {
             init = function(self)
                 local filename = vim.api.nvim_buf_get_name(0)
                 local extension = vim.fn.fnamemodify(filename, ":e")
-                local icon, icon_color, _ = MiniIcons.get('extension', extension)
+                local icon, icon_color, _ = require('mini.icons').get('extension', extension)
 
                 self.icon = icon or ""
                 self.icon_color = icon_color_map[icon_color]
@@ -276,7 +271,6 @@ return {
 
             {
                 provider = function(self)
-                    -- 0 is just another output, we can decide to print it or not!
                     return self.errors > 0 and (self.error_icon .. self.errors .. " ")
                 end,
                 hl = { fg = "diag_error" },
@@ -311,7 +305,6 @@ return {
             end,
 
             hl = { fg = "orange" },
-
 
             { -- git branch name
                 provider = function(self)

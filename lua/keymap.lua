@@ -59,6 +59,7 @@ keymap("t", "kj", "<C-\\><C-n>", { noremap = true, silent = true })
 -- MAKE FILE EXCECUTABLE --
 keymap("n", "<leader>x", ":w<CR>|<cmd>!chmod +x %<CR>", { silent = true, desc = "Make file executable" })
 
+-- GITHUB --
 keymap("n", "<leader>gg", "<CMD>Git<CR>", { desc = "[G]it" })
 
 -- GoTo File --	
@@ -69,8 +70,8 @@ keymap("n", "<leader>sl", ":sp<CR><C-w>j", { desc = "[Sp]lit" })
 keymap("n", "<leader>vs", ":vsp<CR><C-w>l", { desc = "[V]ertical [S]plit" })
 
 -- SEARCH AND REPLACE
-keymap("v", "<leader>sb", 'y:%s/<C-r><C-r>"//g<Left><Left>', { desc = "[s]ubstitute current word" })
-keymap("n", "<leader>sb", ":%s/<C-r><C-w>//gI<Left><Left><Left>", { desc = "[s]ubstitute current word" })
+keymap("v", "<leader>sb", 'y:%s/<C-r><C-r>"//g<Left><Left>', { desc = "[S]ubstitute current word" })
+keymap("n", "<leader>sb", ":%s/<C-r><C-w>//gI<Left><Left><Left>", { desc = "[S]ubstitute current word" })
 
 -- Copy registry to clipboard
 keymap("n", "<Leader>xp", ":call setreg('+', getreg('@'))<CR>", { silent = true })

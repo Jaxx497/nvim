@@ -3,7 +3,7 @@ return {
     event = { "BufRead", "BufNewFile" },
     branch = 'v3.x',
     dependencies = {
-        "hrsh7th/cmp-buffer",
+        -- "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-nvim-lua",
         "hrsh7th/cmp-path",
@@ -151,7 +151,6 @@ return {
             }
         )
 
-
         local lspconfig_defaults = require('lspconfig').util.default_config
         lspconfig_defaults.capabilities = vim.tbl_deep_extend(
             'force',
@@ -211,7 +210,7 @@ return {
                 { name = 'luasnip', keyword_length = 2 },
                 { name = 'nvim_lsp' },
                 { name = 'nvim_lua' },
-                { name = 'buffer',  keyword_length = 3 },
+                -- { name = 'buffer',  keyword_length = 3 },
             },
 
             formatting = {
