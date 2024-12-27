@@ -8,13 +8,13 @@ return {
             formatters_by_ft = {
                 c = { "clangd" },
                 cpp = { "clangd" },
-                css = { "prettier" },
+                css = { "prettierd" },
                 html = { "htmlbeautifier" },
-                javascript = { "prettier" },
-                json = { "prettier" },
+                javascript = { "prettierd" },
+                json = { "prettierd" },
                 lua = { "stylelua" },
                 python = { "ruff_format" },
-                yaml = { "prettier" }
+                yaml = { "prettierd" }
             },
             format_on_save = {
                 lsp_fallback = true,
