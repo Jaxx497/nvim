@@ -18,6 +18,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGai
     pattern = { "* !silent" },
 })
 
+-- Change dimming color
 vim.api.nvim_create_autocmd({ "VimEnter", "ColorScheme" }, {
     callback = function()
         vim.api.nvim_set_hl(0, "SnacksDim", { fg = '#242424', italic = true })
