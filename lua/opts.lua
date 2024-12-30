@@ -50,9 +50,12 @@ set.cursorline = true
 
 -- Folding
 set.foldlevel = 99
+set.foldlevelstart = 99
 set.foldcolumn = '0'
 set.foldenable = false
 vim.o.fillchars = [[eob:~,fold: ,foldopen:󰄼,foldclose:󰄾,foldsep: ]]
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "v:lua.vim.lsp.foldexper()"
 
 set.virtualedit = "block"
 set.inccommand = "split"

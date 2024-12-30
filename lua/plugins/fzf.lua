@@ -2,9 +2,11 @@ return {
     "ibhagwan/fzf-lua",
     dependencies = { "echasnovski/mini.icons" },
     config = function()
+        local fzf_lua = require('fzf-lua')
         require('mini.icons').setup()
-        require("fzf-lua").register_ui_select()
-        require("fzf-lua").setup({
+
+        fzf_lua.register_ui_select()
+        fzf_lua.setup({
 
             winopts = {
                 height     = 0.85,
@@ -25,6 +27,7 @@ return {
             files = {
                 git_icons = false,
                 cwd_prompt = false,
+                header = false,
             },
 
             diagnostics = {
