@@ -6,14 +6,11 @@ return {
         "williamboman/mason.nvim",
         'williamboman/mason-lspconfig.nvim',
         'hrsh7th/nvim-cmp',
-
-
-        -- "hrsh7th/cmp-nvim-lua",
-        -- "hrsh7th/cmp-path",
-        -- "hrsh7th/nvim-cmp",
         "L3MON4D3/LuaSnip",
-        -- "rafamadriz/friendly-snippets",
         "saadparwaiz1/cmp_luasnip",
+        "hrsh7th/cmp-path",
+        -- "hrsh7th/cmp-nvim-lua",
+        -- "rafamadriz/friendly-snippets",
     },
 
     config = function()
@@ -161,10 +158,9 @@ return {
             sources = {
                 { name = 'path' },
                 { name = 'nvim_lsp' },
-                { name = 'nvim_lsp' },
                 { name = 'nvim_lua' },
+                { name = 'buffer' },
             },
-
             snippet = {
                 expand = function(args)
                     vim.snippet.expand(args.body)
