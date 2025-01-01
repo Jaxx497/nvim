@@ -45,6 +45,10 @@ return {
                     "Normal",
                     "NormalFloat",
                     "FloatBorder",
+                    "RenderMarkdownCode",
+                    "RenderMarkdownCodeInline",
+                    -- "@markup.raw.block.markdown"
+                    "Special"
                     -- "FoldColumn"
                 }
             })

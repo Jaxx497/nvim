@@ -40,7 +40,6 @@ return {
         { "<leader>un", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
     },
 
-
     vim.keymap.set({ "n", "t" }, "<leader><space>", function()
         -- Get current file's directory or fallback to current working directory
         local current_dir = vim.fn.expand("%:p:h")
