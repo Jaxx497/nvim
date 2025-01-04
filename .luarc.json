@@ -1,6 +1,7 @@
 {
     "diagnostics.globals": [
         "vim",
-        "Snacks"
+        "Snacks",
+        "toggle_term"
     ]
 }

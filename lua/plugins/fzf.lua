@@ -26,6 +26,8 @@ return {
 
             files = {
                 file_icons = "mini",
+                -- file_icons = false,
+                -- color_icons = false,
                 git_icons = false,
                 cwd_prompt = false, -- Hides the cwd in prompt
                 header = false,     -- Hides `ctrl-g to toggle ...`
@@ -81,14 +83,14 @@ return {
         })
 
         vim.keymap.set("n", "<leader>f", fzf_lua.files, { desc = "Search Files" })
-        vim.keymap.set("n", "<leader>ff", fzf_lua.resume, { desc = "Search Resume" })
+        vim.keymap.set("n", "<leader>re", fzf_lua.resume, { desc = "Search [Re]sume" })
         vim.keymap.set("n", "<leader>sg", fzf_lua.live_grep, { desc = "[S]earch by [G]rep" })
         vim.keymap.set("n", "<leader>gw", fzf_lua.grep_cword, { desc = "[G]rep by [W]ord" })
         vim.keymap.set("n", "<leader>cs", fzf_lua.colorschemes, { desc = "Cycle colorschemes" })
-        vim.keymap.set("n", "<leader>fb", fzf_lua.buffers, { desc = "Find buffers" })
+        vim.keymap.set("n", "<leader>pb", fzf_lua.buffers, { desc = "[P]revious [B]uffers" })
         vim.keymap.set("n", "<leader>?", fzf_lua.oldfiles, { desc = "Old files" })
         vim.keymap.set("n", "<leader>gs", fzf_lua.git_status, { desc = "[G]it [S]tatus" })
-        vim.keymap.set("n", "<leader>fh", fzf_lua.help_tags, { desc = "[F]ind [H]elp" })
+        vim.keymap.set("n", "<leader>he", fzf_lua.help_tags, { desc = "[He]lp Tags" })
         vim.keymap.set("n", "<leader>gr", fzf_lua.lsp_references, { desc = "[G]o To [R]eferences" })
         vim.keymap.set("n", "<leader>d", fzf_lua.diagnostics_document, { desc = "Search [D]iagnostics" })
         vim.keymap.set("n", "<leader>dw", fzf_lua.diagnostics_workspace,
