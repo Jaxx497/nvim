@@ -19,7 +19,7 @@ return {
         scroll = {
             enabled = true,
             animate = {
-                duration = { step = 15, total = 250 },
+                duration = { step = 10, total = 250 },
                 easing = "linear",
             },
         },

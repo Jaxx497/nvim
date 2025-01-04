@@ -27,9 +27,8 @@ return {
             files = {
                 file_icons = "mini",
                 git_icons = false,
-                color_icons = false,
                 cwd_prompt = false, -- Hides the cwd in prompt
-                header = false,     -- Hides ctrl-g to toggle ...
+                header = false,     -- Hides `ctrl-g to toggle ...`
                 formatter = "path.filename_first",
             },
 
@@ -84,7 +83,7 @@ return {
         vim.keymap.set("n", "<leader>f", fzf_lua.files, { desc = "Search Files" })
         vim.keymap.set("n", "<leader>ff", fzf_lua.resume, { desc = "Search Resume" })
         vim.keymap.set("n", "<leader>sg", fzf_lua.live_grep, { desc = "[S]earch by [G]rep" })
-        vim.keymap.set("n", "<leader>gw", fzf_lua.grep_cword, { desc = "[S]earch by [G]rep" })
+        vim.keymap.set("n", "<leader>gw", fzf_lua.grep_cword, { desc = "[G]rep by [W]ord" })
         vim.keymap.set("n", "<leader>cs", fzf_lua.colorschemes, { desc = "Cycle colorschemes" })
         vim.keymap.set("n", "<leader>fb", fzf_lua.buffers, { desc = "Find buffers" })
         vim.keymap.set("n", "<leader>?", fzf_lua.oldfiles, { desc = "Old files" })
