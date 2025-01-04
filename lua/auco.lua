@@ -30,3 +30,19 @@ vim.cmd [[command! W write]]
 vim.cmd [[command! Wq wq]]
 vim.cmd [[command! Q q]]
 vim.cmd [[command! Wq wq]]
+
+
+toggle_term = function()
+    -- Check if we're in terminal mode
+    local in_terminal = vim.bo.buftype == "terminal"
+    if in_terminal then
+        -- Hide the terminal if we're in terminal mode
+        vim.cmd("hide")
+    else
+        Snacks.terminal.toggle("zsh", {
+            env = {
+                TERM = "xterm-256color",
+            },
+        })
+    end
+end

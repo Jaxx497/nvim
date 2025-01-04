@@ -1,16 +1,15 @@
 return {
     "ibhagwan/fzf-lua",
-    dependencies = { "echasnovski/mini.icons" },
+    -- dependencies = { "echasnovski/mini.icons" },
     config = function()
         local fzf_lua = require('fzf-lua')
-        require('mini.icons').setup()
 
         fzf_lua.register_ui_select()
-        fzf_lua.setup({
 
+        fzf_lua.setup({
             winopts = {
-                height     = 0.85,
-                width      = 0.80,
+                height     = 0.75,
+                width      = 0.70,
                 row        = 0.35,
                 col        = 0.50,
                 border     = "rounded",
@@ -18,16 +17,20 @@ return {
                     enabled = true
                 },
                 preview    = {
-                    vertical   = 'down:30%',
+                    title      = false,
+                    vertical   = 'up:55%',
                     horizontal = 'right:70%',
+                    layout     = "flex"
                 }
-
             },
 
             files = {
+                file_icons = "mini",
                 git_icons = false,
-                cwd_prompt = false,
-                header = false,
+                color_icons = false,
+                cwd_prompt = false, -- Hides the cwd in prompt
+                header = false,     -- Hides ctrl-g to toggle ...
+                formatter = "path.filename_first",
             },
 
             diagnostics = {
@@ -78,18 +81,18 @@ return {
             }
         })
 
-        vim.keymap.set("n", "<leader>f", require('fzf-lua').files, { desc = "Search Files" })
-        vim.keymap.set("n", "<leader>ff", require('fzf-lua').resume, { desc = "Search Resume" })
-        vim.keymap.set("n", "<leader>sg", require('fzf-lua').live_grep, { desc = "[S]earch by [G]rep" })
-        vim.keymap.set("n", "<leader>gw", require('fzf-lua').grep_cword, { desc = "[S]earch by [G]rep" })
-        vim.keymap.set("n", "<leader>cs", require('fzf-lua').colorschemes, { desc = "Cycle colorschemes" })
-        vim.keymap.set("n", "<leader>fb", require('fzf-lua').buffers, { desc = "Find buffers" })
-        vim.keymap.set("n", "<leader>?", require('fzf-lua').oldfiles, { desc = "Old files" })
-        vim.keymap.set("n", "<leader>gs", require('fzf-lua').git_status, { desc = "[G]it [S]tatus" })
-        vim.keymap.set("n", "<leader>fh", require('fzf-lua').help_tags, { desc = "[F]ind [H]elp" })
-        vim.keymap.set("n", "<leader>gr", require('fzf-lua').lsp_references, { desc = "[G]o To [R]eferences" })
-        vim.keymap.set("n", "<leader>d", require('fzf-lua').diagnostics_document, { desc = "Search [D]iagnostics" })
-        vim.keymap.set("n", "<leader>dw", require('fzf-lua').diagnostics_workspace,
+        vim.keymap.set("n", "<leader>f", fzf_lua.files, { desc = "Search Files" })
+        vim.keymap.set("n", "<leader>ff", fzf_lua.resume, { desc = "Search Resume" })
+        vim.keymap.set("n", "<leader>sg", fzf_lua.live_grep, { desc = "[S]earch by [G]rep" })
+        vim.keymap.set("n", "<leader>gw", fzf_lua.grep_cword, { desc = "[S]earch by [G]rep" })
+        vim.keymap.set("n", "<leader>cs", fzf_lua.colorschemes, { desc = "Cycle colorschemes" })
+        vim.keymap.set("n", "<leader>fb", fzf_lua.buffers, { desc = "Find buffers" })
+        vim.keymap.set("n", "<leader>?", fzf_lua.oldfiles, { desc = "Old files" })
+        vim.keymap.set("n", "<leader>gs", fzf_lua.git_status, { desc = "[G]it [S]tatus" })
+        vim.keymap.set("n", "<leader>fh", fzf_lua.help_tags, { desc = "[F]ind [H]elp" })
+        vim.keymap.set("n", "<leader>gr", fzf_lua.lsp_references, { desc = "[G]o To [R]eferences" })
+        vim.keymap.set("n", "<leader>d", fzf_lua.diagnostics_document, { desc = "Search [D]iagnostics" })
+        vim.keymap.set("n", "<leader>dw", fzf_lua.diagnostics_workspace,
             { desc = "[D]iagnostics [W]orkspace" })
     end,
 }

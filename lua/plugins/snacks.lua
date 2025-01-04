@@ -6,6 +6,15 @@ return {
         animate = { enabled = true },
         quickfile = { enabled = true },
         scope = { enabled = true },
+        terminal = {
+            win = {
+                position = "float",
+                style = "terminal",
+                border = "rounded",
+                width = 0.6,
+                height = 0.7,
+            }
+        },
         notifier = { enabled = true },
         scroll = {
             enabled = true,
@@ -40,35 +49,8 @@ return {
         { "<leader>un", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
     },
 
-    vim.keymap.set({ "n", "t" }, "<leader><space>", function()
-        -- Get current file's directory or fallback to current working directory
-        local current_dir = vim.fn.expand("%:p:h")
-        if current_dir == "" or vim.fn.isdirectory(current_dir) == 0 then
-            current_dir = vim.fn.getcwd()
-        end
-
-        -- Check if we're in terminal mode
-        local in_terminal = vim.bo.buftype == "terminal"
-
-        if in_terminal then
-            -- Hide the terminal if we're in terminal mode
-            vim.cmd("hide")
-        else
-            -- Show/create terminal if we're in normal mode
-            Snacks.terminal.toggle("zsh", {
-                cwd = current_dir,
-                env = {
-                    TERM = "xterm-256color",
-                },
-                win = {
-                    style = "terminal",
-                    border = "rounded",
-                    width = 0.6,
-                    height = 0.6,
-                },
-            })
-        end
-    end, { desc = "Toggle Centered ZSH Terminal" }),
+    vim.keymap.set({ "n", "t" }, "<leader><space>", toggle_term, { desc = "Toggle Centered ZSH Terminal" }),
+    vim.keymap.set({ "n", "t" }, "<F5>", toggle_term, { desc = "Toggle Centered ZSH Terminal" }),
 
     init = function()
         vim.api.nvim_create_autocmd("User", {
