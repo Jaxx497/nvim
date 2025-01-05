@@ -20,7 +20,10 @@ return {
     { -- Markdown Render --
         'MeanderingProgrammer/render-markdown.nvim',
         ft = "markdown",
-        dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' },
+        dependencies = {
+            'nvim-treesitter/nvim-treesitter',
+            'echasnovski/mini.icons'
+        },
         opts = {
             code = {
                 border = "none",

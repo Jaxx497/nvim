@@ -79,13 +79,14 @@ return {
         },
     },
 
+    { "kshenoy/vim-signature", event = "VeryLazy" }, -- View, toggle and display marks
+
     -- {
     --     "nvim-telescope/telescope-fzf-native.nvim",
     --     build =
     --     "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
     -- },
 
-    -- { "kshenoy/vim-signature", event = "VeryLazy" },     -- View, toggle and display marks
 
     -- Git related
     -- { "tpope/vim-fugitive", event = "VeryLazy" },

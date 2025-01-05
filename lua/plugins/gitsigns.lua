@@ -38,6 +38,8 @@ return {
                 end)
                 return "<ignore>"
             end, { expr = true, buffer = bufnr, desc = "jump to previous hunk" })
+
+            vim.keymap.set('n', ",d", "<cmd>vert Git diffthis<cr>")
         end,
     },
 }

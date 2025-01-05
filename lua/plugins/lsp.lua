@@ -49,6 +49,7 @@ return {
                     [vim.diagnostic.severity.INFO] = " "
                 }
             },
+            severity_sort = true,
             virtual_text = {
                 prefix = '',
             }

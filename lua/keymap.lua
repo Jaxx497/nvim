@@ -59,7 +59,7 @@ keymap("t", "kj", "<C-\\><C-n>", { noremap = true, silent = true })
 -- MAKE FILE EXCECUTABLE --
 keymap("n", "<leader>x", ":w<CR>|<cmd>!chmod +x %<CR>", { silent = true, desc = "Make file executable" })
 
--- GITHUB --
+-- GIT --
 keymap("n", "<leader>gg", "<CMD>Git<CR>", { desc = "[G]it" })
 
 -- GoTo File --	
