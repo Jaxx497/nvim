@@ -1,5 +1,6 @@
 return {
     "rebelot/heirline.nvim",
+    event = "VeryLazy",
     dependencies = {
         'echasnovski/mini.icons'
     },
