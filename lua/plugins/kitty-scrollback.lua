@@ -1,12 +1,12 @@
 return {
     'mikesmithgh/kitty-scrollback.nvim',
-    enabled = true,
+    tag = 'v6.1.2',
     lazy = true,
-    cmd = { 'KittyScrollbackGenerateKittens', 'KittyScrollbackCheckHealth' },
+    cmd = { 'KittyScrollbackGenerateKittens', 'KittyScrollbackCheckHealth', 'KittyScrollbackGenerateCommandLineEditing' },
     event = { 'User KittyScrollbackLaunch' },
-    version = '*', -- latest stable version, may have breaking changes if major version changed
     config = function()
-        vim.keymap.set({ 'n' }, '<Esc>', '<Plug>(KsbCloseOrQuitAll)', {})
+        vim.keymap.set({ 'n' }, '<Esc>', '<Plug>(KsbCloseOrQuitAll)', {}) -- quit kitty-scrollback.nvim with Esc key
+        -- -- vim.keymap.set({ 'n' }, 'q', '<Plug>(KsbCloseOrQuitAll)', {}) -- uncomment if you would like to also quit with the q key
         require('kitty-scrollback').setup()
     end,
 }
