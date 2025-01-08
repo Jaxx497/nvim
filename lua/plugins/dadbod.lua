@@ -4,7 +4,8 @@ return {
         "tpope/vim-dadbod",
         "kristijanhusak/vim-dadbod-completion"
     },
+    cmd = "DBUI",
     keys = {
-        { "<leader>db", "<cmd>DBUI<cr>" }
+        { "<leader>db", "<cmd>DBUIToggle<cr>" }
     }
 }
