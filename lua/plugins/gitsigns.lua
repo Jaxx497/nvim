@@ -9,6 +9,7 @@ return {
             topdelete = { text = "‾" },
             changedelete = { text = "~" },
         },
+        sign_priority = 1,
 
         on_attach = function(bufnr)
             vim.keymap.set(

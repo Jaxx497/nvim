@@ -42,6 +42,7 @@ return {
 
         vim.diagnostic.config({
             signs = {
+                priority = 100,
                 text = {
                     [vim.diagnostic.severity.ERROR] = " ",
                     [vim.diagnostic.severity.WARN] = " ",
