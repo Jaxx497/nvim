@@ -20,7 +20,7 @@ return {
                 html = { "htmlbeautifier" },
                 javascript = { "prettierd" },
                 json = { "prettierd" },
-                sql = { "sql_formatter" },
+                sql = { "sqlfmt" },
                 lua = { "stylelua" },
                 python = { "ruff_format" },
                 yaml = { "prettierd" }
