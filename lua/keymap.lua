@@ -64,6 +64,8 @@ keymap("n", "<leader>gg", "<CMD>Git<CR>", { desc = "[G]it" })
 -- GoTo File --	
 keymap("n", "<S-Tab>", "gf", { noremap = true, silent = true })
 
+keymap("n", "<leader>q", "<CMD>lua vim.diagnostic.setqflist()<CR>", { desc = "Send diagnostics to quickfix list" })
+
 -- SPLITTING
 keymap("n", "<leader>sl", ":sp<CR><C-w>j", { desc = "[Sp]lit" })
 keymap("n", "<leader>vs", ":vsp<CR><C-w>l", { desc = "[V]ertical [S]plit" })
