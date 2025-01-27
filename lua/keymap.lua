@@ -48,7 +48,6 @@ keymap("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
 
 -- OPEN TERMINAL
 keymap("n", "<leader>tn", ":term<CR>", { desc = "Open full [T]ermi[n]al" })
-keymap("t", "\\", "<C-\\><C-N>k")
 keymap("n", "<A-->", "5<C-W>-")
 keymap("n", "<A-=>", "5<C-W>+")
 keymap("n", "<A->>", "5<C-W>>")

@@ -89,6 +89,7 @@ return {
         vim.keymap.set("n", "<leader>he", fzf_lua.help_tags, { desc = "[He]lp Tags" })
         vim.keymap.set("n", "<leader>gr", fzf_lua.lsp_references, { desc = "[G]o To [R]eferences" })
         vim.keymap.set("n", "<leader>d", fzf_lua.diagnostics_document, { desc = "Search [D]iagnostics" })
+        vim.keymap.set("n", "<leader>D", fzf_lua.diagnostics_document, { desc = "Search all [D]" })
         vim.keymap.set("n", "<leader>dw", fzf_lua.diagnostics_workspace,
             { desc = "[D]iagnostics [W]orkspace" })
     end,

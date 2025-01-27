@@ -53,9 +53,6 @@ return {
             },
             severity_sort = true,
             virtual_text = false,
-            -- virtual_text = {
-            --     prefix = '',
-            -- }
         })
 
         -- Stylizes the floating windows
