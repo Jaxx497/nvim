@@ -1,6 +1,5 @@
 return {
     'mikesmithgh/kitty-scrollback.nvim',
-    tag = 'v6.1.2',
     lazy = true,
     cmd = { 'KittyScrollbackGenerateKittens', 'KittyScrollbackCheckHealth', 'KittyScrollbackGenerateCommandLineEditing' },
     event = { 'User KittyScrollbackLaunch' },
