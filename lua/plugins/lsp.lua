@@ -48,12 +48,11 @@ return {
                     [vim.diagnostic.severity.ERROR] = " ",
                     [vim.diagnostic.severity.WARN] = " ",
                     [vim.diagnostic.severity.HINT] = "󰠠 ",
-                    [vim.diagnostic.severity.INFO] = " ",
+                    [vim.diagnostic.severity.INFO] = " "
                 }
             },
             severity_sort = true,
-            -- virtual_lines = true,
-            virtual_text = false,
+            virtual_lines = true,
         })
 
         -- Stylizes the floating windows
