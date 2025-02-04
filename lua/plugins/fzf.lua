@@ -79,6 +79,7 @@ return {
         })
 
         vim.keymap.set("n", "<leader>f", fzf_lua.files, { desc = "Search Files" })
+        vim.keymap.set("n", "<C-t>", fzf_lua.files, { desc = "Search Files" })
         vim.keymap.set("n", "<leader>re", fzf_lua.resume, { desc = "Search [Re]sume" })
         vim.keymap.set("n", "<leader>sg", fzf_lua.live_grep, { desc = "[S]earch by [G]rep" })
         vim.keymap.set("n", "<leader>gw", fzf_lua.grep_cword, { desc = "[G]rep by [W]ord" })

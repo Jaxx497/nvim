@@ -15,7 +15,7 @@ return {
                 -- ["<C-h>"] = "actions.select_split",
                 ["S"] = "actions.select_split",
                 ["<C-;>"] = "actions.refresh",
-                ["<C-t>"] = "actions.select_tab",
+                -- ["<C-t>"] = "actions.select_tab",
                 ["<C-p>"] = "actions.preview",
                 ["<C-c>"] = "actions.close",
                 ["_"] = "actions.open_cwd",
