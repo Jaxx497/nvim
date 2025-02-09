@@ -7,10 +7,6 @@ return {
 
             default_file_explorer = true,
 
-            win_options = {
-                signcolumn = "yes"
-            },
-
             keymaps = {
                 ["?"] = "actions.show_help",
                 ["<CR>"] = "actions.select",
