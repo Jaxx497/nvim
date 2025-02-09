@@ -5,7 +5,6 @@ return {
     opts = {
         animate = { enabled = true },
         quickfile = { enabled = true },
-        scope = { enabled = true },
         terminal = {
             win = {
                 position = "float",
@@ -17,16 +16,19 @@ return {
         },
         notifier = { enabled = true },
         scroll = {
-            enabled = false,
+            enabled = true,
             animate = {
                 duration = { step = 10, total = 250 },
                 easing = "linear",
             },
             animate_repeat = {
-                delay = 100, -- delay in ms before using the repeat animation
+                delay = 50, -- delay in ms before using the repeat animation
                 duration = { step = 5, total = 50 },
                 easing = "linear",
             },
+        },
+        statuscolumn = {
+            enabled = true,
         },
         styles = {
             notification = {
