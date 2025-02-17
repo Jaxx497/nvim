@@ -43,7 +43,7 @@ return {
 
         vim.diagnostic.config({
             signs = {
-                priority = 1000,
+                -- priority = 1000,
                 text = {
                     [vim.diagnostic.severity.ERROR] = " ",
                     [vim.diagnostic.severity.WARN] = " ",
@@ -52,7 +52,10 @@ return {
                 }
             },
             severity_sort = true,
-            virtual_lines = true,
+            virtual_text = {
+                prefix = ''
+            },
+            virtual_lines = false,
         })
 
         -- Stylizes the floating windows

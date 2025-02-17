@@ -88,10 +88,27 @@ return {
         vim.keymap.set("n", "<leader>?", fzf_lua.oldfiles, { desc = "Old files" })
         vim.keymap.set("n", "<leader>gs", fzf_lua.git_status, { desc = "[G]it [S]tatus" })
         vim.keymap.set("n", "<leader>he", fzf_lua.help_tags, { desc = "[He]lp Tags" })
-        vim.keymap.set("n", "<leader>gr", fzf_lua.lsp_references, { desc = "[G]o To [R]eferences" })
+        vim.keymap.set("n", "<leader>gr", function() fzf_lua.lsp_references({ ignore_current_line = true }) end,
+            { desc = "[G]o To [R]eferences" })
         vim.keymap.set("n", "<leader>d", fzf_lua.diagnostics_document, { desc = "Search [D]iagnostics" })
         vim.keymap.set("n", "<leader>D", fzf_lua.diagnostics_document, { desc = "Search all [D]" })
         vim.keymap.set("n", "<leader>dw", fzf_lua.diagnostics_workspace,
             { desc = "[D]iagnostics [W]orkspace" })
+        -- vim.keymap.set("n", "<leader>of",
+        --     function()
+        --         fzf_lua.lsp_document_symbols({
+        --             regex_filter = function(item, _)
+        --                 if item.kind:match('Function')
+        --                     or item.kind:match('Method')
+        --                     or item.kind:match('Object')
+        --                     or item.kind:match('Struct') then
+        --                     return true
+        --                 else
+        --                     return false
+        --                 end
+        --             end,
+        --         })
+        --     end
+        -- )
     end,
 }

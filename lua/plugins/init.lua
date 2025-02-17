@@ -82,17 +82,6 @@ return {
     { "kshenoy/vim-signature", event = "VeryLazy" }, -- View, toggle and display marks
 
     -- {
-    --     "rachartier/tiny-inline-diagnostic.nvim",
-    --     event = "VeryLazy", -- Or `LspAttach`
-    --     priority = 1000,    -- needs to be loaded in first
-    --     config = function()
-    --         require('tiny-inline-diagnostic').setup({
-    --             preset = "powerline"
-    --         })
-    --     end
-    -- }
-
-    -- {
     --     "nvim-telescope/telescope-fzf-native.nvim",
     --     build =
     --     "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
