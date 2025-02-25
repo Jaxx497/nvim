@@ -11,7 +11,6 @@ return {
         "hrsh7th/cmp-path",
         "hrsh7th/cmp-buffer",
         -- "hrsh7th/cmp-nvim-lua",
-        -- "rafamadriz/friendly-snippets",
     },
 
     config = function()
@@ -133,7 +132,7 @@ return {
 
         require('mason-lspconfig').setup({
             ensure_installed = {
-                "basedpyright",
+                -- "basedpyright",
                 "clangd",
                 "cssls",
                 "emmet_ls",

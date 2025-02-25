@@ -56,6 +56,12 @@ return {
         vim.keymap.set("n", "<F4>", ":TransparentToggle<CR>", { silent = true })
     },
 
+    {
+        "folke/todo-comments.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        opts = {}
+    },
+
     { -- Outline
         "hedyhli/outline.nvim",
         lazy = true,

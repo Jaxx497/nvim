@@ -6,13 +6,6 @@ return {
         local conform = require("conform")
         conform.setup({
 
-            -- formatters = {
-            --     command = "sqlfluff",
-            --     args = {
-            --         "--dialect",
-            --         "sqlite"
-            --     }
-            -- },
             formatters_by_ft = {
                 c = { "clangd" },
                 cpp = { "clangd" },
