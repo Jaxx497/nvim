@@ -11,14 +11,6 @@ return {
         },
     },
 
-    { -- Folding
-        'kevinhwang91/nvim-ufo',
-        event = "BufReadPre",
-        dependencies = { 'kevinhwang91/promise-async' },
-        opts = {},
-
-    },
-
     { -- Additional keybindings
         'tummetott/unimpaired.nvim',
         event = "VeryLazy",
@@ -48,8 +40,9 @@ return {
                     "RenderMarkdownCode",
                     "RenderMarkdownCodeInline",
                     -- "@markup.raw.block.markdown"
-                    "Special"
-                    -- "FoldColumn"
+                    "Special",
+                    "BlinkCmpMenu",
+                    "BlinkCmpMenuBorder"
                 }
             })
         end,

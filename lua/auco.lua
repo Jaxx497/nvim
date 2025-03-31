@@ -25,6 +25,17 @@ vim.api.nvim_create_autocmd({ "VimEnter", "ColorScheme" }, {
     end
 })
 
+vim.api.nvim_create_autocmd('LspAttach', {
+    callback = function(args)
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        if client:supports_method('textDocument/foldingRange') then
+            local win = vim.api.nvim_get_current_win()
+            vim.wo[win][0].foldexpr = 'v:lua.vim.lsp.foldexpr()'
+        end
+    end,
+})
+vim.api.nvim_create_autocmd('LspDetach', { command = 'setl foldexpr < ' })
+
 -- Fix capital letters on commands
 vim.cmd [[command! W write]]
 vim.cmd [[command! Wq wq]]

@@ -2,24 +2,42 @@ return {
     'neovim/nvim-lspconfig',
     event = { "BufRead", "BufNewFile" },
     dependencies = {
-        'hrsh7th/cmp-nvim-lsp',
         "williamboman/mason.nvim",
         'williamboman/mason-lspconfig.nvim',
-        'hrsh7th/nvim-cmp',
-        "L3MON4D3/LuaSnip",
-        "saadparwaiz1/cmp_luasnip",
-        "hrsh7th/cmp-path",
-        "hrsh7th/cmp-buffer",
+        "saghen/blink.cmp",
+        -- 'hrsh7th/cmp-nvim-lsp',
+        -- 'hrsh7th/nvim-cmp',
+        -- "L3MON4D3/LuaSnip",
+        -- "saadparwaiz1/cmp_luasnip",
+        -- "hrsh7th/cmp-path",
+        -- "hrsh7th/cmp-buffer",
         -- "hrsh7th/cmp-nvim-lua",
     },
 
     config = function()
-        local lspconfig_defaults = require('lspconfig').util.default_config
-        lspconfig_defaults.capabilities = vim.tbl_deep_extend(
+        local capabilities = vim.lsp.protocol.make_client_capabilities()
+
+        capabilities = vim.tbl_deep_extend(
             'force',
-            lspconfig_defaults.capabilities,
-            require('cmp_nvim_lsp').default_capabilities()
+            capabilities,
+            require('blink.cmp').get_lsp_capabilities({}, false)
         )
+
+        capabilities = vim.tbl_deep_extend('force', capabilities, {
+            textDocument = {
+                foldingRange = {
+                    dynamicRegistration = false,
+                    lineFoldingOnly = true
+                }
+            }
+        })
+
+        -- local lspconfig_defaults = require('lspconfig').util.default_config
+        -- lspconfig_defaults.capabilities = vim.tbl_deep_extend(
+        --     'force',
+        --     lspconfig_defaults.capabilities,
+        --     require('cmp_nvim_lsp').default_capabilities()
+        -- )
 
         vim.api.nvim_create_autocmd('LspAttach', {
             desc = 'LSP actions',
@@ -132,10 +150,10 @@ return {
 
         require('mason-lspconfig').setup({
             ensure_installed = {
-                -- "basedpyright",
                 "clangd",
                 "cssls",
                 "emmet_ls",
+                "lua_ls",
                 "html",
                 "rust_analyzer",
                 "ruff"
@@ -148,130 +166,130 @@ return {
             }
         })
 
-        -------------------------
-        --- COMPLETION ENGINE ---
-        -------------------------
-        local cmp = require('cmp')
-        local luasnip = require("luasnip")
-        require("luasnip.loaders.from_vscode").lazy_load()
-
-        local cmp_select = { behavior = cmp.SelectBehavior.Select }
-
-        cmp.setup({
-            sources = {
-                { name = 'path' },
-                { name = 'nvim_lsp' },
-                { name = 'nvim_lua' },
-                { name = 'buffer' },
-            },
-            snippet = {
-                expand = function(args)
-                    vim.snippet.expand(args.body)
-                end,
-            },
-
-            formatting = {
-                fields = { 'menu', 'abbr', 'kind' },
-
-                format = function(entry, item)
-                    local kind_icons = {
-                        Text = "󰉿",
-                        Method = "󰆧",
-                        Function = "󰊕",
-                        Constructor = "",
-                        Field = "󰜢",
-                        Variable = "󰀫",
-                        Class = "󰠱",
-                        Interface = "",
-                        Module = "",
-                        Property = "󰜢",
-                        Unit = "",
-                        Value = "󰎠",
-                        Enum = "",
-                        Keyword = "󰌋",
-                        Snippet = "",
-                        Color = "󰏘",
-                        File = "󰈙",
-                        Reference = "",
-                        Folder = "󰉋",
-                        EnumMember = "",
-                        Constant = "󰏿",
-                        Struct = "",
-                        Event = "",
-                        Operator = "󰆕",
-                        TypeParameter = '  ',
-                    }
-
-                    item.kind = string.format('%s %s', kind_icons[item.kind], item.kind) -- show icons with the name of the item kind
-
-                    local MAX_LABEL_WIDTH = 35
-                    local label = item.abbr
-                    local truncated_label = vim.fn.strcharpart(label, 0, MAX_LABEL_WIDTH)
-                    if truncated_label ~= label then
-                        item.abbr = truncated_label .. '…'
-                    end
-
-                    local menu_icon = {
-                        nvim_lsp = 'λ',
-                        luasnip = '⋗',
-                        buffer = 'Ω',
-                        path = '🖫',
-                        nvim_lua = 'Π',
-                    }
-
-                    item.menu = menu_icon[entry.source.name]
-                    return item
-                end,
-            },
-
-            completion = {
-                completeopt = "menu, menuone, preview, noselect",
-            },
-
-            window = {
-                completion = cmp.config.window.bordered(),
-                documentation = cmp.config.window.bordered(),
-            },
-
-            mapping = cmp.mapping.preset.insert({
-                ["<C-j>"] = cmp.mapping.select_next_item(),
-                ["<C-k>"] = cmp.mapping.select_prev_item(),
-                ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
-                ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
-                ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-                ["<C-f>"] = cmp.mapping.scroll_docs(4),
-                ["<C-e>"] = cmp.mapping.abort(),
-                ["<C-Space>"] = cmp.mapping.complete({}),
-                ["<CR>"] = cmp.mapping.confirm({
-                    select = false
-                }),
-                ["<Tab>"] = cmp.mapping(function(fallback)
-                    if cmp.visible() then
-                        cmp.select_next_item()
-                    elseif luasnip.expand_or_locally_jumpable() then
-                        luasnip.expand_or_jump()
-                    else
-                        fallback()
-                    end
-                end, { "i", "s" }),
-
-                ["<S-Tab>"] = cmp.mapping(function(fallback)
-                    if cmp.visible() then
-                        cmp.select_prev_item()
-                    elseif luasnip.locally_jumpable(-1) then
-                        luasnip.jump(-1)
-                    else
-                        fallback()
-                    end
-                end, { "i", "s" }),
-            })
-        })
-
-        cmp.setup.filetype({ "sql" }, {
-            sources = {
-                { name = "vim-dadbod-completion" },
-                { name = "buffer" },
-            },
-        })
+        -- -------------------------
+        -- --- COMPLETION ENGINE ---
+        -- -------------------------
+        -- local cmp = require('cmp')
+        -- local luasnip = require("luasnip")
+        -- require("luasnip.loaders.from_vscode").lazy_load()
+        --
+        -- local cmp_select = { behavior = cmp.SelectBehavior.Select }
+        --
+        -- cmp.setup({
+        --     sources = {
+        --         { name = 'path' },
+        --         { name = 'nvim_lsp' },
+        --         { name = 'nvim_lua' },
+        --         { name = 'buffer' },
+        --     },
+        --     snippet = {
+        --         expand = function(args)
+        --             vim.snippet.expand(args.body)
+        --         end,
+        --     },
+        --
+        --     formatting = {
+        --         fields = { 'menu', 'abbr', 'kind' },
+        --
+        --         format = function(entry, item)
+        --             local kind_icons = {
+        --                 Text = "󰉿",
+        --                 Method = "󰆧",
+        --                 Function = "󰊕",
+        --                 Constructor = "",
+        --                 Field = "󰜢",
+        --                 Variable = "󰀫",
+        --                 Class = "󰠱",
+        --                 Interface = "",
+        --                 Module = "",
+        --                 Property = "󰜢",
+        --                 Unit = "",
+        --                 Value = "󰎠",
+        --                 Enum = "",
+        --                 Keyword = "󰌋",
+        --                 Snippet = "",
+        --                 Color = "󰏘",
+        --                 File = "󰈙",
+        --                 Reference = "",
+        --                 Folder = "󰉋",
+        --                 EnumMember = "",
+        --                 Constant = "󰏿",
+        --                 Struct = "",
+        --                 Event = "",
+        --                 Operator = "󰆕",
+        --                 TypeParameter = '  ',
+        --             }
+        --
+        --             item.kind = string.format('%s %s', kind_icons[item.kind], item.kind) -- show icons with the name of the item kind
+        --
+        --             local MAX_LABEL_WIDTH = 35
+        --             local label = item.abbr
+        --             local truncated_label = vim.fn.strcharpart(label, 0, MAX_LABEL_WIDTH)
+        --             if truncated_label ~= label then
+        --                 item.abbr = truncated_label .. '…'
+        --             end
+        --
+        --             local menu_icon = {
+        --                 nvim_lsp = 'λ',
+        --                 luasnip = '⋗',
+        --                 buffer = 'Ω',
+        --                 path = '🖫',
+        --                 nvim_lua = 'Π',
+        --             }
+        --
+        --             item.menu = menu_icon[entry.source.name]
+        --             return item
+        --         end,
+        --     },
+        --
+        --     completion = {
+        --         completeopt = "menu, menuone, preview, noselect",
+        --     },
+        --
+        --     window = {
+        --         completion = cmp.config.window.bordered(),
+        --         documentation = cmp.config.window.bordered(),
+        --     },
+        --
+        --     mapping = cmp.mapping.preset.insert({
+        --         ["<C-j>"] = cmp.mapping.select_next_item(),
+        --         ["<C-k>"] = cmp.mapping.select_prev_item(),
+        --         ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
+        --         ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
+        --         ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+        --         ["<C-f>"] = cmp.mapping.scroll_docs(4),
+        --         ["<C-e>"] = cmp.mapping.abort(),
+        --         ["<C-Space>"] = cmp.mapping.complete({}),
+        --         ["<CR>"] = cmp.mapping.confirm({
+        --             select = false
+        --         }),
+        --         ["<Tab>"] = cmp.mapping(function(fallback)
+        --             if cmp.visible() then
+        --                 cmp.select_next_item()
+        --             elseif luasnip.expand_or_locally_jumpable() then
+        --                 luasnip.expand_or_jump()
+        --             else
+        --                 fallback()
+        --             end
+        --         end, { "i", "s" }),
+        --
+        --         ["<S-Tab>"] = cmp.mapping(function(fallback)
+        --             if cmp.visible() then
+        --                 cmp.select_prev_item()
+        --             elseif luasnip.locally_jumpable(-1) then
+        --                 luasnip.jump(-1)
+        --             else
+        --                 fallback()
+        --             end
+        --         end, { "i", "s" }),
+        --     })
+        -- })
+        --
+        -- cmp.setup.filetype({ "sql" }, {
+        --     sources = {
+        --         { name = "vim-dadbod-completion" },
+        --         { name = "buffer" },
+        --     },
+        -- })
     end
 }
