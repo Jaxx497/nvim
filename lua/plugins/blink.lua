@@ -1,12 +1,14 @@
 return {
     'saghen/blink.cmp',
+    event = "VeryLazy",
     dependencies = {
+        'echasnovski/mini.icons',
+        'L3MON4D3/LuaSnip',
         'rafamadriz/friendly-snippets',
-        { 'L3MON4D3/LuaSnip', version = 'v2.*' },
-        'echasnovski/mini.icons'
-
+        'xzbdmw/colorful-menu.nvim'
     },
-    version = '1.*',
+
+    version = '*',
 
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
@@ -56,22 +58,33 @@ return {
                         { 'label',      'label_description', gap = 1 },
                         { 'kind_icon' },
                         { 'kind' },
-                        components = {
-                            kind_icon = {
-                                text = function(ctx) return ctx.kind_icon .. ctx.icon_gap end,
-                                highlight = function(ctx) return ctx.kind_hl end,
-                            },
-                            kind = {
-                                highlight = function(ctx)
-                                    local _, hl, _ = require('mini.icons').get('lsp', ctx.kind)
-                                    return hl
-                                end,
-                            },
+                    },
+                    components = {
+                        label = {
+                            text = function(ctx)
+                                return require("colorful-menu").blink_components_text(ctx)
+                            end,
+                            highlight = function(ctx)
+                                return require("colorful-menu").blink_components_highlight(ctx)
+                            end,
+                        },
+
+                        -- kind_icon = {
+                        --     text = function(ctx) return ctx.kind_icon .. ctx.icon_gap end,
+                        --     highlight = function(ctx) return ctx.kind_hl end,
+                        -- },
+                        kind = {
+                            highlight = function(ctx)
+                                local _, hl, _ = require('mini.icons').get('lsp', ctx.kind)
+                                return hl
+                            end,
                         },
                     },
+                    treesitter = { 'lsp' }
                 },
                 max_height = 12,
                 min_width = 25,
+                border = 'none'
             },
             documentation = {
                 auto_show = true,

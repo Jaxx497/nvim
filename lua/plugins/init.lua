@@ -39,10 +39,11 @@ return {
                     "FloatBorder",
                     "RenderMarkdownCode",
                     "RenderMarkdownCodeInline",
-                    -- "@markup.raw.block.markdown"
                     "Special",
                     "BlinkCmpMenu",
-                    "BlinkCmpMenuBorder"
+                    "BlinkCmpMenuBorder",
+                    "BlinkCmpKind",
+                    "BlinkCmpSource"
                 }
             })
         end,
