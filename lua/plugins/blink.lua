@@ -55,24 +55,30 @@ return {
                 draw = {
                     columns = {
                         { 'source_name' },
-                        { 'label',      'label_description', gap = 1 },
+                        -- { 'label',      gap = 5, "label_description" },
+
+                        { 'label' },
+
                         { 'kind_icon' },
                         { 'kind' },
                     },
                     components = {
                         label = {
+                            width = { max = 30 },
                             text = function(ctx)
-                                return require("colorful-menu").blink_components_text(ctx)
+                                return ctx.label
                             end,
                             highlight = function(ctx)
                                 return require("colorful-menu").blink_components_highlight(ctx)
                             end,
                         },
-
-                        -- kind_icon = {
-                        --     text = function(ctx) return ctx.kind_icon .. ctx.icon_gap end,
-                        --     highlight = function(ctx) return ctx.kind_hl end,
-                        -- },
+                        kind_icon = {
+                            text = function(ctx) return ctx.kind_icon .. ctx.icon_gap end,
+                            highlight = function(ctx)
+                                local _, hl, _ = require('mini.icons').get('lsp', ctx.kind)
+                                return hl
+                            end,
+                        },
                         kind = {
                             highlight = function(ctx)
                                 local _, hl, _ = require('mini.icons').get('lsp', ctx.kind)
@@ -80,11 +86,12 @@ return {
                             end,
                         },
                     },
-                    treesitter = { 'lsp' }
+                    treesitter = { "lsp" }
                 },
+
                 max_height = 12,
                 min_width = 25,
-                border = 'none'
+                border = 'rounded'
             },
             documentation = {
                 auto_show = true,
