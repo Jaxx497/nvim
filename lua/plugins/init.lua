@@ -11,13 +11,13 @@ return {
         },
     },
 
-    { -- Additional keybindings
-        'tummetott/unimpaired.nvim',
-        event = "VeryLazy",
-        config = function()
-            require('unimpaired').setup {}
-        end
-    },
+    -- { -- Additional keybindings
+    --     'tummetott/unimpaired.nvim',
+    --     event = "VeryLazy",
+    --     config = function()
+    --         require('unimpaired').setup {}
+    --     end
+    -- },
 
     { -- Search and replace
         "nvim-pack/nvim-spectre",

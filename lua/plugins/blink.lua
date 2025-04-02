@@ -29,21 +29,21 @@ return {
                 Field = "󰜢",
                 Variable = "󰀫",
                 Class = "󰠱",
+                Struct = "",
                 Interface = "",
-                Module = "",
+                Module = "󰮄",
                 Property = "󰜢",
                 Unit = "",
                 Value = "󰎠",
                 Enum = "",
+                EnumMember = "",
                 Keyword = "󰌋",
-                Snippet = "",
+                Snippet = "󱄽",
                 Color = "󰏘",
                 File = "󰈙",
                 Reference = "",
                 Folder = "󰉋",
-                EnumMember = "",
-                Constant = "󰏿",
-                Struct = "",
+                Constant = "",
                 Event = "",
                 Operator = "󰆕",
                 TypeParameter = '  ',
@@ -54,12 +54,9 @@ return {
             menu = {
                 draw = {
                     columns = {
-                        { 'source_name' },
-                        -- { 'label',      gap = 5, "label_description" },
-
-                        { 'label' },
-
                         { 'kind_icon' },
+                        { 'label' },
+                        { 'source_name' },
                         { 'kind' },
                     },
                     components = {
@@ -73,13 +70,21 @@ return {
                             end,
                         },
                         kind_icon = {
-                            text = function(ctx) return ctx.kind_icon .. ctx.icon_gap end,
+                            text = function(ctx)
+                                return ctx.kind_icon .. ctx.icon_gap
+                            end,
                             highlight = function(ctx)
                                 local _, hl, _ = require('mini.icons').get('lsp', ctx.kind)
                                 return hl
                             end,
                         },
+
                         kind = {
+                            text = function(ctx)
+                                return tostring("<") .. ctx.kind ..
+                                    tostring(">")
+                            end,
+
                             highlight = function(ctx)
                                 local _, hl, _ = require('mini.icons').get('lsp', ctx.kind)
                                 return hl
@@ -88,9 +93,7 @@ return {
                     },
                     treesitter = { "lsp" }
                 },
-
                 max_height = 12,
-                min_width = 25,
                 border = 'rounded'
             },
             documentation = {
