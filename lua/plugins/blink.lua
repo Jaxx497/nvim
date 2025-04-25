@@ -13,6 +13,8 @@ return {
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
     opts = {
+        cmdline = { enabled = false },
+
         keymap = {
             preset = 'enter',
             ['<C-j>'] = { 'select_next' },
