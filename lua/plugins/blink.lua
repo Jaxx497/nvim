@@ -19,6 +19,8 @@ return {
             preset = 'enter',
             ['<C-j>'] = { 'select_next' },
             ['<C-k>'] = { 'select_prev' },
+            -- ['<Tab>'] = { 'select_next' },
+            -- ['<S-Tab>'] = { 'select_prev' },
         },
 
         appearance = {
@@ -102,8 +104,15 @@ return {
                 auto_show = true,
             },
             ghost_text = {
-                enabled = true
-            }
+                enabled = false
+            },
+
+            list = {
+                selection = {
+                    preselect = false,
+                    auto_insert = false
+                }
+            },
         },
 
         sources = {
