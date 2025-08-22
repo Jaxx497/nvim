@@ -26,7 +26,10 @@ return {
         },
         opts = {
             code = {
-                border = "none",
+                language = false,
+                left_pad = 2,
+                right_pad = 2,
+                -- border = "none",
                 -- below = '*',
             }
         },
