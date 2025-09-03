@@ -1,102 +1,102 @@
 @import url("https://fonts.googleapis.com/css2?family=Kurale&family=Philosopher&family=Stalemate&display=swap");
 
 :root {
-  --pink: #fa38dc;
-  --greyD: #22181c;
+    --pink: #fa38dc;
+    --greyD: #22181c;
 }
 
 html,
 body {
-  padding: 0;
-  margin: 0;
+    padding: 0;
+    margin: 0;
 
-  color: white;
-  background-color: #22181c;
+    color: white;
+    background-color: #22181c;
 
-  line-height: 1.5;
-  font-family: "Philosopher", sans-serif;
+    line-height: 1.5;
+    font-family: "Philosopher", sans-serif;
 
-  position: relative;
-  scroll-behavior: smooth;
+    position: relative;
+    scroll-behavior: smooth;
 }
 
 .container {
-  display: flex;
-  flex-direction: column;
-  margin: auto;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
 
-  max-width: 1200px;
+    max-width: 1200px;
 }
 
 .title-bar {
-  text-align: right;
-  margin-top: 5rem;
-  margin-bottom: 0;
-  max-width: 670px;
+    text-align: right;
+    margin-top: 5rem;
+    margin-bottom: 0;
+    max-width: 670px;
 
-  position: sticky;
-  top: 0%;
-  z-index: 98;
+    position: sticky;
+    top: 0%;
+    z-index: 98;
 
-  padding-top: 5pt;
-  padding-bottom: 5pt;
+    padding-top: 5pt;
+    padding-bottom: 5pt;
 
-  background: var(--greyD);
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
+    background: var(--greyD);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 
-  transition:
-    box-shadow 200ms ease-in,
-    background 200ms ease-in;
+    transition:
+        box-shadow 200ms ease-in,
+        background 200ms ease-in;
 }
 
 .title-bar.active {
-  box-shadow: 0px 4px 3px -3px var(--pink);
-  transition: 100ms ease;
+    box-shadow: 0px 4px 3px -3px var(--pink);
+    transition: 100ms ease;
 }
 
 title-bar h1 {
-  padding-bottom: 20px;
+    padding-bottom: 20px;
 }
 
 .content-area {
-  font-size: 13pt;
-  max-width: 650px;
-  margin: auto;
-  padding: 0rem 1rem;
-  text-align: justify;
-  word-wrap: break-word;
+    font-size: 13pt;
+    max-width: 650px;
+    margin: auto;
+    padding: 0rem 1rem;
+    text-align: justify;
+    word-wrap: break-word;
 }
 
 .content-area::first-letter {
-  font-family: "Kurale", serif;
-  font-size: 300%;
-  float: left;
-  line-height: 0.7;
-  margin: 7px 5px 0 0;
+    font-family: "Kurale", serif;
+    font-size: 300%;
+    float: left;
+    line-height: 0.7;
+    margin: 7px 5px 0 0;
 }
 
 .content-area a:link,
 .content-area a:visited {
-  color: var(--mainText);
-  text-shadow: 1px 2px var(--pink);
-  text-decoration: none;
-  background: none;
-  transition: 200ms ease-out;
+    color: var(--mainText);
+    text-shadow: 1px 2px var(--pink);
+    text-decoration: none;
+    background: none;
+    transition: 200ms ease-out;
 }
 
 .content-area a:hover,
 .content-area a:focus {
-  color: white;
-  transition: 200ms ease-in;
+    color: white;
+    transition: 200ms ease-in;
 }
 
 .footer {
-  position: absolute;
-  text-align: center;
-  width: 100%;
-  padding: 1em 0em;
-  opacity: 20%;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    padding: 1em 0em;
+    opacity: 20%;
 }
 
 /* **************** */
@@ -104,87 +104,87 @@ title-bar h1 {
 /* **************** */
 
 h1 {
-  font-weight: 200;
-  font-size: 35pt;
+    font-weight: 200;
+    font-size: 35pt;
 }
 
 img {
-  margin: auto;
-  display: block;
-  border-radius: 5px;
-  height: auto;
-  max-width: 90%;
+    margin: auto;
+    display: block;
+    border-radius: 5px;
+    height: auto;
+    max-width: 90%;
 }
 
 pre {
-  margin: 1em 2em auto;
-  padding: 1em;
+    margin: 1em 2em auto;
+    padding: 1em;
 
-  color: limegreen;
-  background: black;
-  /* border-left: 3px solid var(--pink); */
-  border-radius: 8px;
+    color: limegreen;
+    background: black;
+    /* border-left: 3px solid var(--pink); */
+    border-radius: 8px;
 
-  font-size: 0.8rem;
-  font-family: monospace;
-  line-height: 1.4;
+    font-size: 0.8rem;
+    font-family: monospace;
+    line-height: 1.4;
 
-  overflow: auto;
+    overflow: auto;
 }
 
 blockquote {
-  font-style: italic;
-  margin: 1em 2em;
-  padding-left: 0.7em;
-  font-size: 95%;
-  border-color: var(--pink);
-  border-radius: 5px;
-  border-left: 2px solid var(--pink);
-  text-shadow: 1px 1px 2px var(--pink);
+    font-style: italic;
+    margin: 1em 2em;
+    padding-left: 0.7em;
+    font-size: 95%;
+    border-color: var(--pink);
+    border-radius: 5px;
+    border-left: 2px solid var(--pink);
+    text-shadow: 1px 1px 2px var(--pink);
 }
 
 .twitter-tweet {
-  margin: auto;
+    margin: auto;
 }
 
 hr.split {
-  max-width: 400px;
-  opacity: 40%;
-  background-color: white;
-  border: 0px;
-  height: 2px;
-  background-image: var(--hr);
-  margin-bottom: 1rem;
+    max-width: 400px;
+    opacity: 40%;
+    background-color: white;
+    border: 0px;
+    height: 2px;
+    background-image: var(--hr);
+    margin-bottom: 1rem;
 }
 
 .post-titles {
-  font-size: 30pt;
-  margin: 0;
+    font-size: 30pt;
+    margin: 0;
 }
 
 .post-date {
-  margin: -10px;
-  padding: 0;
+    margin: -10px;
+    padding: 0;
 }
 
 .posts {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  margin: auto;
-  padding: 40px;
-  max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin: auto;
+    padding: 40px;
+    max-width: 800px;
 }
 
 .card {
-  padding: 20px;
-  text-align: center;
-  background: #242625;
-  border-radius: 4px;
-  box-shadow:
-    25px 25px 20px #1b1c1b,
-    -5px -5px 20px #2d302f;
-  cursor: pointer;
+    padding: 20px;
+    text-align: center;
+    background: #242625;
+    border-radius: 4px;
+    box-shadow:
+        25px 25px 20px #1b1c1b,
+        -5px -5px 20px #2d302f;
+    cursor: pointer;
 }
 
 /* ******* */
@@ -192,63 +192,64 @@ hr.split {
 /* ******* */
 
 ::-webkit-scrollbar {
-  width: 0.3rem;
-  height: 0.3rem;
+    width: 0.3rem;
+    height: 0.3rem;
 }
 
 ::-webkit-scrollbar-track {
-  opacity: 1;
+    opacity: 1;
 }
 
 ::-webkit-scrollbar-thumb {
-  border-radius: 50px;
-  background: var(--pink);
+    border-radius: 50px;
+    background: var(--pink);
 }
 
 .noSelect {
-  -webkit-touch-callout: none;
-  /* iOS Safari */
-  -webkit-user-select: none;
-  /* Safari */
-  -khtml-user-select: none;
-  /* Konqueror HTML */
-  -moz-user-select: none;
-  /* Old versions of Firefox */
-  -ms-user-select: none;
-  /* Internet Explorer/Edge */
-  user-select: none;
-  /* Non-prefixed version, currently
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Old versions of Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
 supported by Chrome, Opera and Firefox */
 }
 
 @media only screen and (max-width: 725px) {
-  section,
-  h1,
-  li,
-  img {
-    -moz-transition:
-      width 1s ease-in-out,
-      left 1.5s ease-in-out;
-    -webkit-transition:
-      width 1s ease-in-out,
-      left 1.5s ease-in-out;
-    -moz-transition:
-      width 1s ease-in-out,
-      left 1.5s ease-in-out;
-    -o-transition:
-      width 1s ease-in-out,
-      left 1.5s ease-in-out;
-    transition:
-      width 1s ease-in-out,
-      left 1.5s ease-in-out;
-  }
 
-  .title-bar {
-    text-align: center;
-  }
+    section,
+    h1,
+    li,
+    img {
+        -moz-transition:
+            width 1s ease-in-out,
+            left 1.5s ease-in-out;
+        -webkit-transition:
+            width 1s ease-in-out,
+            left 1.5s ease-in-out;
+        -moz-transition:
+            width 1s ease-in-out,
+            left 1.5s ease-in-out;
+        -o-transition:
+            width 1s ease-in-out,
+            left 1.5s ease-in-out;
+        transition:
+            width 1s ease-in-out,
+            left 1.5s ease-in-out;
+    }
 
-  .content-area {
-    max-width: 90%;
-    padding: 0 2em;
-  }
+    .title-bar {
+        text-align: center;
+    }
+
+    .content-area {
+        max-width: 90%;
+        padding: 0 2em;
+    }
 }

@@ -129,7 +129,7 @@ return {
 
         local FileName = {
             provider = function(self)
-                local filename = vim.fn.fnamemodify(self.filename, ":p:~")
+                local filename = vim.fn.fnamemodify(self.filename, ":p:.")
                 local ft = vim.bo.filetype
 
                 if ft == "fzf" then return "fzf " end
@@ -143,7 +143,8 @@ return {
                     return "Oil: " .. path
                 end
 
-                return vim.fn.fnamemodify(filename, ":t")
+                -- return vim.fn.fnamemodify(filename, ":t")
+                return filename
             end,
             hl = { fg = utils.get_highlight("directory").fg },
         }

@@ -13,8 +13,8 @@ end, { expr = true, desc = "Automatically indent to the appropriate position" })
 -- CENTER SCREEN WHILE CYCLING SEARCH RESULTS
 keymap("n", "n", "nzzzv", { silent = true })
 keymap("n", "N", "Nzzzv", { silent = true })
-keymap("v", ">", ">gv", { silent = true })
-keymap("v", "<", "<gv", { silent = true })
+keymap("v", ">>", ">gv", { silent = true })
+keymap("v", "<<", "<gv", { silent = true })
 
 -- SEARCH AND REPLACE --
 keymap("n", "<leader>s", '<cmd>lua require("spectre").toggle()<CR>',

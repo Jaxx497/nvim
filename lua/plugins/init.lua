@@ -11,13 +11,6 @@ return {
         },
     },
 
-    -- {
-    --     'xemptuous/sqlua.nvim',
-    --     lazy = true,
-    --     cmd = 'SQLua',
-    --     config = function() require('sqlua').setup() end
-    -- },
-
     -- { -- Additional keybindings
     --     'tummetott/unimpaired.nvim',
     --     event = "VeryLazy",
@@ -88,14 +81,51 @@ return {
 
     { "kshenoy/vim-signature", event = "VeryLazy" }, -- View, toggle and display marks
 
-    -- {
-    --     "nvim-telescope/telescope-fzf-native.nvim",
-    --     build =
-    --     "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
-    -- },
-
+    {
+        "folke/trouble.nvim",
+        opts = {
+            auto_close = true,
+            focus = true,
+            preview = {
+                border = "none",
+                scratch = false
+            },
+        }, -- for default options, refer to the configuration section for custom setup.
+        cmd = "Trouble",
+        keys = {
+            {
+                "<leader>qf",
+                "<cmd>Trouble diagnostics toggle<cr>",
+                desc = "Diagnostics (Trouble)",
+            },
+            {
+                "<leader>xj",
+                "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+                desc = "Buffer Diagnostics (Trouble)",
+            },
+            {
+                "<leader>oo",
+                "<cmd>Trouble symbols toggle focus=false<cr>",
+                desc = "Symbols (Trouble)",
+            },
+            {
+                "<leader>cl",
+                "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+                desc = "LSP Definitions / references / ... (Trouble)",
+            },
+            {
+                "<leader>xL",
+                "<cmd>Trouble loclist toggle<cr>",
+                desc = "Location List (Trouble)",
+            },
+            {
+                "<leader>xQ",
+                "<cmd>Trouble qflist toggle<cr>",
+                desc = "Quickfix List (Trouble)",
+            },
+        },
+    }
 
     -- Git related
-    -- { "tpope/vim-fugitive", event = "VeryLazy" },
     -- { "tpope/vim-rhubarb",  event = "VeryLazy" },
 }

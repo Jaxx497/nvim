@@ -5,13 +5,6 @@ return {
         "williamboman/mason.nvim",
         'williamboman/mason-lspconfig.nvim',
         "saghen/blink.cmp",
-        -- 'hrsh7th/cmp-nvim-lsp',
-        -- 'hrsh7th/nvim-cmp',
-        -- "L3MON4D3/LuaSnip",
-        -- "saadparwaiz1/cmp_luasnip",
-        -- "hrsh7th/cmp-path",
-        -- "hrsh7th/cmp-buffer",
-        -- "hrsh7th/cmp-nvim-lua",
     },
 
     config = function()
@@ -25,19 +18,15 @@ return {
 
         capabilities = vim.tbl_deep_extend('force', capabilities, {
             textDocument = {
+                onTypeFormatting = {
+                    dynamicRegistration = false
+                },
                 foldingRange = {
                     dynamicRegistration = false,
                     lineFoldingOnly = true
                 }
             }
         })
-
-        -- local lspconfig_defaults = require('lspconfig').util.default_config
-        -- lspconfig_defaults.capabilities = vim.tbl_deep_extend(
-        --     'force',
-        --     lspconfig_defaults.capabilities,
-        --     require('cmp_nvim_lsp').default_capabilities()
-        -- )
 
         vim.api.nvim_create_autocmd('LspAttach', {
             desc = 'LSP actions',

@@ -71,8 +71,12 @@ set.winborder = 'rounded'
 set.splitbelow = true
 set.splitright = true
 
+set.grepprg = "rg --vimgrep --smart-case"
+set.grepformat = "%f:%l:%c:%m"
+
 set.completeopt = { "menu", "menuone", "noselect", "noinsert" }
 set.shortmess = set.shortmess + { c = true }
+
 
 vim.cmd([[
     syntax on
