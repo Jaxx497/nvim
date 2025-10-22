@@ -24,6 +24,7 @@ set.tabstop = 4
 set.softtabstop = 4
 set.linebreak = true
 set.autoindent = true
+set.smartindent = true
 set.signcolumn = "yes"
 
 -- Wrapping
@@ -37,7 +38,7 @@ set.smartcase = true
 set.incsearch = true
 
 set.mouse = "a"
-set.scrolloff = 8
+set.scrolloff = 999
 set.sidescrolloff = 8
 set.cursorline = true
 
@@ -64,7 +65,7 @@ set.winborder = 'rounded'
 set.splitbelow = true
 set.splitright = true
 
-set.grepprg = "rg --vimgrep --smart-case"
+set.grepprg = "rg --vimgrep --no-heading --smart-case"
 set.grepformat = "%f:%l:%c:%m"
 
 set.completeopt = { "menu", "menuone", "noselect", "noinsert" }

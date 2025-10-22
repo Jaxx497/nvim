@@ -36,37 +36,19 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 vim.api.nvim_create_autocmd('LspDetach', { command = 'setl foldexpr < ' })
 
+
+
+-- Grep straight to qflist
+vim.api.nvim_create_user_command('Rg', function(opts)
+    vim.cmd('silent grep! ' .. opts.args)
+    vim.cmd('copen')
+end, { nargs = 1, complete = 'file' })
+
 -- Fix capital letters on commands
 vim.cmd [[command! W write]]
 vim.cmd [[command! Wq wq]]
 vim.cmd [[command! Q q]]
 vim.cmd [[command! Wq wq]]
-
-local group = vim.api.nvim_create_augroup("QuickfixPreview", { clear = true })
-
-vim.api.nvim_create_autocmd("CursorMoved", {
-    group = group,
-    pattern = "*",
-    callback = function()
-        if vim.bo.filetype == "qf" then
-            local line = vim.fn.line(".")
-            local qf_list = vim.fn.getqflist()
-
-            if line <= #qf_list then
-                -- Store current window
-                local qf_win = vim.api.nvim_get_current_win()
-
-                -- Try to jump to the location
-                local ok = pcall(vim.cmd, "silent! " .. line .. "cc")
-
-                if ok then
-                    -- Return to quickfix window
-                    vim.api.nvim_set_current_win(qf_win)
-                end
-            end
-        end
-    end,
-})
 
 toggle_term = function()
     -- Check if we're in terminal mode

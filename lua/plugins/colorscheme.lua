@@ -6,7 +6,7 @@ return {
         config = function()
             require("monokai").setup({
                 {
-                    palette = require("monokai").pro
+                    palette = require("monokai").pro,
                 }
             })
         end,

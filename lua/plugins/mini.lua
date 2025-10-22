@@ -1,10 +1,12 @@
 return {
-    "echasnovski/mini.nvim",
-    event = "VeryLazy",
+    "nvim-mini/mini.nvim",
     version = false,
+    event = "VeryLazy",
     config = function()
-        require("mini.pairs").setup()
         require("mini.icons").setup()
+        require("mini.operators").setup()
+        require("mini.pairs").setup()
+        require("mini.trailspace").setup()
         require("mini.surround").setup({
             highlight_duration = 800,
             n_lines = 2,
