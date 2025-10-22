@@ -16,7 +16,7 @@ return {
         },
         notifier = { enabled = true },
         scroll = {
-            enabled = false,
+            enabled = true,
             animate = {
                 duration = { step = 10, total = 250 },
                 easing = "linear",
