@@ -14,12 +14,6 @@ end, { expr = true, desc = "Automatically indent to the appropriate position" })
 keymap("n", "n", "nzzzv", { silent = true })
 keymap("n", "N", "Nzzzv", { silent = true })
 
--- SEARCH AND REPLACE --
-keymap("n", "<leader>s", '<cmd>lua require("spectre").toggle()<CR>',
-    { desc = "Toggle Search (Specter)" })
-keymap("n", "<leader>sp", '<cmd>lua require("spectre").open_visual({select_word=true})<CR>',
-    { desc = "Search current word" })
-
 -- CLIPBOARD ADJUSTMENTS
 keymap({ "n", "v" }, "<leader>y", '"+y<CR>gv', { desc = "[Y]ank to clipboard" })
 keymap("n", "<leader>Y", '"+Y', { desc = "[Y]ank line to clipboard" })
@@ -68,8 +62,6 @@ keymap("n", "<leader>sb", ":%s/<C-r><C-w>//gI<Left><Left><Left>", { desc = "[S]u
 
 -- Copy registry to clipboard
 keymap("n", "<Leader>xp", ":call setreg('+', getreg('@'))<CR>", { silent = true })
-
-keymap("n", "<Leader>ht", ":lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<CR>", { silent = true })
 
 keymap("n", "tc", ':normal Vgc"<Esc>', { silent = true, noremap = true })
 keymap({ "n", "x", "v" }, "<Leader>tc", ':normal Vgc"<Esc>', { silent = true, noremap = true })

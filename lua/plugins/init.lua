@@ -11,8 +11,17 @@ return {
         },
     },
 
+    {
+        "sphamba/smear-cursor.nvim",
+        event = "VeryLazy",
+        opts = {
+            time_interval = 7
+        },
+    },
+
     { -- Show hex values in terminal
         'brenoprata10/nvim-highlight-colors',
+        event = "VeryLazy",
         opts = {}
     },
 
@@ -52,11 +61,8 @@ return {
     { -- Outline
         "hedyhli/outline.nvim",
         lazy = true,
-        event = "LspAttach",
         cmd = { "Outline", "OutlineOpen" },
-        keys = {
-            { "<leader>o", "<cmd>Outline<CR>", desc = "Toggle outline" },
-        },
+        keys = { "<leader>o", "<cmd>Outline<CR>", desc = "Toggle outline" },
         opts = {
             outline_window = {
 
@@ -74,6 +80,7 @@ return {
 
     { -- View, toggle and display marks
         "kshenoy/vim-signature",
-        lazy = true
+        event = "VeryLazy"
+
     },
 }

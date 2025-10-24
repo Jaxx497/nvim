@@ -36,8 +36,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 vim.api.nvim_create_autocmd('LspDetach', { command = 'setl foldexpr < ' })
 
-
-
 -- Grep straight to qflist
 vim.api.nvim_create_user_command('Rg', function(opts)
     vim.cmd('silent grep! ' .. opts.args)
