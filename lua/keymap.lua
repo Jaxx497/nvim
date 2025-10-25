@@ -1,6 +1,6 @@
 local keymap = vim.keymap.set
 -- 'KEYMAP 'kj' TO ESC
-keymap({ "n", "c", "i", "o", "s", "v" }, "kj", "<CMD>noh<CR><ESC>")
+keymap({ "c", "i", "o", "s", "v" }, "kj", "<CMD>noh<CR><ESC>")
 
 vim.keymap.set("n", "i", function()
     if #vim.fn.getline "." == 0 then
@@ -18,21 +18,8 @@ keymap("n", "N", "Nzzzv", { silent = true })
 keymap({ "n", "v" }, "<leader>y", '"+y<CR>gv', { desc = "[Y]ank to clipboard" })
 keymap("n", "<leader>Y", '"+Y', { desc = "[Y]ank line to clipboard" })
 
--- MOVE LINES OF CODE UP AND DOWN
-keymap("n", "<A-j>", ":m .+1<CR>==", { desc = "Move line down" })
-keymap("n", "<A-k>", ":m .-2<CR>==", { desc = "Move line up" })
-
 keymap("i", "<A-j>", "<Esc>:m .+1<CR>==gi")
 keymap("i", "<A-k>", "<Esc>:m .-2<CR>==gi")
-
-keymap("v", "<A-j>", ":m '>+1<CR>gv=gv")
-keymap("v", "<A-k>", ":m '<-2<CR>gv=gv")
-
-keymap("x", "<A-j>", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
-keymap("x", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
-
-keymap("x", "J", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
-keymap("x", "K", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
 
 -- OPEN TERMINAL
 keymap("n", "<leader>tn", ":term<CR>", { desc = "Open full [T]ermi[n]al" })

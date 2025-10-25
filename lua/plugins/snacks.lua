@@ -16,16 +16,13 @@ return {
         },
         notifier = { enabled = true },
         scroll = {
-            debounce_time = 200,
             enabled = true,
             animate = {
-                duration = { step = 10, total = 200 },
+                duration = { step = 15, total = 100 },
                 easing = "outQuad",
             },
             animate_repeat = {
-                delay = 50, -- delay in ms before using the repeat animation
-                duration = { step = 10, total = 100 },
-                easing = "linear",
+                duration = { step = 10, total = 150 },
             },
         },
         statuscolumn = {
