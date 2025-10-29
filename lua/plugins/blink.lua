@@ -12,14 +12,31 @@ return {
 
     ---@module 'blink.cmp'
     opts = {
-        cmdline = { enabled = false },
+        cmdline = {
+            enabled = true,
+            keymap = {
+                ['<C-j>'] = { 'select_next' },
+                ['<C-k>'] = { 'select_prev' },
+                ['<Tab>'] = { 'show', 'accept' },
+            },
+            completion = {
+                menu = {
+                    auto_show = false,
+
+                    draw = {
+                        columns = {
+                            { 'kind_icon' },
+                            { 'label' },
+                        },
+                    }
+                }
+            }
+        },
 
         keymap = {
             preset = 'enter',
             ['<C-j>'] = { 'select_next' },
             ['<C-k>'] = { 'select_prev' },
-            -- ['<Tab>'] = { 'select_next' },
-            -- ['<S-Tab>'] = { 'select_prev' },
         },
 
         appearance = {
