@@ -16,9 +16,9 @@ return {
         },
         notifier = { enabled = true },
         scroll = {
-            enabled = true,
+            enabled = false,
             animate = {
-                duration = { step = 15, total = 100 },
+                duration = { step = 15, total = 200 },
                 easing = "outQuad",
             },
             animate_repeat = {

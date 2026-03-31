@@ -38,7 +38,7 @@ set.smartcase = true
 set.incsearch = true
 
 set.mouse = "a"
-set.scrolloff = 999
+set.scrolloff = 12
 set.sidescrolloff = 8
 set.cursorline = true
 

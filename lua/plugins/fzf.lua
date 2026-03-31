@@ -7,6 +7,11 @@ return {
 
         fzf_lua.register_ui_select()
         fzf_lua.setup({
+
+            grep = {
+                RIPGREP_CONFIG_PATH = vim.env.RIPGREP_CONFIG_PATH
+            },
+
             winopts = {
                 height     = 0.75,
                 width      = 0.70,
