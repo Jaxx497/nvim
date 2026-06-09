@@ -18,10 +18,10 @@ return {
             }
         })
         require("mini.trailspace").setup()
-        -- require("mini.surround").setup({
-        --     highlight_duration = 800,
-        --     n_lines = 2,
-        --     search_method = 'cover_or_next'
-        -- })
+        require("mini.surround").setup({
+            highlight_duration = 800,
+            n_lines = 2,
+            search_method = 'cover_or_next'
+        })
     end,
 }

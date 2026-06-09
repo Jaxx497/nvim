@@ -148,7 +148,8 @@ return {
                 "lua_ls",
                 "html",
                 "rust_analyzer",
-                "ruff"
+                "ruff",
+                "ty"
             },
 
             handlers = {

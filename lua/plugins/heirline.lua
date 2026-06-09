@@ -356,6 +356,10 @@ return {
                 end
             end,
 
+            condition = function(self)
+                return self.search ~= nil
+            end,
+
             provider = function(self)
                 local search = self.search
                 local total = math.min(search.total, search.maxcount)

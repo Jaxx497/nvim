@@ -1,23 +1,31 @@
 return {
     "folke/flash.nvim",
     event = "VeryLazy",
+
     opts = {
-        modes = {
-            search = {
-                enabled = true
-            }
+        search = {
+            multi_window = false,
+            forward = true,
+            wrap = true,
+            mode = "exact"
         },
         jump = {
             nohlsearch = true,
-            -- autojump = true,
-            register = true,
+            autojump = true,
+            register = false,
         },
         label = {
+            min_pattern_length = 1,
             rainbow = {
                 enabled = true,
                 shade = 5,
             },
-        }
+        },
+        modes = {
+            search = {
+                enabled = true,
+            }
+        },
     },
 
     keys = {
