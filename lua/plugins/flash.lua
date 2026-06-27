@@ -1,5 +1,6 @@
 return {
-    "folke/flash.nvim",
+    "jaxx497/flash.nvim",
+    branch = "fix-search-labels",
     event = "VeryLazy",
 
     opts = {
@@ -16,6 +17,7 @@ return {
         },
         label = {
             min_pattern_length = 1,
+            after = true,
             rainbow = {
                 enabled = true,
                 shade = 5,
