@@ -1,6 +1,7 @@
 return {
     'saghen/blink.cmp',
     event = "VeryLazy",
+    version = "1.*",
     dependencies = {
         'echasnovski/mini.icons',
         'L3MON4D3/LuaSnip',
@@ -8,15 +9,11 @@ return {
         'xzbdmw/colorful-menu.nvim'
     },
 
-    version = '*',
-
     ---@module 'blink.cmp'
     opts = {
         cmdline = {
             enabled = true,
             keymap = {
-                ['<C-j>'] = { 'select_next' },
-                ['<C-k>'] = { 'select_prev' },
                 ['<Tab>'] = { 'show', 'accept' },
             },
             completion = {
@@ -35,8 +32,6 @@ return {
 
         keymap = {
             preset = 'enter',
-            ['<C-j>'] = { 'select_next' },
-            ['<C-k>'] = { 'select_prev' },
         },
 
         appearance = {
@@ -120,9 +115,8 @@ return {
                 auto_show = true,
             },
             ghost_text = {
-                enabled = false
+                enabled = true
             },
-
             list = {
                 selection = {
                     preselect = false,

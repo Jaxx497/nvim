@@ -20,6 +20,7 @@ keymap("n", "<leader>Y", '"+Y', { desc = "[Y]ank line to clipboard" })
 
 keymap("i", "<A-j>", "<Esc>:m .+1<CR>==gi")
 keymap("i", "<A-k>", "<Esc>:m .-2<CR>==gi")
+-- keymap({ "n", "v" }, "<C-p>", '"0p', { desc = "[P]aste last yank" })
 
 -- OPEN TERMINAL
 keymap("n", "<leader>tn", ":term<CR>", { desc = "Open full [T]ermi[n]al" })
